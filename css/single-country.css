@@ -1,0 +1,28 @@
+.main{
+    background-image: none;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: stretch;
+    justify-content: space-between;
+}
+
+.main div{
+    border: solid black 1px;
+}
+
+#countryFilters{
+    flex-basis: 10%;
+    flex-grow: 1;
+}
+
+#countryList{
+    flex-basis: 89%;
+    flex-grow: 1;
+}
+
+#mainContent{
+    flex-basis: 100%;
+    /* width: 9fr; */
+    flex-grow: 9;
+    display:flex;
+}

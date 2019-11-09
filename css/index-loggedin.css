@@ -1,0 +1,24 @@
+#main-loggedin{
+    background-image: none;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: stretch;
+    justify-content: space-between;
+}
+
+#main-loggedin div{
+    background-color: rgb(218, 218, 218);
+    margin: 0.2em;
+}
+#userInfo{
+    flex-basis: 66%;
+}
+#favoritedImages{
+    flex-basis: 31%;
+}
+#search{
+    flex-basis: 20%;
+}
+#images{
+    flex-basis: 77%;
+}
