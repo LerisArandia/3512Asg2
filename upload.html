@@ -24,9 +24,18 @@
         </div>
         <div class="main">
             <h2>Upload Photos</h2>
-            <div id="buttons">
-                <form>
-
+            <div id="upload">
+                <form action="lab12-test02.php" method="get">
+                    <label>Title:</label>
+                    <input type="text" placeholder="Enter Title of Picture" name="title" required>
+                    <label>Description:</label>
+                    <input type="textarea" name="description" placeholder="Enter Photo's Description" />
+                    <label>Country:</label>
+                    <select></select>
+                    <label>City:</label>
+                    <select></select>
+                    <input type="file" name="pic" accept="image/*">
+                    <input type="submit">
                 </form>
             </div>
         </div>

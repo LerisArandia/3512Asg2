@@ -1,0 +1,14 @@
+.main{
+    background-image: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.main div, h2{
+    border: solid black 1px;
+}
+
+#upload{
+    grid-row: 2/span 7;
+}
