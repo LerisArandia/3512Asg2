@@ -3,7 +3,6 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    grid-gap: 5px;
 }
 
 .main div{

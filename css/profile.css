@@ -1,0 +1,28 @@
+.main{
+    background-image: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
+
+#userInfo{
+    grid-column: 1/span 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    justify-content: space-evenly;
+    grid-template-rows: 1fr;
+
+}
+
+#profilePicture{
+    width: 15em;
+    border-radius: 10em;
+    margin: 4em 2em 5em 2em;   
+}
+
+#userDescription{
+    grid-column: 2/span 2;
+    text-align: left;
+    padding-top: 5em;
+}
