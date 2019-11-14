@@ -9,7 +9,7 @@
 #header{
     flex-basis: 10%;
     text-align: center;
-    padding-top: 3em;
+    /* padding-top: 3em; */
     background-color: rgb(0, 13, 46);
     color: white;
 }
