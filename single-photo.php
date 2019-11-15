@@ -38,8 +38,8 @@
             <!-- div for title, names, and location information -->
             <div id=spvNames>
                 <h2 id="photoTitle">photo title</h2>
-                <div id="photoUser">user name</div>
-                <div id="photoLocation">location</div>
+                <h3 id="photoUser">user name</h3>
+                <h3 id="photoLocation">location</h3>
 
                 <div class="spvButtons">
                     <button type="button" id="addFavorite">Add to favourites</button>
