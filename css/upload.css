@@ -82,4 +82,27 @@ button#submit{
     border-top-left-radius: 3em;
     border-bottom-left-radius: 3em;
 }
+@media only screen and (max-width: 800px){
+    .main, #uploadForm{
+        display: block;
+        text-align: center;
+    }
+    select[name="country"], select[name="city"]{
+        padding: 1rem;
+        width: 50%;
+        margin: 0.5rem;
+    }
+    label, input[name="title"], input[name="description"]{
+        margin: 0.5rem 0;
+        margin-left: 0;
+    } 
+    button#submit{
+        width: 30%;
+        border-radius: 3em;
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+}
+@media only screen and (max-width: 1200px){
+}
 
