@@ -22,7 +22,7 @@
     align-content: center;
     display: flex;
     flex-flow: column wrap;
-    background-image: url("/images/cave.jfif");
+    background-image: url("/images/ocean.jpg");
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
