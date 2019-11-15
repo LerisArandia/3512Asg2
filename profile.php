@@ -31,11 +31,10 @@
         </div>
         <div class="main">
             <div id="userInfo">
-                <div><img src="images/anon.png" id="profilePicture" alt="profile picture"></div>
+                <img src="images/anon.png" id="profilePicture" alt="profile picture">
                 <div id="userDescription">
-                    <p>Name: </p>
-                    <p>City: </p>
-                    <p>Country: </p>
+                    <p><strong>John Doe</strong></p>
+                    <p>Calgary, Canada </p>
                     <p>Bio: </p>
                     <p>Interests: </p>
                 </div>
