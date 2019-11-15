@@ -1,0 +1,14 @@
+.main{
+    background-image: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.main div{
+    border: solid black 1px;
+}
+
+#results{
+    grid-column: 2/span 4;
+}

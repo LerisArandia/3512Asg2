@@ -1,0 +1,21 @@
+#main-loggedin{
+    background-image: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*equally divides between two columns*/
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 5px;
+    height: 100vh;
+}
+
+#main-loggedin div{
+    background-color: rgb(218, 218, 218);
+}
+#userInfo{
+    grid-row: 1/span 3;
+}
+#favoritedImages{
+    grid-row: 4/span 2;
+}
+#images{
+    grid-row: 2/span 4;
+}

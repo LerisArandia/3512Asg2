@@ -1,0 +1,19 @@
+.main{
+    background-image: none;
+    display: grid;
+    grid-template:'1fr' '1fr' '1fr 1fr';
+}
+
+#email, #password{
+    grid-column: 1/span 2;
+}
+
+#login{
+    grid-row-start: 3;
+    grid-column: 1/span 1;
+}
+
+#signup{
+    grid-row-start: 3;
+    grid-column: 2/span 1;
+}
