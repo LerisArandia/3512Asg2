@@ -68,8 +68,6 @@ input[name="searchPhotos"]{
 /* input[name="searchPhotos"]{
     opacity: 1;
 } */
-
-
 button#login, button#join{
     width: 30%;
     padding: 9px;

@@ -1,9 +1,7 @@
 .main {
     /* display: grid; */
     grid-template-columns: 1fr;
-    
     /* padding-bottom: 10%; */
-    
 }
 
 #registerForm{
@@ -58,4 +56,5 @@ button#signUp{
     border-radius: 5px;
     border: none;
     padding: 10px; 
+    cursor: pointer;
 }
