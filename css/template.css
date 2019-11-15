@@ -80,11 +80,8 @@ ul#navigation li a:hover{
         padding: 0;
         margin-bottom:0;
     }
-    ul#navigation{
-        position: relative;
-        bottom: -34px;
-    }
     ul#navigation li{
+        width: 98.8%;
         padding: 0.5rem 0;
         padding-left: 0.5rem;
         background-color: grey;
