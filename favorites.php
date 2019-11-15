@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    
+    <title>Favorites</title>
+
     <link rel="stylesheet" href="css/template.css">
-    
-    <!-- will make a separate css file for this page, Jamie put media query here later on -->
+    <link rel="stylesheet" href="css/favorites.css">
 </head>
 
 <body>
@@ -29,16 +28,15 @@
                 <li><a href="">Login</a></li>
                 <li><a href="">Sign Up</a></li>
             </ul>
-            
         </div>
         <div class="main">
-            <div id="buttons">
-                <button type=button id="login">LOGIN</button>
-                <button type=button id="join">JOIN</button>
+            <div id="favorites">
+
             </div>
-            <input type="search" name="searchPhotos" placeholder="SEARCH BOX FOR PHOTOS">
         </div>
     </main>
 </body>
+
+
 <script src="js/template.js"></script>
 </html>

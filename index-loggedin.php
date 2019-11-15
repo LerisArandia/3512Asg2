@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Home - Logged in</title>
 
     <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/index-loggedin.css">
 </head>
 
 <body>
@@ -29,23 +29,15 @@
                 <li><a href="">Sign Up</a></li>
             </ul>
         </div>
-        <div class="main">
-            <div id="aside">
-                <div>Ralph Acusar: <a href="https://github.com/racus946">https://github.com/racus946</a></div>
-                <div>Leris Arandia: <a href="https://github.com/LerisArandia">https://github.com/LerisArandia</a></div>
-                <div>Jamie Wong: <a href="https://github.com/jaeemoo">https://github.com/jaeemoo</a></div>
-                <div>Main Github Page: <a
-                        href="https://github.com/racus946/3512Asg2">https://github.com/racus946/3512Asg2</a></div>
+        <div class="main " id="main-loggedin">
+            <div id="userInfo">
+                user info
             </div>
-
-            <div id="mainContent">
-                <div id="details">Class Name, Uni, Prof, Name, Sem + Year, Tech Used</div>
-                <div id="description">Description for Site</div>
-            </div>
-
-
-
+            <div id="favoritedImages">Favorited Images</div>
+            <div id="search">search</div>
+            <div id="images">images</div>
         </div>
     </main>
-    <script src="js/template.js"></script>
+</body>
+<script src="js/template.js"></script>
 </html>
