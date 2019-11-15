@@ -2,12 +2,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search/Browse</title>
+    <title>Country Page</title>
 
-    <link rel="stylesheet" href="css/browse.css">
     <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/browse.css">
+    <link rel="stylesheet" href="css/single-country.css">
 </head>
 
 <body>
@@ -30,10 +28,16 @@
                 <li><a href="">Sign Up</a></li>
             </ul>
         </div>
-        <div class="main">
-            <div id="photoFilter">Photo Filter</div>
-            <div id="results">Browse/Search Results</div>
+        <div class="main" id="main-countryPage">
+            <div id="countryFilters">countryFilters</div>
+            <div id="countryList">Country List</div>
+            <div id="mainContent">
+                <div id="countryDetails">Country Details</div>
+                <div id="cityList">City List</div>
+                <div id="countryPhotos">Country Photos</div>
+            </div>
         </div>
     </main>
-
-</html> 
+</body>
+<script src="js/template.js"></script>
+</html>

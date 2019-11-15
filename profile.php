@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search/Browse</title>
+    <title>Home</title>
 
-    <link rel="stylesheet" href="css/browse.css">
     <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/browse.css">
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 
 <body>
@@ -31,9 +30,23 @@
             </ul>
         </div>
         <div class="main">
-            <div id="photoFilter">Photo Filter</div>
-            <div id="results">Browse/Search Results</div>
+            <div id="userInfo">
+                <div><img src="images/anon.png" id="profilePicture" alt="profile picture"></div>
+                <div id="userDescription">
+                    <p>Name: </p>
+                    <p>City: </p>
+                    <p>Country: </p>
+                    <p>Bio: </p>
+                    <p>Interests: </p>
+                </div>
+            </div>
+            <div id="personalPhotos">
+                Personal Photos (Photos they've uploaded)
+            </div>
         </div>
     </main>
+</body>
 
-</html> 
+
+<script src="js/template.js"></script>
+</html>

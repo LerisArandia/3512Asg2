@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search/Browse</title>
+    <title>Favorites</title>
 
-    <link rel="stylesheet" href="css/browse.css">
     <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/browse.css">
+    <link rel="stylesheet" href="css/favorites.css">
 </head>
 
 <body>
@@ -31,9 +30,13 @@
             </ul>
         </div>
         <div class="main">
-            <div id="photoFilter">Photo Filter</div>
-            <div id="results">Browse/Search Results</div>
+            <div id="favorites">
+
+            </div>
         </div>
     </main>
+</body>
 
-</html> 
+
+<script src="js/template.js"></script>
+</html>

@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search/Browse</title>
+    <title>Login</title>
 
-    <link rel="stylesheet" href="css/browse.css">
     <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/browse.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
@@ -31,9 +30,11 @@
             </ul>
         </div>
         <div class="main">
-            <div id="photoFilter">Photo Filter</div>
-            <div id="results">Browse/Search Results</div>
+            <input type="text" id="email" placeholder="Enter Email" name="email" required>
+            <input type="text" id="password" placeholder="Enter Password" name="password" required>
+            <button type=button id="login">LOGIN</button>
+            <button type=button id="signup">SIGN UP</button>
         </div>
     </main>
-
-</html> 
+<script src="js/template.js"></script>
+</html>
