@@ -6,8 +6,8 @@
     <title>Home</title>
     
     <link rel="stylesheet" href="css/template.css">
+    <link rel="stylesheet" href="css/index.css">
     
-    <!-- will make a separate css file for this page, Jamie put media query here later on -->
 </head>
 
 <body>
@@ -31,10 +31,10 @@
             </ul>
         </div>
         <div class="main">
-            <div id="buttons">
+            <!-- <div id="buttons"> -->
                 <button type=button id="login">LOGIN</button>
                 <button type=button id="join">JOIN</button>
-            </div>
+            <!-- </div> -->
             <input type="search" name="searchPhotos" placeholder="SEARCH BOX FOR PHOTOS">
         </div>
     </main>

@@ -12,3 +12,17 @@
 #results{
     grid-column: 2/span 4;
 }
+
+@media only screen and (max-width: 800px){
+    .main{
+        display: block;
+    }
+    #photoFilter{
+        margin-bottom: 5px;
+    }
+    .main div{
+        padding: 1rem;
+    }
+}
+@media only screen and (max-width: 1200px){
+}
