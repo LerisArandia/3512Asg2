@@ -35,8 +35,11 @@
             <div id="upload">
                 <form id="uploadForm" action="lab12-test02.php" method="get">
                     <label for="title">Title:</label>
+                    <br>
                     <input type="text" placeholder="Enter Title of Picture" name="title" required>
+                    <br>
                     <label for="description">Description:</label>
+                    <br>
                     <input type="textarea" rows="30" name="description" placeholder="Enter Photo's Description" />
                     <select name="country" id="country">
                         <option value="">Select Country</option>
@@ -44,7 +47,9 @@
                     <select name="city" id="city">
                         <option value="">Select City</option>
                     </select>
+                    <br>
                     <input type="file" name="pic" accept="image/*">
+                    <br>
                     <button id="submit" type="submit">Upload Your Photo!</button>
                 </form>
             </div>
