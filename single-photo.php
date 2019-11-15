@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="css/template.css">
     <link rel="stylesheet" href="css/single-photo.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -56,10 +57,7 @@
                 <!-- div for putting in the content for description, details, and map -->
                 <div id="spvInfo"></div>
             </div>
-
-
         </div>
-
     </main>
 </body>
 <script src="js/template.js"></script>

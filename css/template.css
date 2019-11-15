@@ -27,23 +27,22 @@
 }
 #hamburger-menu {
     display: none;
-    background-color: black;
     width: 20px;
     height: 15px;
-    padding: 20px;
+    padding: 10px;
+    margin: 22px;
     position: relative;
     float:right;
 }
 #hamburger-menu span{
     display: none;
     background-color: white;
-    width: 18px;
+    width: 20px;
     height: 3px;
     margin-bottom: 3px;
     position: relative;
     float: right;
 }
-
 
 #navigation{
     list-style-type: none;
@@ -61,10 +60,44 @@ ul#navigation li a{
    text-decoration: none;
    color: white;
    padding: 0.5em 1.5em 0.5em 1.5em;
-   
 }
 
 ul#navigation li a:hover{
     background-color: rgb(164, 226, 255);
     border-radius: 5px;
+}
+@media only screen and (max-width: 800px){
+    #header{
+        padding: 0;
+    }
+    #hamburger-menu, #hamburger-menu span{
+        display: block;
+    }
+    #navigation{
+        display: none;
+        text-align: left;
+        margin-top: 45px;
+        padding: 0;
+        margin-bottom:0;
+    }
+    ul#navigation{
+        position: relative;
+        bottom: -34px;
+    }
+    ul#navigation li{
+        padding: 0.5rem 0;
+        padding-left: 0.5rem;
+        background-color: grey;
+    }
+    ul#navigation li:hover{
+        background-color: rgb(164, 226, 255);
+    }
+    #hamburger-menu:hover{
+        background-color: grey;
+        color: black;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+
 }

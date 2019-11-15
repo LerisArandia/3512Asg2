@@ -1,6 +1,21 @@
-.main{
-    background-image: none;
+#favorites {
+    /* background-image: none; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-rows: 1fr; */
+    grid-gap: 1em;
+    padding: 2em;
+    opacity: 1;
+    
 }
 
+#favorites div {
+    background-color: rgb(198, 240, 238);
+}
+
+#favorites img{
+    /* make img fill in the box */
+    width: 100%;    
+}
 /* following code will be so each pictures shows up as grids */
 /* most likely 4-5 pictures wide spanning page */
