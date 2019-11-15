@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-
+    <title>Home</title>
+    
     <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/about.css">
+    
+    <!-- will make a separate css file for this page, Jamie put media query here later on -->
 </head>
 
 <body>
@@ -30,22 +31,13 @@
             </ul>
         </div>
         <div class="main">
-            <div id="aside">
-                <div>Ralph Acusar: <a href="https://github.com/racus946">https://github.com/racus946</a></div>
-                <div>Leris Arandia: <a href="https://github.com/LerisArandia">https://github.com/LerisArandia</a></div>
-                <div>Jamie Wong: <a href="https://github.com/jaeemoo">https://github.com/jaeemoo</a></div>
-                <div>Main Github Page: <a
-                        href="https://github.com/racus946/3512Asg2">https://github.com/racus946/3512Asg2</a></div>
+            <div id="buttons">
+                <button type=button id="login">LOGIN</button>
+                <button type=button id="join">JOIN</button>
             </div>
-
-            <div id="mainContent">
-                <div id="details">Class Name, Uni, Prof, Name, Sem + Year, Tech Used</div>
-                <div id="description">Description for Site</div>
-            </div>
-
-
-
+            <input type="search" name="searchPhotos" placeholder="SEARCH BOX FOR PHOTOS">
         </div>
     </main>
-    <script src="js/template.js"></script>
+</body>
+<script src="js/template.js"></script>
 </html>
