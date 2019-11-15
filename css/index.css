@@ -21,11 +21,6 @@ input[name="searchPhotos"]{
     opacity: 0.7;
 }
 
-/* input[name="searchPhotos"]{
-    opacity: 1;
-} */
-
-
 button#login, button#join{
     padding: 1em 5em 1em 5em;
     margin: 1.2em;

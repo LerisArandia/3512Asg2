@@ -12,6 +12,7 @@
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
     background-color: lightgray;
+    grid-row: 2/span 7;
 }
 
 #header{
@@ -21,6 +22,8 @@
     background-color: rgb(56, 184, 216);
     color: white;
     padding-top: 0.5em;
+    /* display: inline-block; */
+    /* grid-template-rows: 1fr; */
 }
 #hamburger-menu {
     display: none;
@@ -43,8 +46,14 @@
 
 #navigation{
     list-style-type: none;
-    display: flex;
-    flex-flow: row wrap;
+    /* display: inline; */
+    /* flex-flow: row wrap; */
+    grid-template-rows: 1fr;
+}
+
+ul#navigation li{
+    display: inline;
+    float: left;
 }
 
 ul#navigation li a{
