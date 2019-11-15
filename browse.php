@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search/Browse</title>
 
-    <link rel="stylesheet" href="css/browse.css">
     <link rel="stylesheet" href="css/template.css">
     <link rel="stylesheet" href="css/browse.css">
 </head>
