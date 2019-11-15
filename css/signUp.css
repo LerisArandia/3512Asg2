@@ -1,0 +1,60 @@
+.main {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* padding-bottom: 10%; */
+    
+}
+
+#registerForm{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 15px;
+    justify-content: center;
+
+    padding: 30px;
+    margin: 0px;
+}
+
+input{
+    width: 100%;
+    /* margin-left: 4em; */
+    border: none;
+    /* background-color: rgb(182, 236, 250); */
+    background-color: rgb(198, 240, 238);
+    
+    border-radius: 5px;
+    padding: 1em;
+    grid-column: 1/span 2;
+}
+
+input[name="fName"]{
+    grid-column: 1 / span 1;
+}
+
+input[name="lName"]{
+    grid-column: 2 /span 1;
+}
+
+input[name="country"]{
+    grid-column: 1 / span 1;
+    grid-row: 2;
+}
+
+input[name="city"]{
+    grid-column: 2 / span 1;
+    grid-row: 2;
+}
+input[name="email"]{
+    grid-column: 1 / span 2;
+    grid-row: 3;
+}
+
+button#signUp{
+    grid-row: 6/span 1;
+    grid-column: 2/span 1;
+    background-color: rgb(29, 194, 158);
+    
+    border-radius: 5px;
+    border: none;
+    padding: 10px; 
+}
