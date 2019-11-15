@@ -14,12 +14,12 @@
 
 #spvImg{
     grid-column: 1 / span 2;
-     grid-row: span 2;
+    grid-row: span 2;
 }
 
 #infoBox{
     grid-column: 3 / span 1;
-    grid-row: 2 / span 1;
+    grid-row: 2 / span 2;
 }
 
 #spvNames{
@@ -28,7 +28,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
-    padding: 2em;
+    /* padding: 2em; */
 }
 
  #photoTitle, #photoUser,  #photoLocation{
