@@ -1,25 +1,5 @@
 <?php
 
-require_once 'config.inc.php';
-require_once 'db-functions.inc.php'; 
-require_once 'helper-functions.inc.php';
-
-function outputCountries(){
-    try{
-        $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $allCountries = getAllCountries();
-        foreach( $allCountries as $country){
-            echo '<a href="single-country.php?iso='.$country['ISO'].'">'.$country['CountryName'].'</a>';
-        }
-    }
-    catch (PDOException $e){
-        die( $e->getMessage());
-    }
-
-}
-
-
 ?>
 <html>
 

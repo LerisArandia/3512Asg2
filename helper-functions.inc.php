@@ -2,20 +2,17 @@
 
 function getCountrySql(){
     $sql = 'SELECT ISO, ISONumeric, CountryName, Capital, CityCode, Area, Population, Continent, TopLevelDomain, CurrencyCode, CurrencyName, PhoneCountryCode, Languages, Neighbours, CountryDescription FROM countries';
-    // $sql .= " ORDER BY CountryName";
     return $sql;
 }
 
 function getCitySql(){
     $sql = "SELECT CityCode, AsciiName, CountryCodeISO, Latitude, Longitude, Population, Elevation, TimeZone FROM cities";
-    $sql .= " ORDER BY AsciiName";
     return $sql;
 }
 
 function getAllCountries($connection){
 
     try{
-        // $connection = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
         $result = runQuery($connection, getCountrySql(), null);
         return $result;
     }
@@ -28,7 +25,6 @@ function getAllCountries($connection){
 function getAllCities($connection){
 
     try{
-        $connection = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
         $result = runQuery($connection, getCitySql(), null);
         return $result;
     }
@@ -38,12 +34,11 @@ function getAllCities($connection){
 
 }
 
-function getACountry($connection, $code){
+function getACountry($connection, $iso){
 
     try{
-        // $connection = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
         $sql = getCountrySql() . ' WHERE ISO=?';
-        $result = runQuery($connection, $sql, $code);
+        $result = runQuery($connection, $sql, $iso);
 
         return $result;
     }
@@ -53,12 +48,11 @@ function getACountry($connection, $code){
 
 }
 
-function getACity($connection, $code){
+function getACity($connection, $cityCode){
 
     try{
-        $connection = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
-        $sql = getCountrySql() . " WHERE CityCode=" . $code;
-        $result = runQuery($connection, $sql, null);
+        $sql = getCitySql() . ' WHERE CityCode=?';
+        $result = runQuery($connection, $sql, $cityCode);
 
         return $result;
     }
