@@ -1,35 +1,70 @@
 .main{
-    background-image: none;
-    display: flex;
-    flex-flow: column wrap;
-    align-content: stretch;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    /* grid-row: 2/span 7; */
+    /* grid-gap: 1em; */
+    padding: 3em;
 }
-
 .main div{
-    border: solid black 1px;
-    margin: 2px;
-}
-#singlePhotoView{
-    flex-basis: 100%;
-    /* width: 3fr; */
-    flex-grow: 3;
-    display:flex;
-}
-#spvImg{
-    flex-basis: 100%;
-    flex-grow: 1;
+    margin: 10px;
+    background-color: white;
 }
 
-#spvNames{
-    flex-basis: 20%;
-    flex-grow: 1;
+#spvImg{
+    grid-column: 1 / span 2;
+    grid-row: span 2;
 }
 
 #infoBox{
-    flex-basis: 20%;
-    flex-grow: 2;
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 2;
 }
 
+#spvNames{
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+    /* padding: 2em; */
+}
 
+ #photoTitle, #photoUser,  #photoLocation{
+    grid-column: 1;
+    align-content: center;    
+    text-align: center;
 
+}
+
+#spvNames .spvButtons{
+    grid-column: 2;
+    grid-row: 1;
+    align-content: center;
+    text-align: center;
+    padding-top:1em;    
+}
+
+#infoBox .spvButtons{
+    text-align: center;
+}
+.spvButtons button{
+    background-color: rgb(29, 194, 158);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px
+}
+@media only screen and (max-width: 800px){
+    .main, #spvNames{
+        display: block;
+    }
+    .main div{
+        margin-bottom: 5px;
+    }
+    .main div{
+        padding: 1rem;
+    }
+}
+@media only screen and (max-width: 1200px){
+}
