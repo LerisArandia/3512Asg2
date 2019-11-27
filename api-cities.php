@@ -16,6 +16,15 @@ else{
     $city = getAllCities(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
 }
 
+if(isset($_GET['iso'])){
+    $countryISO = $_GET['iso'];
+    $city = getAllCitiesInCountry(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS), $countryISO);
+}
+else{
+    $city = getAllCities(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
+}
+
+
 echo $city;
 
 ?>

@@ -37,7 +37,7 @@ function getAllCities($connection){
 function getACountry($connection, $iso){
 
     try{
-        $sql = getCountrySql() . ' WHERE ISO=?';
+        $sql = getCountrySql() . ' INNER JOIN cities ON countries.ISO = cities.CountryCodeIso WHERE ISO=?';
         $result = runQuery($connection, $sql, $iso);
 
         return $result;
@@ -58,6 +58,21 @@ function getACity($connection, $cityCode){
     }
     catch(PDOException $e){
         die( $e->getMessage() );
+    }
+
+}
+
+
+function getAllCitiesInCountry($connection, $iso){
+
+    try{
+        $sql = getCitySql() . ' WHERE CountryCodeISO=?';
+        $result = runQuery($connection, $sql, $iso);
+        
+        return $result;
+    }
+    catch(PDOException $e){
+        die( $e->getMessage());
     }
 
 }
