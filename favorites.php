@@ -22,13 +22,13 @@
                 <span></span>
             </div>
             <ul id="navigation">
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Browse/Search</a></li>
-                <li><a href="">Countries</a></li>
-                <li><a href="">Cities</a></li>
-                <li><a href="">Login</a></li>
-                <li><a href="">Sign Up</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="browse.php">Browse/Search</a></li>
+                <li><a href="single-country.php">Countries</a></li>
+                <li><a href="single-city.php">Cities</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="signUp.php">Sign Up</a></li>
             </ul>
         </div>
         <div class="main">
