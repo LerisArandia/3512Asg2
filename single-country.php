@@ -34,8 +34,7 @@
         <div class="main" id="main-countryPage">
             <div id="countryFilters">
                 <form class="form" method="get" action="<?=$_SERVER['REQUEST_URI']?>">
-                    <label>Countries</label>
-                       <?php outputCountries(); ?>
+                    <label>
                     <button class="small ui orange button" type="submit">
                         <i class="filter icon"></i> Select 
                     </button>  
