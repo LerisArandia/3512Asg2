@@ -1,4 +1,4 @@
-<!-- 
+
 <?php
 // set error reporting on to help with debugging
 error_reporting(E_ALL);
@@ -29,4 +29,4 @@ $connection = DatabaseHelper::createConnectionInfo(array(DBCONNECTION, DBUSER, D
 
 // we can then pass this connection variable to other classes that need it
 
-?> -->
+?>
