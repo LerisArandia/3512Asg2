@@ -28,7 +28,7 @@
                 <li><a href="single-city.php">Cities</a></li>
                 <li><a href="login.php">Login</a></li>
                 <li><a href="signUp.php">Sign Up</a></li>
-                <li><a href="api-cities.php">CITIES API</a></li>
+                <!-- <li><a href="api-cities.php">CITIES API</a></li> -->
                 <li><a href="api-countries.php">COUNTRIES API</a></li>
             </ul>
         </div>
