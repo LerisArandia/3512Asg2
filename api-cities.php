@@ -4,9 +4,6 @@ require_once 'config.inc.php';
 require_once 'db-functions.inc.php'; 
 require_once 'helper-functions.inc.php';
 
-require_once('includes/stock-config.inc.php');
-require_once('includes/service-utilities.inc.php');
-
 header('Content-Type: application/json');
 
 

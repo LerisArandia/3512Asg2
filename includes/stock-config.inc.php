@@ -14,8 +14,8 @@ $password = $dbparts['pass'];
 $database = ltrim($dbparts['path'],'/');
 
 define('DBCONNECTION', "mysql:host=$hostname;dbname=$database");
-define('DBUSER', $username);
-define('DBPASS', $password);
+define('USER', $username);
+define('PASS', $password);
 
 // auto load all classes so we don't have to explicitly include them
 spl_autoload_register(function ($class) {
