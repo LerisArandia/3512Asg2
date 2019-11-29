@@ -50,12 +50,24 @@
             <div id="infoBox">
                 <!-- buttons for description, details and map -->
                 <div class="spvButtons">
-                    <button type="button" id="spvDesc"> Description</button>
-                    <button type="button" id="spvDetails"> Details</button>
-                    <button type="button" id="spvMap"> Map</button>
+                    <!---Description Tab--->
+                    <button type="button" id="spvDescTab"> Description</button>
+                    <!---Details Tab--->
+                    <button type="button" id="spvDetailsTab"> Details</button>
+                    <!---Map Tab--->
+                    <button type="button" id="spvMapTab"> Map</button>
                 </div>
-                <!-- div for putting in the content for description, details, and map -->
-                <div id="spvInfo"></div>
+                <!-- divs for putting in the content for description, details, and map -->
+                <!---Description Box--->
+                <div id="spvDescBox"></div>
+                <!---Details Box--->
+                <div id="spvDetailsBox">
+                    <div class='spvexif'></div>
+                    <div class="spvcredit"></div>
+                    <div class="spvcolors"></div>
+                </div>
+                <!---Map Box--->
+                <div id="spvMapBox"></div>
             </div>
         </div>
     </main>
