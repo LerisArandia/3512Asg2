@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="css/template.css">
     <link rel="stylesheet" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -25,15 +26,17 @@
                 <li><a href="browse.php">Browse/Search</a></li>
                 <li><a href="single-country.php">Countries</a></li>
                 <li><a href="single-city.php">Cities</a></li>
-                <li><a href="login.php">Login</a></li>
                 <li><a href="signUp.php">Sign Up</a></li>
             </ul>
         </div>
         <div class="main">
-            <input type="text" id="email" placeholder="Enter Email" name="email" required>
-            <input type="text" id="password" placeholder="Enter Password" name="password" required>
-            <button type=button id="login">LOGIN</button>
-            <button type=button id="signup">SIGN UP</button>
+            <div id="content">
+                <h2>LOGIN</h2>
+                <input type="text" id="email" placeholder="Email" name="email" required>
+                <input type="password" id="password" placeholder="Password" name="password" required>
+                <button type=button id="cancel">CANCEL</button>
+                <button type=button id="login">LOGIN</button>
+            </div>
         </div>
     </main>
 <script src="js/template.js"></script>

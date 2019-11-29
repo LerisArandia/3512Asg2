@@ -33,17 +33,19 @@
         </div>
         <div class="main" id="main-countryPage">
             <div id="countryFilters">
-                <!-- <form class="form" method="get" action="<?=$_SERVER['REQUEST_URI']?>">
-                    <label>Countries</label>
-                       
-
-                    <button class="small ui orange button" type="submit">
-                        <i class="filter icon"></i> Select 
-                    </button>  
-                </form> -->
+                <form id="filters">
+                    <input type="text" placeholder="Search For Country">
+                    <select id="continent"><option value="">Search By Continent</option></select>
+                    <div><input type="checkbox" id="imageCountryOnly" name="imageCountry">Countries With Images Only</div>
+                    <button class="clearFilter" id="clearCountry">Clear All Country Filters</button>
+                </form>
             </div>
 
-            <div id="countryList">Country List</div>
+            <div id="countryList">
+                <li id="listOfCountries"></li>
+            </div>
+
+
             <div id="mainContent">
                 <div id="countryDetails">Country Details</div>
                 <div id="cityList">City List</div>
@@ -53,4 +55,5 @@
     </main>
 </body>
 <script src="js/template.js"></script>
+<script src="js/single-country.js"></script>
 </html>

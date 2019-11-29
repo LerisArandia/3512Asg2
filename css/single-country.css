@@ -1,17 +1,22 @@
 .main{
-    /* background-image: none; */
+    background-image: url("../images/forest.jpg");
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    grid-gap: 2em;
-    padding: 2em;
+    grid-gap: 1em;
+    padding: 1em;
 }
 
 .main div{
-    background-color: rgb(180, 227, 255);
-    border-radius: 1em;
+    border-radius: 0.2em;
     padding: 1em;
+    background-color: rgba(241, 247, 245, 0.664);
+
 }
+
+/* #mainContent{
+
+} */
 
 #mainContent div{
     /* border: solid black 1px; */
@@ -20,15 +25,24 @@
     padding: 1em;
 }
 
-#countryFilters{
-    grid-row: 1/span 2;
-    background-color: white;
+div#countryFilters{
+    grid-row: 1/span 3;
 }
 
-#countryList{
-    grid-row: 3/span 6;
-    background-color: white;
+form#filters{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5em;
+    height: 100%;
+}
 
+/* form#filters *{
+    height: fit-content;
+} */
+
+#countryList{
+    grid-row: 4/span 5;
+    /* background-color: white; */
 }
 
 #mainContent{
