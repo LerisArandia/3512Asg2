@@ -10,11 +10,11 @@ header('Content-Type: application/json');
 
 if(isset($_GET['iso'])){
     $iso = $_GET['iso'];
-    $country = getACountry(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS), $iso);
+    $country = getACountry(setConnectionInfo(DBCONNECTION, USER, PASS), $iso);
     
 }
 else{
-    $country = getAllCountries(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
+    $country = getAllCountries(setConnectionInfo(DBCONNECTION, USER, PASS));
 }
 
 echo $country;
