@@ -5,7 +5,7 @@
     align-content: center;
     display: grid;
     grid-template-areas: '1fr 1fr' '1fr 1fr';
-    grid-gap: 20px;
+    /* grid-gap: 1em; */
 }
 
 .main div{
