@@ -1,12 +1,12 @@
 <?php
 
 function getCountrySql(){
-    $sql = 'SELECT ISO, ISONumeric, CountryName, Capital, CityCode, Area, Population, Continent, TopLevelDomain, CurrencyCode, CurrencyName, PhoneCountryCode, Languages, Neighbours, CountryDescription FROM countries';
+    $sql = 'SELECT ISO, ISONumeric, CountryName, Capital, countries.CityCode, Area, countries.Population, Continent, TopLevelDomain, CurrencyCode, CurrencyName, PhoneCountryCode, Languages, Neighbours, CountryDescription FROM countries';
     return $sql;
 }
 
 function getCitySql(){
-    $sql = "SELECT CityCode, AsciiName, CountryCodeISO, Latitude, Longitude, Population, Elevation, TimeZone FROM cities";
+    $sql = "SELECT cities.CityCode, AsciiName, CountryCodeISO, Latitude, Longitude, cities.Population, Elevation, TimeZone FROM cities";
     return $sql;
 }
 
@@ -37,7 +37,7 @@ function getAllCities($connection){
 function getACountry($connection, $iso){
 
     try{
-        $sql = getCountrySql() . ' INNER JOIN cities ON countries.ISO = cities.CountryCodeIso WHERE ISO=?';
+        $sql = getCountrySql() . ' WHERE ISO=?';
         $result = runQuery($connection, $sql, $iso);
 
         return $result;
