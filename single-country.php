@@ -1,5 +1,19 @@
 <?php
 
+require_once 'helper-functions.inc.php';
+
+if(isset($_GET['countryiso'])){
+    $iso = $_GET['countryiso'];
+    $result = getACountry(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS), $iso);
+}
+else{
+    $country = getAllCountries(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
+}
+
+function displayCountryDetails(){
+    echo $country;
+}
+
 ?>
 <html>
 
@@ -9,6 +23,7 @@
 
     <link rel="stylesheet" href="css/template.css">
     <link rel="stylesheet" href="css/single-country.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -42,12 +57,11 @@
             </div>
 
             <div id="countryList">
-                <li id="listOfCountries"></li>
             </div>
 
 
             <div id="mainContent">
-                <div id="countryDetails">Country Details</div>
+                <div id="countryDetails"><?php displayCountryDetails(); ?></div>
                 <div id="cityList">City List</div>
                 <div id="countryPhotos">Country Photos</div>
             </div>

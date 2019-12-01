@@ -3,8 +3,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    grid-gap: 1em;
-    padding: 1em;
+    grid-gap: 3em;
+    padding: 3em;
 }
 
 .main div{
@@ -43,6 +43,7 @@ form#filters{
 #countryList{
     grid-row: 4/span 5;
     /* background-color: white; */
+    overflow: auto;
 }
 
 #mainContent{
