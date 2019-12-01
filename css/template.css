@@ -57,6 +57,10 @@ ul#navigation li{
     float: left;
 }
 
+a{
+    text-decoration: none;
+}
+
 ul#navigation li a{
    text-decoration: none;
    color: white;
