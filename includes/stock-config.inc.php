@@ -14,19 +14,18 @@ $password = $dbparts['pass'];
 $database = ltrim($dbparts['path'],'/');
 
 define('DBCONNECTION', "mysql:host=$hostname;dbname=$database");
-define('USER', $username);
-define('PASS', $password);
+define('DBUSER', $username);
+define('DBPASS', $password);
 
 // auto load all classes so we don't have to explicitly include them
 spl_autoload_register(function ($class) {
     $file = 'lib/' . $class . '.class.php';
-    
     if (file_exists($file)) 
       include $file;
 });
 
 // connect to the database
-$connection = DatabaseHelper::createConnectionInfo(array(DBCONNECTION, USER, PASS));
+$connection = DatabaseHelper::createConnectionInfo(array(DBCONNECTION, DBUSER, DBPASS));
 
 // we can then pass this connection variable to other classes that need it
 
