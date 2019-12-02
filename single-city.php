@@ -33,7 +33,7 @@
             <div id="cityFilters">City Filters</div>
             <div id="cityList">City List</div>
             <div id="mainContent">
-                <div id="cityDetails">City Details</div>
+                <div class="details" id="cityDetails">City Details</div>
                 <div id="cityMap">City Map</div>
                 <div id="cityPhotos">City Photos</div>
             </div>
@@ -42,4 +42,5 @@
     </main>
 </body>
 <script src="js/template.js"></script>
+<script src="js/single-country.js"></script>
 </html>

@@ -2,17 +2,48 @@
 
 require_once 'helper-functions.inc.php';
 
-if(isset($_GET['countryiso'])){
-    $iso = $_GET['countryiso'];
-    $result = getACountry(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS), $iso);
-}
-else{
-    $country = getAllCountries(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
+function generateCountryDetails(){
+    if(isset($_GET['countryiso'])){
+        $pdo = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
+        $sql = getCountrySql() . " WHERE ISO='" . $_GET['countryiso']."'";
+        $result = $pdo->query($sql);
+        $country = $result->fetch();
+
+        echo "<h3>{$country['CountryName']}</h3>";
+        echo "<div id='capital'>Capital: {$country['Capital']}</div>";
+        echo "<div id='area'>Area: ".number_format($country['Area'])."</div>";
+        echo "<div id='Population'>Population: ".number_format($country['Population'])." residents</div>";
+        echo "<div id='description'>{$country['CountryDescription']}</div>";
+        echo "<div id='neighbours'>Neighbours: ".findNeighboringCountries($pdo, $country['Neighbours'])."</div>";
+    }
+    else{
+        echo '<h2>Country Details</h2>';
+    }
+} 
+
+function findLanguages(){
+
 }
 
-function displayCountryDetails(){
-    echo $country;
+function findNeighboringCountries($pdo, $neighbours){
+    $array = explode(",", $neighbours);
+    $string = "";
+
+    foreach( $array as $a){
+        $sql = getCountrySql() . " WHERE ISO='" . $a ."'";
+        $result = $pdo->query($sql);
+        $country = $result->fetch();
+
+        $string .= " {$country['CountryName']},";
+    }
+
+    
+    return substr($string, 0, -1); // removes last comma
+
+
 }
+
+
 
 ?>
 <html>
@@ -57,11 +88,12 @@ function displayCountryDetails(){
             </div>
 
             <div id="countryList">
-            </div>
+             </div>
 
 
             <div id="mainContent">
-                <div id="countryDetails"><?php displayCountryDetails(); ?></div>
+                <div class="details" id="countryDetails"><?php  generateCountryDetails(); ?>
+    </div>
                 <div id="cityList">City List</div>
                 <div id="countryPhotos">Country Photos</div>
             </div>

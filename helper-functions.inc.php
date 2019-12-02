@@ -54,7 +54,8 @@ function getACountry($connection, $iso){
 function getACity($connection, $cityCode){
 
     try{
-        $sql = getCitySql() . ' WHERE CityCode=?';
+        $sql = getCitySql() . ' WHERE cities.CityCode=?';
+        
         $result = runQuery($connection, $sql, $cityCode);
 
         return $result;

@@ -19,6 +19,8 @@ function runQuery($connection, $sql, $parameters=array())     {
         $parameters = array($parameters);
     }
 
+    echo $sql;
+
     $statement = null;
     if (count($parameters) > 0) {
         // Use a prepared statement if parameters 
@@ -40,7 +42,6 @@ function runQuery($connection, $sql, $parameters=array())     {
     }
 
     return json_encode($results, JSON_PRETTY_PRINT+JSON_NUMERIC_CHECK);
-    // return $statement;
 }   
 
 ?>
