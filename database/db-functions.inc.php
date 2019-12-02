@@ -12,6 +12,7 @@ function setConnectionInfo( $connString, $user, $password ) {
 /*
   This function runs the specified SQL query using the 
   passed connection and the passed array of parameters (null if none)
+  Returns JSON array
 */
 function runQuery($connection, $sql, $parameters=array())     {
     // Ensure parameters are in an array

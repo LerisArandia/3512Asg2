@@ -1,6 +1,6 @@
 <?php
 
-require_once 'helper-functions.inc.php';
+require_once 'database/helper-functions.inc.php';
 
 function generateCountryDetails(){
     if(isset($_GET['countryiso'])){
