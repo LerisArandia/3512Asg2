@@ -1,11 +1,10 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Page</title>
-
-    <link rel="stylesheet" href="css/template.css">
+    <?php 
+        $title = "City Page";
+        include "includes/head.php";
+    ?>
     <link rel="stylesheet" href="css/single-city.css"> <!-- has the same formatting as single country -->
 </head>
 

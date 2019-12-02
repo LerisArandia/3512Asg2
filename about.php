@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-
-    <link rel="stylesheet" href="css/template.css">
+    <?php 
+        $title = "About";
+        include "includes/head.php";
+    ?>
     <link rel="stylesheet" href="css/about.css">
 </head>
 
@@ -13,11 +13,7 @@
         <div id="header">
             <!-- insert logo here -->
             <!--For Media Query Nav-->
-            <div id="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <div id="hamburger-menu">&#9776;</div>
             <ul id="navigation">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="about.php">About</a></li>

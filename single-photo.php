@@ -1,13 +1,22 @@
+<?php
+
+require_once('config.inc.php');
+
+if (isset($_GET["id"])){
+    $id = $_GET["id"];
+}else{
+    $id = 0;
+}
+
+?>
+<!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Photo View</title>
-
-    <link rel="stylesheet" href="css/template.css">
+    <?php 
+        $title = "Single Photo View";
+        include "includes/head.php";
+    ?>
     <link rel="stylesheet" href="css/single-photo.css">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 
 <body>

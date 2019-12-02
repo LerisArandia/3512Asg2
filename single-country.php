@@ -4,10 +4,10 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Country Page</title>
-
-    <link rel="stylesheet" href="css/template.css">
+    <?php 
+        $title = "Country Page";
+        include "includes/head.php";
+    ?>
     <link rel="stylesheet" href="css/single-country.css">
 </head>
 
