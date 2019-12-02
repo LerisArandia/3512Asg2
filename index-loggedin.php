@@ -1,11 +1,10 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Logged in</title>
-
-    <link rel="stylesheet" href="css/template.css">
+    <?php 
+        $title = "Home - Logged in";
+        include "includes/head.php";
+    ?>
     <link rel="stylesheet" href="css/index-loggedin.css">
 </head>
 

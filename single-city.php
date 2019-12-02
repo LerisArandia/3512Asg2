@@ -1,34 +1,16 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Page</title>
-
-    <link rel="stylesheet" href="css/template.css">
+    <?php 
+        $title = "City Page";
+        include "includes/head.php";
+    ?>
     <link rel="stylesheet" href="css/single-city.css"> <!-- has the same formatting as single country -->
 </head>
 
 <body>
     <main class="container">
-        <div id="header">
-            <!-- insert logo here -->
-            <!--For Media Query Nav-->
-            <div id="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul id="navigation">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="browse.php">Browse/Search</a></li>
-                <li><a href="single-country.php">Countries</a></li>
-                <li><a href="single-city.php">Cities</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="signUp.php">Sign Up</a></li>
-            </ul>
-        </div>
+    <?php include "includes/navigation.php" ; ?>
         <div class="main" id="main-cityPage">
             <div id="cityFilters">City Filters</div>
             <div id="cityList">City List</div>

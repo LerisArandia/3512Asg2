@@ -10,7 +10,6 @@ header('Content-Type: application/json');
 if(isset($_GET['city'])){
     $citycode = $_GET['city'];
     $city = getACity(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS), $citycode);
-    
 }
 else if(isset($_GET['iso'])){
     $countryISO = $_GET['iso'];
@@ -19,7 +18,6 @@ else if(isset($_GET['iso'])){
 else{
     $city = getAllCities(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
 }
-
 
 echo $city;
 

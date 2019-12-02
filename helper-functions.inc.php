@@ -40,7 +40,7 @@ function getAllCities($connection){
 function getACountry($connection, $iso){
 
     try{
-        $sql = getCountrySql() . ' INNER JOIN cities ON countries.ISO = cities.CountryCodeIso WHERE ISO=?';
+        $sql = getCountrySql() . ' WHERE ISO=?';
         $result = runQuery($connection, $sql, $iso);
 
         return $result;
