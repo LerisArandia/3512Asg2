@@ -45,9 +45,6 @@
     padding-top:1em;    
 }
 
-#infoBox .spvButtons{
-    text-align: center;
-}
 .spvButtons button{
     background-color: rgb(29, 194, 158);
     border: none;
@@ -55,6 +52,44 @@
     cursor: pointer;
     padding: 10px
 }
+
+/*Button Tabs for Box Description, Details and Map*/
+#infoBox .spvButtons{
+    margin-bottom: 0;
+    margin-left: 10px;
+    padding-bottom: 0;
+    padding-left: 0;
+    text-align: left;
+}
+
+#spvDescTab, #spvDetailsTab, #spvMapTab{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+}
+
+/**Description, Details and Map Boxes**/
+#spvDescBox, #spvDetailsBox, #spvMapBox{
+    border: 0.5px solid black;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #c8f6fc86;
+    height: 15rem;
+    padding: 0.5rem;
+    width: 90%;
+    margin: 0;
+    margin-left: 10px; 
+}
+
+#spvDescBox, #spvDetailsBox{
+    overflow: auto;
+}
+
+#spvDetailsBox, #spvMapBox{
+    display: none;
+}
+
 @media only screen and (max-width: 800px){
     .main, #spvNames{
         display: block;
