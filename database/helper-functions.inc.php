@@ -26,15 +26,26 @@ function getLanguageSql(){
     return $sql;
 }
 
-function getCountryWithImagesSql(){
-    $sql = "SELECT ImageID, imagedetails.UserID, Title, imagedetails.Description, Latitude, Longitude, imagedetails.CityCode, imagedetails.CountryCodeISO, imagedetails.ContinentCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors from imagedetails INNER JOIN imagedetails ON imagedetails.CountryCodeISO = countries.ISO";
-    return $sql;
-}
-
 function allImageSql(){
     $sql = "SELECT ImageID, CityCode, CountryCodeISO, Path FROM imagedetails";
     return $sql;
 }
+
+function getCountriesWithImagesSql(){
+    $sql = "SELECT ImageID, imagedetails.UserID, Title, imagedetails.Description, Latitude, Longitude, imagedetails.CityCode, imagedetails.CountryCodeISO, imagedetails.ContinentCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors FROM imagedetails INNER JOIN countries ON imagedetails.CountryCodeISO = countries.ISO";
+    return $sql;
+}
+
+function getCountriesWithImages($connection){
+    try{
+        $result = runQuery($connection, getCountriesWithImagesSql(), null);
+        return $result;
+    }
+    catch (PDOException $e){
+        die( $e->getMessage() );
+    }
+}
+
 
 function getAllCountries($connection){
 

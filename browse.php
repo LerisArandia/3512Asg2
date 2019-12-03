@@ -1,6 +1,6 @@
 <?php
-    require_once 'helper-functions.inc.php';
-
+    require_once 'database/helper-functions.inc.php';
+    
     $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
 
     function display(){
@@ -20,7 +20,7 @@
 <head>
 <?php 
         $title = "Search & Browse";
-        // include "includes/head.php";
+        include "includes/head.php";
     ?>
     <link rel="stylesheet" href="css/browse.css">
 </head>
@@ -28,7 +28,7 @@
 <body>
     <main class="container">
     <?php 
-    // include "includes/navigation.php" ; 
+    include "includes/navigation.php" ; 
     ?>
         <div class="main">
             <div id="photoFilter">

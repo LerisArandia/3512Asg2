@@ -19,6 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
     //     displayArray(countriesArray);
     // }
 
+    var images = [];
+    let imagesurl = "http://localhost/3512Asg2/api-countries.php?images=all";
+
+    fetch(imagesurl)
+        .then(response => response.json())
+        .then(data => {
+
+            data.forEach(d => console.log(d));
+            // updateStorage("countriesImages", images);
+            // console.log(images);
+        })
+        .catch(error => console.log(error));
+
 
 
     function fillCountriesArray() {
