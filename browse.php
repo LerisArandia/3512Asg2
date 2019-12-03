@@ -3,12 +3,16 @@
 
 
     function display(){
-        if (isset($_POST['continents']) && $_POST['continents']!=""){
+        if (isset($_POST['continents']) && $_POST['continents'] != ""){
             echo 'Continent selected is: ' . $_POST['continents'];
         } 
+
+        if (isset($_POST['textSearch']) && $_POST['textSearch'] != ""){
+            echo 'Text entered is ' . $_POST['textSearch'];
+        }
     }
     
-    $citiesArray = 
+   
 ?>
 
 <html>
@@ -60,7 +64,7 @@
                 <option value="SA">South America</option>
             </select>
             <input type="checkbox" class="searchImage" name="countryImages" value="countryImgs">
-            <input type="text" class="search" placeholder="Search by image name">
+            <input type="text" class="search" name="textSearch" placeholder="Search by image name">
 
             <input type='submit' value='post' />
             </form>
