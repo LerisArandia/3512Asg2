@@ -65,8 +65,8 @@ margin-top: 1.5em;
     border: 0.5px solid black;
     border-radius: 10px;
     opacity: 0.8;
-    left: 17%;
-    top: 40%;
+    left: 20%;
+    top: 25%;
     z-index: 1;
     height: 15rem;
     width: 25rem;
@@ -121,6 +121,17 @@ margin-top: 1.5em;
     .main div{
         padding: 1rem;
     }
+    #hoverBox{
+        height: 10rem;
+        width: 15rem;
+        left: 30%;
+    }
 }
 @media only screen and (max-width: 1200px){
+    #hoverbox{
+        left: 10%;
+        top: 40%;
+        height: 10rem;
+        width: 10rem;
+    }
 }

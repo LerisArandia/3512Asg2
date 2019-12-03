@@ -1,4 +1,11 @@
-/****Changing Tabs****/
+/**********Map**********/
+
+/**********Print Details**********/
+//Prints out Exif Information
+
+//Prints out Color spans
+
+/**********Changing Tabs**********/
 descBox = document.querySelector('#spvDescBox');
 detailsBox = document.querySelector('#spvDetailsBox');
 mapBox = document.querySelector('#spvMapBox');

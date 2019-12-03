@@ -147,4 +147,27 @@ function findNeighboringCountries($pdo, $neighbours){
     return substr($string, 0, -1); // removes last comma
 }
 
+function getAllImages($connection){
+
+    try{
+        $result = runQuery($connection, getImageSql(), null);
+        return $result;
+    }
+    catch (PDOException $e){
+        die( $e->getMessage() );
+    }
+
+}
+function getSingleImage($pdo, $id){
+    try{
+        $sql = getImageSql() . " WHERE ImageID='" . $id . "'";
+        $result = runQuery($pdo, $sql, $id);
+
+        return $result;
+    }
+    catch(PDOException $e){
+        die($e->getMessage());
+    }
+}
+
 ?>

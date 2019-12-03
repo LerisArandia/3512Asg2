@@ -2,16 +2,12 @@
 
 require_once 'database/helper-functions.inc.php';
 
-
-
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
-    $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
-    $sql = getImageSql() . " WHERE ImageID='" . $id . "'";
-    $result = $pdo->query($sql);
-    $image = $result->fetch();
-    extract($image);
-
+    if($id != 0){
+        $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+        $image = getSingleImage($pdo, $id);
+        foreach($image as $i){
     ?>
     <!DOCTYPE html>
     <html>
@@ -30,17 +26,29 @@ if (isset($_GET["id"])) {
 
             <div class="main" id="singlePhotoView">
                 <!-- put image in here -->
-                <div id="spvImg"><?php echo $Path; ?></div>
+                <div id="spvImg"><?php echo $i['Path']; ?></div>
                 <div id="hoverBox">
-                    <div class='spvexif'></div>
-                    <div class="spvcredit"></div>
+                    <div class='spvexif'>
+                    <h3>Exif Information:</h3>
+                    </div>
+                    <div class="spvcredit">
+                        <h3>Credit:</h3>
+                        <?php
+                            if($i['SourceURL'] == ""){
+                                $SourceURL = "NONE";
+                            }
+                            echo "<b>Actual Creator:</b>" . $i['ActualCreator'] . "<br>";
+                            echo "<b>Creator:</b> " . $i['CreatorURL'] . " <br>";
+                            echo "<b>Source:</b> " . $i['SourceURL'] . " <br>"
+                        ?>
+                    </div>
                     <div class="spvcolors"></div>
                 </div>
                 <!-- div for title, names, and location information -->
                 <div id="spvNames">
-                    <h2 id="photoTitle"><?php echo $Title; ?></h2>
-                    <h3 id="photoUser"><?php echo $ActualCreator; ?></h3>
-                    <h3 id="photoLocation"><?php echo $AsciiName . ', ' . $CountryName; ?></h3>
+                    <h2 id="photoTitle"><?php echo $i['Title']; ?></h2>
+                    <h3 id="photoUser"><?php echo $i['ActualCreator']; ?></h3>
+                    <h3 id="photoLocation"><?php echo $i['AsciiName'] . ', ' . $i['CountryName']; ?></h3>
 
                     <div class="spvButtons">
                         <button type="button" id="addFavorite">Add to favourites</button>
@@ -60,45 +68,35 @@ if (isset($_GET["id"])) {
                     </div>
                     <!-- divs for putting in the content for description, details, and map -->
                     <!---Description Box--->
-                    <div id="spvDescBox"><?php echo $Description; ?></div>
+                    <div id="spvDescBox"><?php echo $i['Description']; ?></div>
                     <!---Details Box--->
                     <div id="spvDetailsBox">
                         <div class='spvexif'>
                             <h3>Exif Information:</h3>
-                            <?php 
-                                if($Exif == ""){
-                                    echo "NONE";
-                                }else {
-                                    
-                                    echo "<b>Make:</b> $exif"; 
-                                }
-                            ?>
                         </div>
                         <div class="spvcredit">
                             <h3>Credit:</h3>
                             <?php
-                                if($SourceURL == ""){
+                                if($i['SourceURL'] == ""){
                                     $SourceURL = "NONE";
                                 }
-                                echo "<b>Actual Creator:</b> $ActualCreator <br>";
-                                echo "<b>Creator:</b> $CreatorURL <br>";
-                                echo "<b>Source:</b> $SourceURL <br>"
+                                echo "<b>Actual Creator:</b>" . $i['ActualCreator'] . "<br>";
+                                echo "<b>Creator:</b> " . $i['CreatorURL'] . " <br>";
+                                echo "<b>Source:</b> " . $i['SourceURL'] . " <br>"
                             ?>
                         </div>
-                        <div class="spvcolors">
-                            <?php
-                            echo $Colors;
-                            ?>
-                        </div>
+                        <div class="spvcolors"></div>
                     </div>
                     <!---Map Box--->
                     <div id="spvMapBox"></div>
                 </div>
             </div>
         </main>
-
-<?php
-
+    <?php
+        }
+    }else{
+        echo "<h1>ERROR: IMAGE DOES NOT EXIST.</h1>";
+    }
 } else {
     echo "<h1>ERROR: PAGE DOES NOT EXIST.</h1>";
 }
