@@ -42,9 +42,4 @@ function runQuery($connection, $sql, $parameters=array())     {
     return $results;
 }   
 
-// json
-
-//  raw
-
-
 ?>

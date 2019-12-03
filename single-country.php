@@ -9,14 +9,6 @@ function generateCountryDetails(){
 
         foreach($countries as $country){
 
-            // if(in_array(null, $c, true)){
-            //     $array2 = array_map((function() ){
-            //         return $value === null ? "N/A"
-            //      }, $array); // array_map should walk through $array
-            // }
-
-
-
             echo "<h3>{$country['CountryName']}</h3>";
             echo "<div id='capital'>Capital: {$country['Capital']}</div>";
             echo "<div id='area'>Area: ".number_format($country['Area'])."</div>";
@@ -61,6 +53,7 @@ function generateCities(){
     ?>
     <link rel="stylesheet" href="css/single-country.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -69,8 +62,17 @@ function generateCities(){
         <div class="main" id="main-countryPage">
             <div id="countryFilters">
                 <form id="filters">
-                    <input type="text" placeholder="Search For Country">
-                    <select id="continent"><option value="">Search By Continent</option></select>
+                    <input id="searchCountries" type="text" placeholder="Search For Country">
+                    <select id="continent">
+                        <option value="">Search By Continent</option>
+                        <option value="AS">Asia</option>
+                        <option value="AF">Africa</option>
+                        <option value="NA">North America</option>
+                        <option value="SA">South America</option>
+                        <option value="AQ">Antarctica</option>
+                        <option value="EU">Europe</option>
+                        <option value="OC">Oceania</option>
+                    </select>
                     <div><input type="checkbox" id="imageCountryOnly" name="imageCountry">Countries With Images Only</div>
                     <button class="clearFilter" id="clearCountry">Clear All Country Filters</button>
                 </form>
@@ -90,7 +92,10 @@ function generateCities(){
             </div>
         </div>
     </main>
-</body>
+    
 <script src="js/template.js"></script>
 <script src="js/single-country.js"></script>
+</body>
+
+
 </html>
