@@ -26,13 +26,13 @@ function getLanguageSql(){
     return $sql;
 }
 
-function getCountryWithImagesSql(){
-    $sql = "SELECT ImageID, imagedetails.UserID, Title, imagedetails.Description, Latitude, Longitude, imagedetails.CityCode, imagedetails.CountryCodeISO, imagedetails.ContinentCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors from imagedetails INNER JOIN imagedetails ON imagedetails.CountryCodeISO = countries.ISO";
+function allImageSql(){
+    $sql = "SELECT ImageID, CityCode, CountryCodeISO, Path FROM imagedetails"
     return $sql;
 }
 
-function allImageSql(){
-    $sql = "SELECT ImageID, CityCode, CountryCodeISO, Path FROM imagedetails";
+function getCountryWithImagesSql(){
+    $sql = "SELECT ImageID, imagedetails.UserID, Title, imagedetails.Description, Latitude, Longitude, imagedetails.CityCode, imagedetails.CountryCodeISO, imagedetails.ContinentCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors from imagedetails INNER JOIN imagedetails ON imagedetails.CountryCodeISO = countries.ISO";
     return $sql;
 }
 
