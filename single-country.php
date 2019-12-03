@@ -4,43 +4,49 @@ require_once 'helper-functions.inc.php';
 
 function generateCountryDetails(){
     if(isset($_GET['countryiso'])){
-        $pdo = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
-        $sql = getCountrySql() . " WHERE ISO='" . $_GET['countryiso']."'";
-        $result = $pdo->query($sql);
-        $country = $result->fetch();
+        $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+        $countries = getACountry($pdo, $_GET['countryiso']);
 
-        echo "<h3>{$country['CountryName']}</h3>";
-        echo "<div id='capital'>Capital: {$country['Capital']}</div>";
-        echo "<div id='area'>Area: ".number_format($country['Area'])."</div>";
-        echo "<div id='Population'>Population: ".number_format($country['Population'])." residents</div>";
-        echo "<div id='description'>{$country['CountryDescription']}</div>";
-        echo "<div id='neighbours'>Neighbours: ".findNeighboringCountries($pdo, $country['Neighbours'])."</div>";
+        foreach($countries as $country){
+
+            // if(in_array(null, $c, true)){
+            //     $array2 = array_map((function() ){
+            //         return $value === null ? "N/A"
+            //      }, $array); // array_map should walk through $array
+            // }
+
+
+
+            echo "<h3>{$country['CountryName']}</h3>";
+            echo "<div id='capital'>Capital: {$country['Capital']}</div>";
+            echo "<div id='area'>Area: ".number_format($country['Area'])."</div>";
+            echo "<div id='domain'>Domain: {$country['TopLevelDomain']} </div>";
+            echo "<div id='currency'>Currency: {$country['CurrencyName']}</div>";
+            echo "<div id='Population'>Population: ".number_format($country['Population'])." residents</div>";
+            echo "<div id='description'>{$country['CountryDescription']}</div>";
+            echo "<div id='neighbours'>Neighbours: ".findNeighboringCountries($pdo, $country['Neighbours'])."</div>";
+            echo "<div id='languages'>Languages: ".findLanguages($pdo, $country['Languages'])."</div>";
+        }
     }
     else{
         echo '<h2>Country Details</h2>';
     }
 } 
 
-function findLanguages(){
+function generateCities(){
+    if(isset($_GET['countryiso'])){
+        $pdo = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
+        $city = getAllCitiesInCountry($pdo, $_GET['countryiso']);
 
-}
-
-function findNeighboringCountries($pdo, $neighbours){
-    $array = explode(",", $neighbours);
-    $string = "";
-
-    foreach( $array as $a){
-        $sql = getCountrySql() . " WHERE ISO='" . $a ."'";
-        $result = $pdo->query($sql);
-        $country = $result->fetch();
-
-        $string .= " {$country['CountryName']},";
+        echo "<h3>Cities</h3>";
+        foreach($city as $c){
+            echo "<a href='single-city.php?citycode={$c['CityCode']}'>{$c['AsciiName']}</a>";
+            echo "<br>";
+        }
     }
-
-    
-    return substr($string, 0, -1); // removes last comma
-
-
+    else{
+        echo '<h2>Cities</h2>';
+    }
 }
 
 
@@ -77,7 +83,9 @@ function findNeighboringCountries($pdo, $neighbours){
             <div id="mainContent">
                 <div class="details" id="countryDetails"><?php  generateCountryDetails(); ?>
     </div>
-                <div id="cityList">City List</div>
+                <div id="cityList">
+                    <?php generateCities(); ?>
+                </div>
                 <div id="countryPhotos">Country Photos</div>
             </div>
         </div>
