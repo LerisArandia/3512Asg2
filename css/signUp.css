@@ -1,11 +1,14 @@
 .main {
     /* display: grid; */
     grid-template-columns: 1fr;
-    
     /* padding-bottom: 10%; */
     
 }
-
+.main h2{
+    grid-row:2;
+    text-align: center;
+    
+}
 #registerForm{
     display: grid;
     grid-template-columns: auto auto;
@@ -58,4 +61,16 @@ button#signUp{
     border-radius: 5px;
     border: none;
     padding: 10px; 
+    cursor: pointer;
+}
+@media only screen and (max-width: 800px){
+    #registerForm{
+        display: block;
+        width: 15rem;
+    }
+    #registerForm input{
+        margin-bottom: 15px;
+    }
+}
+@media only screen and (max-width: 1200px){
 }

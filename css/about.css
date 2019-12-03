@@ -1,3 +1,6 @@
 .main{
     background-image: none;
 }
+.main #aside, .main #mainContent{
+    padding: 1rem;
+}

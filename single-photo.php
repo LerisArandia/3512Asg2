@@ -1,66 +1,108 @@
-<html>
+<?php
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Photo View</title>
+require_once 'database/helper-functions.inc.php';
 
-    <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/single-photo.css">
-</head>
+if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+    if($id != 0){
+        $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+        $image = getSingleImage($pdo, $id);
+        foreach($image as $i){
+    ?>
+    <!DOCTYPE html>
+    <html>
 
-<body>
-    <main class="container">
-        <div id="header">
-            <!-- insert logo here -->
-            <!--For Media Query Nav-->
-            <div id="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul id="navigation">
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Browse/Search</a></li>
-                <li><a href="">Countries</a></li>
-                <li><a href="">Cities</a></li>
-                <li><a href="">Login</a></li>
-                <li><a href="">Sign Up</a></li>
-            </ul>
-        </div>
+    <head>
+        <?php
+            $title = "Single Photo View";
+            include "includes/head.php";
+            ?>
+        <link rel="stylesheet" href="css/single-photo.css">
+    </head>
 
-        <div class="main" id=singlePhotoView>
-            <!-- put image in here -->
-            <div id=spvImg>image here</div>
+    <body>
+        <main class="container">
+            <?php include "includes/navigation.php"; ?>
 
-            <!-- div for title, names, and location information -->
-            <div id=spvNames>
-                <h2 id="photoTitle">photo title</h2>
-                <div id="photoUser">user name</div>
-                <div id="photoLocation">location</div>
+            <div class="main" id="singlePhotoView">
+                <!-- put image in here -->
+                <div id="spvImg"><?php echo $i['Path']; ?></div>
+                <div id="hoverBox">
+                    <div class='spvexif'>
+                    <h3>Exif Information:</h3>
+                    </div>
+                    <div class="spvcredit">
+                        <h3>Credit:</h3>
+                        <?php
+                            if($i['SourceURL'] == ""){
+                                $SourceURL = "NONE";
+                            }
+                            echo "<b>Actual Creator:</b>" . $i['ActualCreator'] . "<br>";
+                            echo "<b>Creator:</b> " . $i['CreatorURL'] . " <br>";
+                            echo "<b>Source:</b> " . $i['SourceURL'] . " <br>"
+                        ?>
+                    </div>
+                    <div class="spvcolors"></div>
+                </div>
+                <!-- div for title, names, and location information -->
+                <div id="spvNames">
+                    <h2 id="photoTitle"><?php echo $i['Title']; ?></h2>
+                    <h3 id="photoUser"><?php echo $i['ActualCreator']; ?></h3>
+                    <h3 id="photoLocation"><?php echo $i['AsciiName'] . ', ' . $i['CountryName']; ?></h3>
 
-                <div class="spvButtons">
-                    <button type="button" id="addFavorite">Add to favourites</button>
+                    <div class="spvButtons">
+                        <button type="button" id="addFavorite">Add to favourites</button>
+                    </div>
+                </div>
+
+
+                <div id="infoBox">
+                    <!-- buttons for description, details and map -->
+                    <div class="spvButtons">
+                        <!---Description Tab--->
+                        <button type="button" id="spvDescTab">Description</button>
+                        <!---Details Tab--->
+                        <button type="button" id="spvDetailsTab">Details</button>
+                        <!---Map Tab--->
+                        <button type="button" id="spvMapTab">Map</button>
+                    </div>
+                    <!-- divs for putting in the content for description, details, and map -->
+                    <!---Description Box--->
+                    <div id="spvDescBox"><?php echo $i['Description']; ?></div>
+                    <!---Details Box--->
+                    <div id="spvDetailsBox">
+                        <div class='spvexif'>
+                            <h3>Exif Information:</h3>
+                        </div>
+                        <div class="spvcredit">
+                            <h3>Credit:</h3>
+                            <?php
+                                if($i['SourceURL'] == ""){
+                                    $SourceURL = "NONE";
+                                }
+                                echo "<b>Actual Creator:</b>" . $i['ActualCreator'] . "<br>";
+                                echo "<b>Creator:</b> " . $i['CreatorURL'] . " <br>";
+                                echo "<b>Source:</b> " . $i['SourceURL'] . " <br>"
+                            ?>
+                        </div>
+                        <div class="spvcolors"></div>
+                    </div>
+                    <!---Map Box--->
+                    <div id="spvMapBox"></div>
                 </div>
             </div>
+        </main>
+    <?php
+        }
+    }else{
+        echo "<h1>ERROR: IMAGE DOES NOT EXIST.</h1>";
+    }
+} else {
+    echo "<h1>ERROR: PAGE DOES NOT EXIST.</h1>";
+}
+?>
 
-
-            <div id="infoBox">
-                <!-- buttons for description, details and map -->
-                <div class="spvButtons">
-                    <button type="button" id="spvDesc"> Description</button>
-                    <button type="button" id="spvDetails"> Details</button>
-                    <button type="button" id="spvMap"> Map</button>
-                </div>
-                <!-- div for putting in the content for description, details, and map -->
-                <div id="spvInfo"></div>
-            </div>
-
-
-        </div>
-
-    </main>
-</body>
-<script src="js/template.js"></script>
+    </body>
+    <script src="js/template.js"></script>
+    <script src="js/single-photo.js"></script>
 </html>

@@ -1,33 +1,16 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-
-    <link rel="stylesheet" href="css/template.css">
+    <?php 
+        $title = "About";
+        include "includes/head.php";
+    ?>
     <link rel="stylesheet" href="css/about.css">
 </head>
 
 <body>
     <main class="container">
-        <div id="header">
-            <!-- insert logo here -->
-            <!--For Media Query Nav-->
-            <div id="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul id="navigation">
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Browse/Search</a></li>
-                <li><a href="">Countries</a></li>
-                <li><a href="">Cities</a></li>
-                <li><a href="">Login</a></li>
-                <li><a href="">Sign Up</a></li>
-            </ul>
-        </div>
+    <?php include "includes/navigation.php" ; ?>
         <div class="main">
             <div id="aside">
                 <div>Ralph Acusar: <a href="https://github.com/racus946">https://github.com/racus946</a></div>
