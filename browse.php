@@ -1,4 +1,7 @@
 <?php
+    require_once 'helper-functions.inc.php';
+
+    $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
 
     function display(){
         if (isset($_POST['continents']) && $_POST['continents'] != ""){
@@ -17,14 +20,16 @@
 <head>
 <?php 
         $title = "Search & Browse";
-        include "includes/head.php";
+        // include "includes/head.php";
     ?>
     <link rel="stylesheet" href="css/browse.css">
 </head>
 
 <body>
     <main class="container">
-    <?php include "includes/navigation.php" ; ?>
+    <?php 
+    // include "includes/navigation.php" ; 
+    ?>
         <div class="main">
             <div id="photoFilter">
             
@@ -33,7 +38,7 @@
             <form method=post action=browse.php>
             
             <select name="continents" id="continentList">
-                <option value="" >Continents</option>
+                <option value="" >Cities</option>
                 <option value="AF">Africa</option>
                 <option value="AN">Antarctica</option>
                 <option value="AS">Asia</option>
