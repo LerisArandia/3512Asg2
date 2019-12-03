@@ -9,7 +9,15 @@ function getCountrySql(){
 }
 
 function getCitySql(){
-    $sql = "SELECT cities.CityCode, AsciiName, CountryCodeISO, Latitude, Longitude, cities.Population, Elevation, TimeZone FROM cities";
+    $sql = "SELECT cities.CityCode, AsciiName, CountryCodeISO, cities.Latitude, cities.Longitude, cities.Population, Elevation, TimeZone FROM cities";
+    return $sql;
+}
+
+function getImageSql(){
+    $sql = "SELECT Title, Description, i.Latitude, i.Longitude, AsciiName, CountryName , ContinentCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors 
+            FROM imagedetails as i 
+            INNER JOIN cities as city ON i.CityCode = city.CityCode
+            INNER JOIN countries as c ON i.CountryCodeISO = c.ISO";
     return $sql;
 }
 
