@@ -14,31 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
         displayCountryArray(countriesArray);
     }
 
-    // if (!retrieveStorage("cities") || retrieveStorage("cities").length === 0) { fillCitiesArray() }
-    // else {
-    //     displayArray(countriesArray);
-    // }
-
-    var images = [];
-    let imagesurl = "http://localhost/3512Asg2/api-countries.php?images=all";
-
-    fetch(imagesurl)
-        .then(response => response.json())
-        .then(data => {
-
-            data.forEach(d => console.log(d));
-            // updateStorage("countriesImages", images);
-            // console.log(images);
-        })
-        .catch(error => console.log(error));
-
-
 
     function fillCountriesArray() {
         var countriesArray = [];
 
         // gets all countries
-        let allCountriesUrl = "http://localhost/3512Asg2/api-countries.php";
+        let allCountriesUrl = "http://localhost/3512Asg2/database/api-countries.php";
 
         fetch(allCountriesUrl)
             .then(response => response.json())
@@ -150,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
+    // ------------------------------ EVENT HANDLER FOR COUNTRIES WITH IMAGES ------------------------------------ //
 
 
 })

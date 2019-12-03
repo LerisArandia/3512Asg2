@@ -32,7 +32,8 @@ function allImageSql(){
 }
 
 function getCountriesWithImagesSql(){
-    $sql = "SELECT ImageID, imagedetails.UserID, Title, imagedetails.Description, Latitude, Longitude, imagedetails.CityCode, imagedetails.CountryCodeISO, imagedetails.ContinentCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors FROM imagedetails INNER JOIN countries ON imagedetails.CountryCodeISO = countries.ISO";
+    $sql =  getCountrySql() . " INNER JOIN imagedetails ON countries.ISO = imagedetails.CountryCodeISO GROUP BY countries.ISO";
+    echo $sql;
     return $sql;
 }
 
