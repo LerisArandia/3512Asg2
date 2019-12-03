@@ -27,7 +27,7 @@ function getLanguageSql(){
 }
 
 function allImageSql(){
-    $sql = "SELECT ImageID, CityCode, CountryCodeISO, Path FROM imagedetails"
+    $sql = "SELECT ImageID, CityCode, CountryCodeISO, Path FROM imagedetails";
     return $sql;
 }
 
