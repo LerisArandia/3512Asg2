@@ -12,11 +12,7 @@ if(isset($_GET['city'])){
     $city = getACity(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS), $citycode);
     
 }
-else{
-    $city = getAllCities(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
-}
-
-if(isset($_GET['iso'])){
+else if(isset($_GET['iso'])){
     $countryISO = $_GET['iso'];
     $city = getAllCitiesInCountry(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS), $countryISO);
 }

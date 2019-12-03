@@ -1,9 +1,14 @@
 <?php
+
+
+
     function display(){
         if (isset($_POST['continents']) && $_POST['continents']!=""){
             echo 'Continent selected is: ' . $_POST['continents'];
         } 
     }
+    
+    $citiesArray = 
 ?>
 
 <html>
