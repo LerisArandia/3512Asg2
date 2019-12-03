@@ -63,16 +63,16 @@ function generateCities(){
             <div id="countryFilters">
                 <form id="filters">
                     <input id="searchCountries" type="text" placeholder="Search For Country">
-                    <select id="continent">
-                        <option value="">Search By Continent</option>
+                    <select name="continent" id="continent" placeholder="Search By Continent">
+                        <option value="">Filter By Continent</option>
                         <option value="AS">Asia</option>
                         <option value="AF">Africa</option>
                         <option value="NA">North America</option>
                         <option value="SA">South America</option>
-                        <option value="AQ">Antarctica</option>
+                        <option value="AN">Antarctica</option>
                         <option value="EU">Europe</option>
                         <option value="OC">Oceania</option>
-                    </select>
+                    </select><br>
                     <div><input type="checkbox" id="imageCountryOnly" name="imageCountry">Countries With Images Only</div>
                     <button class="clearFilter" id="clearCountry">Clear All Country Filters</button>
                 </form>
