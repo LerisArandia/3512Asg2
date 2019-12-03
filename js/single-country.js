@@ -101,8 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ------------------------------ EVENT HANDLER FOR CONTINENT DROPDOWN ------------------------------------ //
 
-    let option = document.querySelector("#continent option");
+    let option = document.querySelector("select#continent");
     option.addEventListener("click", function (e) {
+        console.log(this.value);
         displayByContinent(this.value);
     });
 
