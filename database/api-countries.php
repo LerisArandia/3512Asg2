@@ -11,8 +11,7 @@ if(isset($_GET['iso'])){
     $country = getACountry(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS), $iso);
 }
 else if(isset($_GET['images'])){
-    // $country = getCountriesWithImages(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
-    $country = "hello";
+    $country = getCountriesWithImages(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
 }
 else{
     $country = getAllCountries(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
