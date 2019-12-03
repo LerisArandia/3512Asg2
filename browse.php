@@ -2,14 +2,20 @@
     require_once 'database/helper-functions.inc.php';
     
     $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+    $countries = getCountriesWithImages($pdo);
 
+    foreach ($countries as $c){
+        echo $c['CountryName'] . " ";
+    }
+    
     function display(){
         if (isset($_POST['continents']) && $_POST['continents'] != ""){
             echo 'Continent selected is: ' . $_POST['continents'];
         
         } 
         if (isset($_POST['countries']) && $_POST['countries'] != ""){
-            echo 'Continent selected is: ' . $_POST['continents'];
+            echo 'Continent selected is: ' . $_POST['countries'];
+            
         } 
 
         if (isset($_POST['textSearch']) && $_POST['textSearch'] != ""){

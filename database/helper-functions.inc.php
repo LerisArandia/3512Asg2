@@ -33,7 +33,7 @@ function allImageSql(){
 
 function getCountriesWithImagesSql(){
     $sql =  getCountrySql() . " INNER JOIN imagedetails ON countries.ISO = imagedetails.CountryCodeISO GROUP BY countries.ISO";
-    echo $sql;
+    // echo $sql;
     return $sql;
 }
 
