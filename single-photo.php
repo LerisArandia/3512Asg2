@@ -72,12 +72,11 @@ if (isset($_GET["id"])) {
                                     
                                     echo "<b>Make:</b> $exif"; 
                                 }
-                                
-
                             ?>
                         </div>
                         <div class="spvcredit">
                             <h3>Credit:</h3>
+                            <?php
                                 if($SourceURL == ""){
                                     $SourceURL = "NONE";
                                 }
