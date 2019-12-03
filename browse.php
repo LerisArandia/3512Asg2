@@ -6,6 +6,10 @@
     function display(){
         if (isset($_POST['continents']) && $_POST['continents'] != ""){
             echo 'Continent selected is: ' . $_POST['continents'];
+        
+        } 
+        if (isset($_POST['countries']) && $_POST['countries'] != ""){
+            echo 'Continent selected is: ' . $_POST['continents'];
         } 
 
         if (isset($_POST['textSearch']) && $_POST['textSearch'] != ""){
@@ -39,6 +43,17 @@
             
             <select name="continents" id="continentList">
                 <option value="" >Cities</option>
+                <option value="AF">Africa</option>
+                <option value="AN">Antarctica</option>
+                <option value="AS">Asia</option>
+                <option value="EU">Europe</option>
+                <option value="NA">North America</option>
+                <option value="OC">Oceania</option>
+                <option value="SA">South America</option>
+            </select>
+
+            <select name="countries" id="countryList">
+                <option value="" >Countries</option>
                 <option value="AF">Africa</option>
                 <option value="AN">Antarctica</option>
                 <option value="AS">Asia</option>
