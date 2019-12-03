@@ -19,6 +19,6 @@ else{
     $city = getAllCities(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
 }
 
-echo $city;
+echo json_encode($city, JSON_PRETTY_PRINT+JSON_NUMERIC_CHECK);
 
 ?>
