@@ -7,17 +7,17 @@
     padding: 3em;
 }
 
-.main div{
+.main > div{
     border-radius: 0.2em;
     padding: 1em;
-    background-color: rgba(241, 247, 245, 0.664);
+    background-color: rgba(225, 245, 247, 0.664);
 }
 
 /* #mainContent{
 
 } */
 
-#mainContent div{
+#mainContent > div{
     /* border: solid black 1px; */
     background-color: white;
     border-radius: 1em;
@@ -54,6 +54,12 @@ form#filters{
     grid-template-rows: repeat(4, 1fr);
     grid-gap: 5px;
     padding: 1em;
+}
+
+#searchCountries, #continent{
+    height: 2.5em;
+    border-radius: 0.2em;
+    border: none;
 }
 
 #countryDetails{
