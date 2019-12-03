@@ -17,19 +17,8 @@ function getLanguageSql(){
     $sql = "SELECT languages.id, name, languages.iso from languages";
     return $sql;
 }
-<<<<<<< HEAD
-function allImageSql(){
-    $sql = "SELECT ImageID, CityCode, CountryCodeISO, Path FROM imagedetails"
-    return $sql;
-}
-=======
 
-function getCountryWithImagesSql(){
-    $sql = "SELECT ImageID, imagedetails.UserID, Title, imagedetails.Description, Latitude, Longitude, imagedetails.CityCode, imagedetails.CountryCodeISO, imagedetails.ContinentCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors from imagedetails INNER JOIN imagedetails ON imagedetails.CountryCodeISO = countries.ISO";
-    return $sql;
-}
 
->>>>>>> leris
 function getAllCountries($connection){
 
     try{
