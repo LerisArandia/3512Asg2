@@ -7,6 +7,7 @@ function generateCountryDetails(){
         $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
         $countries = getACountry($pdo, $_GET['countryiso']);
 
+
         foreach($countries as $country){
 
             echo "<h3>{$country['CountryName']}</h3>";
