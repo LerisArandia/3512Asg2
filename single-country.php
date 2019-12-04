@@ -9,7 +9,6 @@ function generateCountryDetails(){
 
 
         foreach($countries as $country){
-
             echo "<h3>{$country['CountryName']}</h3>";
             echo "<div id='capital'>Capital: {$country['Capital']}</div>";
             echo "<div id='area'>Area: ".number_format($country['Area'])."</div>";
@@ -20,6 +19,7 @@ function generateCountryDetails(){
             echo "<div id='neighbours'>Neighbours: ".findNeighboringCountries($pdo, $country['Neighbours'])."</div>";
             echo "<div id='languages'>Languages: ".findLanguages($pdo, $country['Languages'])."</div>";
         }
+        
     }
     else{
         echo '<h2>Country Details</h2>';
@@ -40,6 +40,18 @@ function generateCities(){
     else{
         echo '<h2>Cities</h2>';
     }
+}
+
+function generateContinents(){
+    echo "<select name='continent' id='continent' placeholder='Search By Continent'>";
+    echo "<option value=''>Filter By Continent</option>";
+
+    $continents= getContinents(setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS));
+    foreach($continents as $continent){
+        echo "<option value='{$continent['ContinentCode']}'>{$continent['ContinentName']}</option>";
+    }
+
+    echo "</select>";
 }
 
 
@@ -64,24 +76,13 @@ function generateCities(){
             <div id="countryFilters">
                 <form id="filters">
                     <input id="searchCountries" type="text" placeholder="Search For Country">
-                    <select name="continent" id="continent" placeholder="Search By Continent">
-                        <option value="">Filter By Continent</option>
-                        <option value="AS">Asia</option>
-                        <option value="AF">Africa</option>
-                        <option value="NA">North America</option>
-                        <option value="SA">South America</option>
-                        <option value="AN">Antarctica</option>
-                        <option value="EU">Europe</option>
-                        <option value="OC">Oceania</option>
-                    </select><br>
-                    <div><input type="checkbox" id="imageCountryOnly" name="imageCountry">Countries With Images Only</div>
-                    <button class="clearFilter" id="clearCountry">Clear All Country Filters</button>
+                        <?php generateContinents(); ?>
+                        <div><input type="checkbox" id="imageCountryOnly" name="imageCountry">Countries With Images Only</div>
+                        <button class="clearFilter" id="clearCountry">Clear All Country Filters</button>
                 </form>
             </div>
 
-            <div id="countryList">
-             </div>
-
+            <div id="countryList"></div>
 
             <div id="mainContent">
                 <div class="details" id="countryDetails"><?php  generateCountryDetails(); ?>

@@ -82,6 +82,7 @@ form#filters{
     }
     .main div{
         margin-bottom: 5px;
+        overflow: auto;
     }
     .main div{
         padding: 1rem;

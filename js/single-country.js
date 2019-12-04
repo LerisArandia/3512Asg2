@@ -133,5 +133,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ------------------------------ EVENT HANDLER FOR COUNTRIES WITH IMAGES ------------------------------------ //
 
+    var imageCountriesArray = [];
+    document.querySelector("#imageCountryOnly").addEventListener("click", function () {
+        if (this.checked) {
+
+            let countryListResults = document.querySelector("#countryList");
+            countryListResults.textContent = "";
+
+            let countriesWithImage = "http://localhost/3512Asg2/database/api-countries.php?images=all";
+
+            fetch(countriesWithImage)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(d => imageCountriesArray.push(d));
+
+                    updateStorage("imageCountries", imageCountriesArray);
+                    displayCountryArray(imageCountriesArray);
+                })
+                .catch(error => console.log(error));
+        }
+        else {
+            countriesArray = retrieveStorage("countries");
+            displayCountryArray(countriesArray);
+        }
+    })
+
 
 })
