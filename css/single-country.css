@@ -1,34 +1,46 @@
 .main{
-    /* background-image: none; */
+    background-image: url("../images/forest.jpg");
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    grid-gap: 2em;
-    padding: 2em;
+    grid-gap: 3em;
+    padding: 3em;
 }
 
-.main div{
-    background-color: rgb(180, 227, 255);
-    border-radius: 1em;
+.main > div{
+    border-radius: 0.2em;
     padding: 1em;
+    background-color: rgba(225, 245, 247, 0.664);
 }
 
-#mainContent div{
+
+#mainContent > div{
     /* border: solid black 1px; */
     background-color: white;
     border-radius: 1em;
     padding: 1em;
+    overflow: auto;
 }
 
-#countryFilters{
-    grid-row: 1/span 2;
-    background-color: white;
+div#countryFilters{
+    grid-row: 1/span 3;
 }
+
+form#filters{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5em;
+    height: 100%;
+}
+
+/* form#filters *{
+    height: fit-content;
+} */
 
 #countryList{
-    grid-row: 3/span 6;
-    background-color: white;
-
+    grid-row: 4/span 5;
+    /* background-color: white; */
+    overflow: auto;
 }
 
 #mainContent{
@@ -41,18 +53,25 @@
     padding: 1em;
 }
 
+#searchCountries, #continent{
+    height: 2.5em;
+    border-radius: 0.2em;
+    border: none;
+}
+
 #countryDetails{
-    grid-column: 1/span 3;
+    grid-column: 1/span 2;
     grid-row: 1/ span 2;
 }
 
 #cityList{
-    grid-column: 1/span 3;
+    grid-column: 1/span 2;
     grid-row: 3/ span 2;
 }
 
 #countryPhotos{
     grid-row: 1/ span 4;
+    grid-column: 3 / span 2;
 }
 @media only screen and (max-width: 800px){
     .main, #mainContent{
@@ -60,6 +79,7 @@
     }
     .main div{
         margin-bottom: 5px;
+        overflow: auto;
     }
     .main div{
         padding: 1rem;
