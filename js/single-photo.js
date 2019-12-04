@@ -1,9 +1,45 @@
-/**********Map**********/
+/***
+*   Web 3512 Assignment 1
+*   Jamie wong
+***/
+//***********************Map for Photo***********************/
+/***The Map
+ * Referenced Code from Lab 10
+ * ***/
+var map;
+function initMap(latitude, longitude) {
+    map = new google.maps.Map(document.querySelector('#spvMapBox'), {
+        center: { lat: latitude, lng: longitude},
+        zoom: 15
+    });
+}
+/***Map Marker
+ * Referenced Code from Lab 10
+ * ***/
+function createMarker(map, latitude, longitude, name) {
+    let imageLatLong = { lat: latitude, lng: longitude };
+    let marker = new google.maps.Marker({
+        position: imageLatLong,
+        title: name,
+        map: map
+    });
+}
+/**********Fetch URL**********/
+let imageid = document.querySelector("#singleImage").getAttribute("alt");
+console.log(imageid);
+let url = "./database/api-images.php?id=" + imageid;
 
-/**********Print Details**********/
-//Prints out Exif Information
+console.log(url);
 
-//Prints out Color spans
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        imageArray = data[0];
+        initMap(imageArray.Latitude, imageArray.Longitude);
+        createMarker(map, imageArray.Latitude, imageArray.Longitude, imageArray.Title);
+    })
+    .catch(error => console.log(error));
+
 
 /**********Changing Tabs**********/
 descBox = document.querySelector('#spvDescBox');
@@ -12,8 +48,8 @@ mapBox = document.querySelector('#spvMapBox');
 
 
 //Description tab Event Listener
-document.querySelector('#spvDescTab').addEventListener('click', e =>{
-    if(e.target && e.target.nodeName.toLowerCase() == 'button'){
+document.querySelector('#spvDescTab').addEventListener('click', e => {
+    if (e.target && e.target.nodeName.toLowerCase() == 'button') {
         //Show description box
         descBox.style.display = 'block';
         //Hide detail & map box
@@ -22,8 +58,8 @@ document.querySelector('#spvDescTab').addEventListener('click', e =>{
     }
 });
 //Detaill tab Event Listner
-document.querySelector('#spvDetailsTab').addEventListener('click', e =>{
-    if(e.target && e.target.nodeName.toLowerCase() == 'button'){
+document.querySelector('#spvDetailsTab').addEventListener('click', e => {
+    if (e.target && e.target.nodeName.toLowerCase() == 'button') {
         //Show detail box
         detailsBox.style.display = 'block';
         //Hide description and map
@@ -32,8 +68,8 @@ document.querySelector('#spvDetailsTab').addEventListener('click', e =>{
     }
 });
 //Map tab Event Listener
-document.querySelector('#spvMapTab').addEventListener('click', e =>{
-    if(e.target && e.target.nodeName.toLowerCase() == 'button'){
+document.querySelector('#spvMapTab').addEventListener('click', e => {
+    if (e.target && e.target.nodeName.toLowerCase() == 'button') {
         //Show map box
         mapBox.style.display = 'block';
         //Hide description and detail box
@@ -43,16 +79,16 @@ document.querySelector('#spvMapTab').addEventListener('click', e =>{
 });
 /**********Hover Image Display**********/
 //Mouse hovered over the photo or hover box, hover box shows
-document.querySelector('#spvImg').addEventListener('mouseover', () =>{
+document.querySelector('#spvImg').addEventListener('mouseover', () => {
     document.querySelector('#hoverBox').style.display = 'block';
 });
-document.querySelector('#hoverBox').addEventListener('mouseover', () =>{
+document.querySelector('#hoverBox').addEventListener('mouseover', () => {
     document.querySelector('#hoverBox').style.display = 'block';
 });
 //Mouseout of photo && hover box, hover box hides
-document.querySelector('#spvImg').addEventListener('mouseout', () =>{
+document.querySelector('#spvImg').addEventListener('mouseout', () => {
     document.querySelector('#hoverBox').style.display = 'none';
 });
-document.querySelector('#hoverBox').addEventListener('mouseout', () =>{
+document.querySelector('#hoverBox').addEventListener('mouseout', () => {
     document.querySelector('#hoverBox').style.display = 'none';
 });

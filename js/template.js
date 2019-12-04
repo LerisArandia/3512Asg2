@@ -11,4 +11,3 @@ hamburgerMenu.addEventListener('click', e => {
         }
     }
 });
-

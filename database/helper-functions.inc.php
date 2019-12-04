@@ -47,7 +47,6 @@ function getCountriesWithImages($connection){
     }
 }
 
-
 function getAllCountries($connection){
 
     try{

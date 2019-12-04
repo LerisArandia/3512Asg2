@@ -8,6 +8,34 @@ if (isset($_GET["id"])) {
         $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
         $image = getSingleImage($pdo, $id);
         foreach($image as $i){
+            $exifArray = json_decode($i['Exif'], true);
+            $colorArray = json_decode($i['Colors'], true);
+            
+            function generateDetails($i, $exif, $colors){
+                echo "  <div class='spvexif'>
+                            <h3>Exif Information:</h3>
+                            <b>Make: </b>" . $exif['make'] ."<br>
+                            <b>Model: </b>" . $exif['model'] ."<br>
+                            <b>Exposure Time: </b>" . $exif['exposure_time'] ."<br>
+                            <b>Aperture: </b>" . $exif['aperture'] ."<br>
+                            <b>Focal Length: </b>" . $exif['focal_length'] ."<br>
+                            <b>ISO: </b>" . $exif['iso'] ."<br>
+                        </div>
+                        <div class=\"spvcredit\">
+                            <h3>Credit:</h3>";
+                                if($i['SourceURL'] == ""){
+                                    $i['SourceURL'] = "NONE";
+                                }
+                                echo "<b>Actual Creator:</b>" . $i['ActualCreator'] . "<br>";
+                                echo "<b>Creator:</b> " . $i['CreatorURL'] . " <br>";
+                                echo "<b>Source:</b> " . $i['SourceURL'] . " <br>";
+                echo "  </div>
+                        <div class=\"spvcolors\">";
+                            foreach($colors as $c){
+                                echo "<span style=\"background-color: " . $c . "\">" . $c . "</span>";
+                            }
+                echo "  </div>";
+            }                    
     ?>
     <!DOCTYPE html>
     <html>
@@ -26,23 +54,16 @@ if (isset($_GET["id"])) {
 
             <div class="main" id="singlePhotoView">
                 <!-- put image in here -->
-                <div id="spvImg"><?php echo $i['Path']; ?></div>
+                <div id="spvImg">
+                    <picture>
+                        <source media="(max-width: 1250px)" srcset="images/medium640/<?php echo $i['Path']; ?>">
+                        <img src="images/medium800/<?php echo $i['Path'];?>" alt="<?php echo $id;?>" id = "singleImage">
+                    </picture>
+                </div>
                 <div id="hoverBox">
-                    <div class='spvexif'>
-                    <h3>Exif Information:</h3>
-                    </div>
-                    <div class="spvcredit">
-                        <h3>Credit:</h3>
-                        <?php
-                            if($i['SourceURL'] == ""){
-                                $SourceURL = "NONE";
-                            }
-                            echo "<b>Actual Creator:</b>" . $i['ActualCreator'] . "<br>";
-                            echo "<b>Creator:</b> " . $i['CreatorURL'] . " <br>";
-                            echo "<b>Source:</b> " . $i['SourceURL'] . " <br>"
-                        ?>
-                    </div>
-                    <div class="spvcolors"></div>
+                    <?php
+                        generateDetails($i, $exifArray, $colorArray);
+                    ?>
                 </div>
                 <!-- div for title, names, and location information -->
                 <div id="spvNames">
@@ -71,21 +92,9 @@ if (isset($_GET["id"])) {
                     <div id="spvDescBox"><?php echo $i['Description']; ?></div>
                     <!---Details Box--->
                     <div id="spvDetailsBox">
-                        <div class='spvexif'>
-                            <h3>Exif Information:</h3>
-                        </div>
-                        <div class="spvcredit">
-                            <h3>Credit:</h3>
-                            <?php
-                                if($i['SourceURL'] == ""){
-                                    $SourceURL = "NONE";
-                                }
-                                echo "<b>Actual Creator:</b>" . $i['ActualCreator'] . "<br>";
-                                echo "<b>Creator:</b> " . $i['CreatorURL'] . " <br>";
-                                echo "<b>Source:</b> " . $i['SourceURL'] . " <br>"
-                            ?>
-                        </div>
-                        <div class="spvcolors"></div>
+                        <?php
+                            generateDetails($i, $exifArray, $colorArray);
+                        ?>
                     </div>
                     <!---Map Box--->
                     <div id="spvMapBox"></div>
@@ -105,4 +114,6 @@ if (isset($_GET["id"])) {
     </body>
     <script src="js/template.js"></script>
     <script src="js/single-photo.js"></script>
+    <!---Interactive Map--->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKSRi8PKjVcfWXCkYF7xFy_uT-P6pmUvg&callback=initMap"></script>
 </html>
