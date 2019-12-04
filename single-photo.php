@@ -115,5 +115,5 @@ if (isset($_GET["id"])) {
     <script src="js/template.js"></script>
     <script src="js/single-photo.js"></script>
     <!---Interactive Map--->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKSRi8PKjVcfWXCkYF7xFy_uT-P6pmUvg&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvRG7tyWWBJc3cGLMMfjYsAHFHM-dB7QA&callback=initMap"></script>
 </html>
