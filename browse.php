@@ -1,18 +1,18 @@
 <?php
     require_once 'database/helper-functions.inc.php';
     
-    $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
+    $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
     $countries = getCountriesWithImages($pdo);
     $cities = getCitiesWithImages($pdo);
-    sort($cities);
-    echo "<option value=''>Countries</option>";
-    foreach ($cities as $c){
-        echo $c['CityCode']. " ". $c['AsciiName'] . "<br> ";
-    }
+    
+    // echo "<option value=''>Countries</option>";
+    // foreach ($cities as $city){
+    //     echo  $city['AsciiName'] . "<br> ";
+    // }
     
     function display(){
-        if (isset($_POST['continents']) && $_POST['continents'] != ""){
-            echo 'Continent selected is: ' . $_POST['continents'];
+        if (isset($_GET['cities']) && $_GET['cities'] != ""){
+            echo 'City selected is: ' . $_GET['cities'];
         
         } 
         if (isset($_POST['countries']) && $_POST['countries'] != ""){
@@ -27,6 +27,7 @@
     
    
 ?>
+
 <html>
 <head>
 <?php 
@@ -46,35 +47,33 @@
             
             <h3>Photo Filter</h3>
             
-            <form method=post action=browse.php>
+            <form method=get action=browse.php>
             
+            <select name="cities" id="cityList">
+                <option value="" >Cities</option>
+                <?php
+                    foreach ($cities as $city)
+                    {
+                        echo '<option value="' . $city['CityCode'] . '">' . $city['AsciiName'] . '</option>';
+                    }
+                ?>
+            </select>
+
+
             <select name="countries" id="countryList">
                 <option value="" >Countries</option>
                 <?php
                     foreach($countries as $c){
-                    echo '<option value="' .$c[ISO] . '">' . $c['CountryName'] . '</option>'; 
+                    echo '<option value="' .$c['ISO'] . '">' . $c['CountryName'] . '</option>'; 
                     }
                 ?>
             </select>
-
-            <select name="cities" id="cityList">
-                
-                <option value="" >Cities</option>
-                <?php
-                    foreach($cities as $city){
-                        echo 'option value="' .$c['CityCode']. '">'. $city['AsciiName'] . '</option>';
-                    }
-                ?>
-            </select>
-
-
-            
 
 
             <input type="checkbox" class="searchImage" name="countryImages" value="countryImgs">
             <input type="text" class="search" name="textSearch" placeholder="Search by image name">
 
-            <input type='submit' value='post' />
+            <input type='submit' value='Submit' />
             </form>
             </div>
             
