@@ -13,6 +13,12 @@ function getCitySql(){
     return $sql;
 }
 
+//specify country code iso
+function citySql(){
+    $sql = "SELECT cities.CityCode, AsciiName, cities.CountryCodeISO, cities.Latitude, cities.Longitude, cities.Population, Elevation, TimeZone FROM cities";
+    return $sql;
+}
+
 function getImageSql(){
     $sql = "SELECT Title, Description, i.Latitude, i.Longitude, AsciiName, CountryName , ContinentCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors 
             FROM imagedetails as i 
@@ -37,9 +43,25 @@ function getCountriesWithImagesSql(){
     return $sql;
 }
 
+function getCitiesWithImagesSql(){
+    $sql = citySql() . " INNER JOIN imagedetails ON cities.CityCode = imagedetails.CityCode";
+    // echo $sql;
+    return $sql;
+}
+
 function getCountriesWithImages($connection){
     try{
         $result = runQuery($connection, getCountriesWithImagesSql(), null);
+        return $result;
+    }
+    catch (PDOException $e){
+        die( $e->getMessage() );
+    }
+}
+
+function getCitiesWithImages($connection){
+    try{
+        $result = runQuery($connection, getCitiesWithImagesSql(), null);
         return $result;
     }
     catch (PDOException $e){
