@@ -1,16 +1,28 @@
 runtime: php55
 api_version: 1
+
+env_variables:
+  MYSQL_USER: "root"
+  MYSQL_PASSWORD: "password"
+  MYSQL_DSN: mysql:dbname=travel;unix_socket=/cloudsql/comp3512asg2
+
+beta_settings:
+  cloud_sql_instances: "comp3512asg2"
+
 handlers:
 # Serve images as static resources
-- url: /(.+\.(gif|png|jpg))$
-static_files: \1
-upload: .+\.(gif|png|jpg)$
-# Serve images as static resources
+- url: /(.+\.(gif|png|jpg|css|js))$
+  static_files: \1
+  upload: .+\.(gif|png|jpg|css|js)$
+
+  # Serve images as static resources
 - url: /(.+\.(htm|html))$
-static_files: \1
-upload: .+\.(htm|html)$
-# Serve php scripts
+  static_files: \1
+  upload: .+\.(htm|html)$
+
+  # Serve php scripts
 - url: /(.+\.php)$
-script: \1
+  script: \1
+
 - url: /.*
-script: index.php
+  script: index.php
