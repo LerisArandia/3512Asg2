@@ -1,7 +1,7 @@
 <?php
     require_once 'database/helper-functions.inc.php';
     
-    $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+    $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
 
     function display(){
         if (isset($_POST['continents']) && $_POST['continents'] != ""){
@@ -15,7 +15,6 @@
     
    
 ?>
-
 <html>
 <head>
 <?php 

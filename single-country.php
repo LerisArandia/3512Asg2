@@ -4,7 +4,7 @@ require_once 'database/helper-functions.inc.php';
 
 function generateCountryDetails(){
     if(isset($_GET['countryiso'])){
-        $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+        $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $countries = getACountry($pdo, $_GET['countryiso']);
 
 
@@ -28,7 +28,7 @@ function generateCountryDetails(){
 
 function generateCities(){
     if(isset($_GET['countryiso'])){
-        $pdo = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
+        $pdo = setConnectionInfo(DBCONNECTION,DBUSER,DBPASS);
         $city = getAllCitiesInCountry($pdo, $_GET['countryiso']);
 
         echo "<h3>Cities</h3>";
@@ -46,7 +46,7 @@ function generateContinents(){
     echo "<select name='continent' id='continent' placeholder='Search By Continent'>";
     echo "<option value=''>Filter By Continent</option>";
 
-    $continents= getContinents(setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS));
+    $continents= getContinents(setConnectionInfo(DBCONNECTION,DBUSER,DBPASS));
     foreach($continents as $continent){
         echo "<option value='{$continent['ContinentCode']}'>{$continent['ContinentName']}</option>";
     }

@@ -3,7 +3,6 @@
 require_once 'database/helper-functions.inc.php';
 
 if (isset($_GET["id"])) {
-    echo "i have an id";
     $id = $_GET["id"];
     if($id != 0){
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
@@ -36,8 +35,7 @@ if (isset($_GET["id"])) {
                                 echo "<span style=\"background-color: " . $c . "\">" . $c . "</span>";
                             }
                 echo "  </div>";
-            }
-echo "html starts";                    
+            }                  
 ?>
     <!DOCTYPE html>
     <html>

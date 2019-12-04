@@ -9,10 +9,10 @@ header('Content-Type: application/json');
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $image = getSingleImage(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS), $id);
+    $image = getSingleImage(setConnectionInfo(DBCONNECTION, DBUSER, DBPASS), $id);
 }
 else{
-    $image = getAllImages(setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS));
+    $image = getAllImages(setConnectionInfo(DBCONNECTION, DBUSER, DBPASS));
 }
 
 echo json_encode($image, JSON_PRETTY_PRINT+JSON_NUMERIC_CHECK);

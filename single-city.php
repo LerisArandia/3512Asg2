@@ -11,7 +11,7 @@ function generateCityDetails($city){
 
 if(isset($_GET['citycode'])){
     $cityCode = $_GET['citycode'];
-    $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+    $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
     $results = getACity($pdo, $cityCode);
 
 
