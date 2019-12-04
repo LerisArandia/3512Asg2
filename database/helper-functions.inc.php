@@ -39,16 +39,13 @@ function allImageSql(){
 
 function getCountriesWithImagesSql(){
     $sql =  getCountrySql() . " INNER JOIN imagedetails ON countries.ISO = imagedetails.CountryCodeISO GROUP BY countries.ISO";
-<<<<<<< HEAD
-=======
     // echo $sql;
     return $sql;
 }
 
 function getCitiesWithImagesSql(){
-    $sql = citySql() . " INNER JOIN imagedetails ON cities.CityCode = imagedetails.CityCode";
+    $sql = citySql() . " INNER JOIN imagedetails ON cities.CityCode = imagedetails.CityCode GROUP BY imagedetails.CityCode";
     // echo $sql;
->>>>>>> ralph
     return $sql;
 }
 
@@ -77,8 +74,6 @@ function getCountriesWithImages($connection){
     }
 }
 
-<<<<<<< HEAD
-=======
 function getCitiesWithImages($connection){
     try{
         $result = runQuery($connection, getCitiesWithImagesSql(), null);
@@ -90,7 +85,6 @@ function getCitiesWithImages($connection){
 }
 
 
->>>>>>> ralph
 function getAllCountries($connection){
 
     try{

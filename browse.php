@@ -4,10 +4,10 @@
     $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
     $countries = getCountriesWithImages($pdo);
     $cities = getCitiesWithImages($pdo);
-    
+    sort($cities);
     echo "<option value=''>Countries</option>";
-    foreach ($countries as $c){
-        echo $c['ISO']. " ". $c['CountryName'] . "<br> ";
+    foreach ($cities as $c){
+        echo $c['CityCode']. " ". $c['AsciiName'] . "<br> ";
     }
     
     function display(){
@@ -48,19 +48,6 @@
             
             <form method=post action=browse.php>
             
-            <select name="cities" id="cityList">
-            
-                <option value="" >Cities</option>
-                <option value="AF">Africa</option>
-                <option value="AN">Antarctica</option>
-                <option value="AS">Asia</option>
-                <option value="EU">Europe</option>
-                <option value="NA">North America</option>
-                <option value="OC">Oceania</option>
-                <option value="SA">South America</option>
-            </select>
-
-
             <select name="countries" id="countryList">
                 <option value="" >Countries</option>
                 <?php
@@ -69,6 +56,19 @@
                     }
                 ?>
             </select>
+
+            <select name="cities" id="cityList">
+                
+                <option value="" >Cities</option>
+                <?php
+                    foreach($cities as $city){
+                        echo 'option value="' .$c['CityCode']. '">'. $city['AsciiName'] . '</option>';
+                    }
+                ?>
+            </select>
+
+
+            
 
 
             <input type="checkbox" class="searchImage" name="countryImages" value="countryImgs">
