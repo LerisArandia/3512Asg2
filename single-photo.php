@@ -5,7 +5,7 @@ require_once 'database/helper-functions.inc.php';
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
     if($id != 0){
-        $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+        $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $image = getSingleImage($pdo, $id);
         foreach($image as $i){
             $exifArray = json_decode($i['Exif'], true);
@@ -35,8 +35,8 @@ if (isset($_GET["id"])) {
                                 echo "<span style=\"background-color: " . $c . "\">" . $c . "</span>";
                             }
                 echo "  </div>";
-            }                    
-    ?>
+            }                  
+?>
     <!DOCTYPE html>
     <html>
 
@@ -115,5 +115,5 @@ if (isset($_GET["id"])) {
     <script src="js/template.js"></script>
     <script src="js/single-photo.js"></script>
     <!---Interactive Map--->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKSRi8PKjVcfWXCkYF7xFy_uT-P6pmUvg&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvRG7tyWWBJc3cGLMMfjYsAHFHM-dB7QA&callback=initMap"></script>
 </html>
