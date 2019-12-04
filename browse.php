@@ -5,14 +5,14 @@
     $countries = getCountriesWithImages($pdo);
     $cities = getCitiesWithImages($pdo);
     
-    echo "<option value=''>Countries</option>";
-    foreach ($countries as $c){
-        echo $c['ISO']. " ". $c['CountryName'] . "<br> ";
-    }
+    // echo "<option value=''>Countries</option>";
+    // foreach ($cities as $city){
+    //     echo  $city['AsciiName'] . "<br> ";
+    // }
     
     function display(){
-        if (isset($_POST['continents']) && $_POST['continents'] != ""){
-            echo 'Continent selected is: ' . $_POST['continents'];
+        if (isset($_GET['cities']) && $_GET['cities'] != ""){
+            echo 'Continent selected is: ' . $_GET['cities'];
         
         } 
         if (isset($_POST['countries']) && $_POST['countries'] != ""){
@@ -47,18 +47,16 @@
             
             <h3>Photo Filter</h3>
             
-            <form method=post action=browse.php>
+            <form method=get action=browse.php>
             
             <select name="cities" id="cityList">
-            
                 <option value="" >Cities</option>
-                <option value="AF">Africa</option>
-                <option value="AN">Antarctica</option>
-                <option value="AS">Asia</option>
-                <option value="EU">Europe</option>
-                <option value="NA">North America</option>
-                <option value="OC">Oceania</option>
-                <option value="SA">South America</option>
+                <?php
+                    foreach ($cities as $city)
+                    {
+                        echo '<option value="' . $city['CityCode'] . '">' . $city['AsciiName'] . '</option>';
+                    }
+                ?>
             </select>
 
 
@@ -66,7 +64,7 @@
                 <option value="" >Countries</option>
                 <?php
                     foreach($countries as $c){
-                    echo '<option value="' .$c[ISO] . '">' . $c['CountryName'] . '</option>'; 
+                    echo '<option value="' .$c['ISO'] . '">' . $c['CountryName'] . '</option>'; 
                     }
                 ?>
             </select>
@@ -75,7 +73,7 @@
             <input type="checkbox" class="searchImage" name="countryImages" value="countryImgs">
             <input type="text" class="search" name="textSearch" placeholder="Search by image name">
 
-            <input type='submit' value='post' />
+            <input type='submit' value='Submit' />
             </form>
             </div>
             
