@@ -1,7 +1,7 @@
 <?php
     require_once 'database/helper-functions.inc.php';
     
-    $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+    $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
     $countries = getCountriesWithImages($pdo);
     $cities = getCitiesWithImages($pdo);
     

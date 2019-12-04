@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         arrayToBeDisplayed.forEach(n => {
             let a = document.createElement("a");
             let br = document.createElement("br");
-            a.setAttribute("href", `./single-country.php?countryiso=${n.ISO}`);
+            a.setAttribute("href", `single-country.php?countryiso=${n.ISO}`);
             a.innerHTML = n.CountryName;
             a.append(br);
             results.appendChild(a);
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             matchingCountries.forEach(m => {
                 let a = document.createElement("a");
                 let br = document.createElement("br");
-                a.setAttribute("href", `/single-country.php?countryiso=${m.ISO}`);
+                a.setAttribute("href", `single-country.php?countryiso=${m.ISO}`);
                 a.innerHTML = m.CountryName;
                 a.append(br);
                 results.appendChild(a);
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             filteredContinents.forEach(c => {
                 let a = document.createElement("a");
                 let br = document.createElement("br");
-                a.setAttribute("href", `/single-country.php?countryiso=${c.ISO}`);
+                a.setAttribute("href", `single-country.php?countryiso=${c.ISO}`);
                 a.innerHTML = c.CountryName;
                 a.append(br);
                 countryListResults.appendChild(a);

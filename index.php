@@ -22,4 +22,5 @@
     </main>
 </body>
 <script src="js/template.js"></script>
+<script src="js/index-loggedOut.js"></script>
 </html>
