@@ -1,3 +1,8 @@
+<!-- 
+
+LERIS PLS OMG DO NOT FORGET TO HIDE FILTERS
+
+ -->
 <?php
 
 require_once 'database/helper-functions.inc.php';
@@ -86,7 +91,7 @@ function generateContinents(){
 
             <div id="mainContent">
                 <div class="details" id="countryDetails"><?php  generateCountryDetails(); ?>
-    </div>
+                </div>
                 <div id="cityList">
                     <?php generateCities(); ?>
                 </div>

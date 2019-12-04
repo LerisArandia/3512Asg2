@@ -13,9 +13,6 @@
     background-color: rgba(225, 245, 247, 0.664);
 }
 
-/* #mainContent{
-
-} */
 
 #mainContent > div{
     /* border: solid black 1px; */
@@ -35,10 +32,6 @@ form#filters{
     grid-gap: 0.5em;
     height: 100%;
 }
-
-/* form#filters *{
-    height: fit-content;
-} */
 
 #countryList{
     grid-row: 4/span 5;
@@ -86,6 +79,12 @@ form#filters{
     }
     .main div{
         padding: 1rem;
+    }
+    #countryList{
+        height: 10em;
+    }
+    .clearFilter{
+        height: 3em;
     }
 }
 @media only screen and (max-width: 1200px){
