@@ -4,12 +4,14 @@ require_once 'database/helper-functions.inc.php';
 
 function generateCityDetails($city){
     echo "<h2>{$city['AsciiName']}</h2>";
-    echo 
+    echo "<div id='cityPopulation'>Population: ".number_format($city['Population'])." residents</div>";
+    echo "<div id='cityElevation'>Elevation: {$city['Elevation']}</div>";
+    echo "<div id='cityTimeZone'>Time Zone: {$city['TimeZone']}</div>";
 }
 
 if(isset($_GET['citycode'])){
     $cityCode = $_GET['citycode'];
-    $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+    $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
     $results = getACity($pdo, $cityCode);
 
 
@@ -35,7 +37,10 @@ if(isset($_GET['citycode'])){
                 <div id="cityList">City List</div>
                 <div id="mainContent">
                     <div class="details" id="cityDetails"><?php generateCityDetails($city); ?></div>
-                    <div id="cityMap">City Map</div>
+                    <div id="cityMap">
+                        <img class="maps" id="mapImage"
+                        src="https://maps.googleapis.com/maps/api/staticmap?center=320,14&zoom=8&scale=1&size=600x400&maptype=roadmap&key=AIzaSyBAhEkdLdTVWcaBZVzD8LwGdtETG6HAFzI&format=jpg&visual_refresh=true">
+                    </div>
                     <div id="cityPhotos">City Photos</div>
                 </div>
             </div>
@@ -43,10 +48,6 @@ if(isset($_GET['citycode'])){
         </main>
     <?php
     } // end of for each
-
-    
-
-    
 
 }
 else{
@@ -57,7 +58,7 @@ else{
 ?>
 </body>
     <script src="js/template.js"></script>
-    <script src="js/single-country.js"></script>
+    <!-- <script src="js/single-country.js"></script> -->
     </html>
 
 
