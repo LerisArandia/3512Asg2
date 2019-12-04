@@ -3,6 +3,10 @@
 LERIS PLS OMG DO NOT FORGET TO HIDE FILTERS
 
  -->
+LERIS OH MY GOD DONT FORGET TO HIDE FILTERS WOEJDKMSL,Q
+
+ -->
+
 <?php
 
 require_once 'database/helper-functions.inc.php';
