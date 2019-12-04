@@ -1,45 +1,78 @@
-<html>
+<?php
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Page</title>
+require_once 'database/helper-functions.inc.php';
 
-    <link rel="stylesheet" href="css/template.css">
-    <link rel="stylesheet" href="css/single-city.css"> <!-- has the same formatting as single country -->
-</head>
+function generateCityDetails($city){
+    echo "<h2>{$city['AsciiName']}</h2>";
+    echo "<div id='cityPopulation'>Population: ".number_format($city['Population'])." residents</div>";
+    echo "<div id='cityElevation'>Elevation: {$city['Elevation']}</div>";
+    echo "<div id='cityTimeZone'>Time Zone: {$city['TimeZone']}</div>";
+}
 
-<body>
-    <main class="container">
-        <div id="header">
-            <!-- insert logo here -->
-            <!--For Media Query Nav-->
-            <div id="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
+if(isset($_GET['citycode'])){
+    $cityCode = $_GET['citycode'];
+    $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+    $results = getACity($pdo, $cityCode);
+
+
+    foreach($results as $city){
+    ?>
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <?php 
+            $title = "City Page";
+            include "includes/head.php";
+        ?>
+        <link rel="stylesheet" href="css/single-city.css">
+    </head>
+
+    <body>
+        <main class="container">
+        <?php include "includes/navigation.php" ; ?>
+            <div class="main" id="main-cityPage">
+                <div id="cityFilters">City Filters</div>
+                <div id="cityList">City List</div>
+                <div id="mainContent">
+                    <div class="details" id="cityDetails"><?php generateCityDetails($city); ?></div>
+                    <div id="cityMap">
+                        <img class="maps" id="mapImage"
+                        src="https://maps.googleapis.com/maps/api/staticmap?center=320,14&zoom=8&scale=1&size=600x400&maptype=roadmap&key=AIzaSyBAhEkdLdTVWcaBZVzD8LwGdtETG6HAFzI&format=jpg&visual_refresh=true">
+                    </div>
+                    <div id="cityPhotos">City Photos</div>
+                </div>
             </div>
-            <ul id="navigation">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="browse.php">Browse/Search</a></li>
-                <li><a href="single-country.php">Countries</a></li>
-                <li><a href="single-city.php">Cities</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="signUp.php">Sign Up</a></li>
-            </ul>
-        </div>
-        <div class="main" id="main-cityPage">
-            <div id="cityFilters">City Filters</div>
-            <div id="cityList">City List</div>
-            <div id="mainContent">
-                <div id="cityDetails">City Details</div>
-                <div id="cityMap">City Map</div>
-                <div id="cityPhotos">City Photos</div>
-            </div>
-        </div>
 
-    </main>
+        </main>
+    <?php
+    } // end of for each
+
+}
+else{
+    echo "<h1>HEEEEYYYAAAAA</h1>";
+}
+
+
+?>
 </body>
-<script src="js/template.js"></script>
-</html>
+    <script src="js/template.js"></script>
+    <!-- <script src="js/single-country.js"></script> -->
+    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

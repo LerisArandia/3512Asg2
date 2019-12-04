@@ -3,6 +3,7 @@
     display: grid;
     grid-template-rows: repeat(8, 1fr);
     font-family: 'Quicksand', sans-serif;
+    font-size: 0.9em;
     height: 100%;
 }
 
@@ -11,8 +12,10 @@
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
-    background-color: lightgray;
+    background-color: rgb(240, 240, 240);
+    background-attachment: fixed;
     grid-row: 2/span 7;
+    height: 100%;
 }
 
 #header{
@@ -22,26 +25,22 @@
     background-color: rgb(56, 184, 216);
     color: white;
     padding-top: 0.5em;
+    padding-bottom: 1.5em;
     /* display: inline-block; */
     /* grid-template-rows: 1fr; */
 }
-#hamburger-menu {
+#burger {
     display: none;
     width: 20px;
     height: 15px;
-    padding: 10px;
+    padding-bottom: 10px;
     margin: 22px;
     position: relative;
     float:right;
 }
-#hamburger-menu span{
-    display: none;
-    background-color: white;
-    width: 20px;
-    height: 3px;
-    margin-bottom: 3px;
-    position: relative;
-    float: right;
+
+#burger:hover{
+    color: black;
 }
 
 #navigation{
@@ -54,6 +53,10 @@
 ul#navigation li{
     display: inline;
     float: left;
+}
+
+a{
+    text-decoration: none;
 }
 
 ul#navigation li a{
@@ -70,7 +73,7 @@ ul#navigation li a:hover{
     #header{
         padding: 0;
     }
-    #hamburger-menu, #hamburger-menu span{
+    #burger{
         display: block;
     }
     #navigation{

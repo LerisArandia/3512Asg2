@@ -1,19 +1,51 @@
 .main{
-    background-image: none;
-    display: grid;
-    grid-template:'1fr' '1fr' '1fr 1fr';
+    padding: 3em 25em 3em 25em;
+    background-color: azure;
+    background-image: url("../images/forest.jpg");
 }
+
+#content{   
+    display: grid;
+    grid-template: '1fr' '1fr' '1fr' '1fr 1fr';
+    justify-content: center;
+    align-content: center;
+    grid-gap: 1em;
+    /* background-color: rgb(172, 172, 172); */
+    padding: 2em;
+}
+
 
 #email, #password{
     grid-column: 1/span 2;
+    padding: 1em 5em 1em 5em;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+}
+
+#cancel{
+    grid-row-start: 4;
+    grid-column: 1/span 1;
+    padding: 1em 5em 1em 5em;
+    background-color: rgb(243, 243, 243);
+    border: none;
+    border-radius: 0.2em;
+}
+
+#cancel:hover{
+    background-color: rgb(255, 118, 118);
 }
 
 #login{
-    grid-row-start: 3;
-    grid-column: 1/span 1;
+    grid-row-start: 4;
+    grid-column: 2/span 1;
+    padding: 1em 5em 1em 5em;
+    background-color: rgb(169, 224, 201);
+    border: none;
+    border-radius: 0.2em;
 }
 
-#signup{
-    grid-row-start: 3;
-    grid-column: 2/span 1;
+#login:hover{
+    background-color: rgb(94, 172, 141);
 }
