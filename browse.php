@@ -2,10 +2,22 @@
     require_once 'database/helper-functions.inc.php';
     
     $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
-
+    $countries = getCountriesWithImages($pdo);
+    $cities = getCitiesWithImages($pdo);
+    
+    echo "<option value=''>Countries</option>";
+    foreach ($countries as $c){
+        echo $c['ISO']. " ". $c['CountryName'] . "<br> ";
+    }
+    
     function display(){
         if (isset($_POST['continents']) && $_POST['continents'] != ""){
             echo 'Continent selected is: ' . $_POST['continents'];
+        
+        } 
+        if (isset($_POST['countries']) && $_POST['countries'] != ""){
+            echo 'Continent selected is: ' . $_POST['countries'];
+            
         } 
 
         if (isset($_POST['textSearch']) && $_POST['textSearch'] != ""){
@@ -36,7 +48,8 @@
             
             <form method=post action=browse.php>
             
-            <select name="continents" id="continentList">
+            <select name="cities" id="cityList">
+            
                 <option value="" >Cities</option>
                 <option value="AF">Africa</option>
                 <option value="AN">Antarctica</option>
@@ -46,6 +59,18 @@
                 <option value="OC">Oceania</option>
                 <option value="SA">South America</option>
             </select>
+
+
+            <select name="countries" id="countryList">
+                <option value="" >Countries</option>
+                <?php
+                    foreach($countries as $c){
+                    echo '<option value="' .$c[ISO] . '">' . $c['CountryName'] . '</option>'; 
+                    }
+                ?>
+            </select>
+
+
             <input type="checkbox" class="searchImage" name="countryImages" value="countryImgs">
             <input type="text" class="search" name="textSearch" placeholder="Search by image name">
 
