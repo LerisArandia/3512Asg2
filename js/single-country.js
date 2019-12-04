@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function retrieveStorage(key) { return JSON.parse(localStorage.getItem(key)) || []; }
     function removeStorage(key) { localStorage.removeItem(key); }
 
-    // --------------------------------checking local storage for countries and city arrays-------------------------------- //
+    // --------------------------------checking local storage for countries array -------------------------------- //
 
     var countriesArray = retrieveStorage("countries");
 
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var countriesArray = [];
 
         // gets all countries
-        let allCountriesUrl = "./database/api-countries.php";
+        let allCountriesUrl = "/database/api-countries.php";
 
         fetch(allCountriesUrl)
             .then(response => response.json())
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         arrayToBeDisplayed.forEach(n => {
             let a = document.createElement("a");
             let br = document.createElement("br");
-            a.setAttribute("href", `single-country.php?countryiso=${n.ISO}`);
+            a.setAttribute("href", `https://localhost/3512Asg2/single-country.php?countryiso=${n.ISO}`);
             a.innerHTML = n.CountryName;
             a.append(br);
             results.appendChild(a);
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             matchingCountries.forEach(m => {
                 let a = document.createElement("a");
                 let br = document.createElement("br");
-                a.setAttribute("href", `single-country.php?countryiso=${m.ISO}`);
+                a.setAttribute("href", `/3512Asg2/single-country.php?countryiso=${m.ISO}`);
                 a.innerHTML = m.CountryName;
                 a.append(br);
                 results.appendChild(a);
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             filteredContinents.forEach(c => {
                 let a = document.createElement("a");
                 let br = document.createElement("br");
-                a.setAttribute("href", `single-country.php?countryiso=${c.ISO}`);
+                a.setAttribute("href", `/3512Asg2/single-country.php?countryiso=${c.ISO}`);
                 a.innerHTML = c.CountryName;
                 a.append(br);
                 countryListResults.appendChild(a);
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let countryListResults = document.querySelector("#countryList");
             countryListResults.textContent = "";
 
-            let countriesWithImage = "./database/api-countries.php?images=all";
+            let countriesWithImage = "/database/api-countries.php?images=all";
 
             fetch(countriesWithImage)
                 .then(response => response.json())

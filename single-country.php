@@ -74,7 +74,6 @@ function generateContinents(){
         include "includes/head.php";
     ?>
     <link rel="stylesheet" href="css/single-country.css">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     
 </head>
 

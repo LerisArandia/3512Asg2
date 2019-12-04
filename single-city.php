@@ -3,11 +3,7 @@
 require_once 'database/helper-functions.inc.php';
 
 function generateCityDetails($city){
-<<<<<<< HEAD
     echo "<h3>{$city['AsciiName']}</h3>";
-=======
-    echo "<h2>{$city['AsciiName']}</h2>";
->>>>>>> develop
     echo "<div id='cityPopulation'>Population: ".number_format($city['Population'])." residents</div>";
     echo "<div id='cityElevation'>Elevation: {$city['Elevation']}</div>";
     echo "<div id='cityTimeZone'>Time Zone: {$city['TimeZone']}</div>";
@@ -17,7 +13,7 @@ function generateContinentsCityPage(){
     echo "<select name='continentCityPage' id='continentCityPage' placeholder='Search By Continent'>";
     echo "<option value=''>Filter By Continent</option>";
 
-    $continents= getContinents(setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS));
+    $continents= getContinents(setConnectionInfo(DBCONNECTION,DBUSER,DBPASS));
     foreach($continents as $continent){
         echo "<option value='{$continent['ContinentCode']}'>{$continent['ContinentName']}</option>";
     }
@@ -67,14 +63,9 @@ if(isset($_GET['citycode'])){
                     <div class="details" id="cityDetails">
                         <?php generateCityDetails($city); ?>
                     </div>
-                    <div id="cityMap">City Map</div>
-                <div id="cityFilters">City Filters</div>
-                <div id="cityList">City List</div>
-                <div id="mainContent">
-                    <div class="details" id="cityDetails"><?php generateCityDetails($city); ?></div>
                     <div id="cityMap">
                         <img class="maps" id="mapImage"
-                        src="https://maps.googleapis.com/maps/api/staticmap?center=320,14&zoom=8&scale=1&size=600x400&maptype=roadmap&key=AIzaSyBAhEkdLdTVWcaBZVzD8LwGdtETG6HAFzI&format=jpg&visual_refresh=true">
+                        src="https://maps.googleapis.com/maps/api/staticmap?center=320,14&zoom=8&scale=1&size=375x375&maptype=roadmap&key=AIzaSyBAhEkdLdTVWcaBZVzD8LwGdtETG6HAFzI&format=jpg&visual_refresh=true">
                     </div>
                     <div id="cityPhotos">City Photos</div>
                 </div>
@@ -93,11 +84,8 @@ else{
 ?>
 </body>
     <script src="js/template.js"></script>
-<<<<<<< HEAD
+    <script src="js/single-country.js"></script>
     <script src="js/single-city.js"></script>
-=======
-    <!-- <script src="js/single-country.js"></script> -->
->>>>>>> develop
     </html>
 
 

@@ -1,5 +1,5 @@
 .main{
-    background-image: url("../images/aurora.jpg");
+    background-image: url("../images/peak.jpg");
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
