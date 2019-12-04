@@ -1,3 +1,9 @@
+<!-- 
+
+LERIS OH MY GOD DONT FORGET TO HIDE FILTERS WOEJDKMSL,Q
+
+ -->
+
 <?php
 
 require_once 'database/helper-functions.inc.php';
