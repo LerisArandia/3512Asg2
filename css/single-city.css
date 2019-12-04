@@ -1,34 +1,35 @@
 .main{
-    /* background-image: none; */
+    background-image: url("../images/aurora.jpg");
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    grid-gap: 2em;
-    padding: 2em;
+    grid-gap: 3em;
+    padding: 3em;
 }
 
-.main div{
-    background-color: rgb(180, 227, 255);
-    border-radius: 1em;
+.main > div{
+    border-radius: 0.2em;
     padding: 1em;
+    background-color: rgba(225, 245, 247, 0.664);
 }
 
-#mainContent div{
+
+#cityFilters{
+    grid-row: 1/span 3;
+    background-color: white;
+}
+
+#mainContent > div{
     /* border: solid black 1px; */
     background-color: white;
     border-radius: 1em;
     padding: 1em;
-}
-
-#cityFilters{
-    grid-row: 1/span 2;
-    background-color: white;
+    overflow: auto;
 }
 
 #cityList{
     grid-row: 3/span 6;
     background-color: white;
-
 }
 
 #mainContent{
@@ -43,12 +44,12 @@
 
 #cityDetails{
     grid-column: 1/span 3;
-    grid-row: 1/ span 2;
+    grid-row: 1/ span 1;
 }
 
 #cityMap{
     grid-column: 1/span 3;
-    grid-row: 3/ span 2;
+    grid-row: 2/ span 3;
 }
 
 #cityPhotos{
