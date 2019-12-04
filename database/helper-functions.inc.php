@@ -33,8 +33,22 @@ function allImageSql(){
 
 function getCountriesWithImagesSql(){
     $sql =  getCountrySql() . " INNER JOIN imagedetails ON countries.ISO = imagedetails.CountryCodeISO GROUP BY countries.ISO";
-    echo $sql;
     return $sql;
+}
+
+function getContinentSql(){
+    $sql = "SELECT ContinentCode, ContinentName, GeoNameId from continents";
+    return $sql;
+}
+
+function getContinents($connection){
+    try{
+        $result = runQuery($connection, getContinentSql(), null);
+        return $result;
+    }
+    catch (PDOException $e){
+        die( $e->getMessage() );
+    }
 }
 
 function getCountriesWithImages($connection){
@@ -46,7 +60,6 @@ function getCountriesWithImages($connection){
         die( $e->getMessage() );
     }
 }
-
 
 function getAllCountries($connection){
 
@@ -100,7 +113,6 @@ function getACity($connection, $cityCode){
     }
 
 }
-
 
 function getAllCitiesInCountry($connection, $iso){
 

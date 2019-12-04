@@ -13,6 +13,7 @@
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
     background-color: rgb(240, 240, 240);
+    background-attachment: fixed;
     grid-row: 2/span 7;
     height: 100%;
 }
