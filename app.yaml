@@ -4,10 +4,10 @@ api_version: 1
 env_variables:
   MYSQL_USER: "root"
   MYSQL_PASSWORD: "password"
-  MYSQL_DSN: mysql:dbname=travel;unix_socket=/cloudsql/comp3512asg2
+  MYSQL_DSN: mysql:dbname=travel;unix_socket=/cloudsql/comp-3512-asg-2-2019:us-central1:comp3512asg2
 
 beta_settings:
-  cloud_sql_instances: "comp3512asg2"
+  cloud_sql_instances: "comp-3512-asg-2-2019:us-central1:comp3512asg2"
 
 handlers:
 # Serve images as static resources
@@ -22,6 +22,9 @@ handlers:
 
   # Serve php scripts
 - url: /(.+\.php)$
+  script: \1
+
+- url: /(.+\.php)/(.*)
   script: \1
 
 - url: /.*

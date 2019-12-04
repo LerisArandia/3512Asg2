@@ -3,9 +3,10 @@
 require_once 'database/helper-functions.inc.php';
 
 if (isset($_GET["id"])) {
+    echo "i have an id";
     $id = $_GET["id"];
     if($id != 0){
-        $pdo = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+        $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $image = getSingleImage($pdo, $id);
         foreach($image as $i){
             $exifArray = json_decode($i['Exif'], true);
@@ -35,8 +36,9 @@ if (isset($_GET["id"])) {
                                 echo "<span style=\"background-color: " . $c . "\">" . $c . "</span>";
                             }
                 echo "  </div>";
-            }                    
-    ?>
+            }
+echo "html starts";                    
+?>
     <!DOCTYPE html>
     <html>
 
