@@ -59,7 +59,7 @@ if(isset($_GET['citycode'])){
 
 
     foreach($results as $city){
-    ?>
+    ?><!DOCTYPE html>
 
     <html>
 

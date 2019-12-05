@@ -15,10 +15,12 @@
         <div class="main">
             <div id="content">
                 <h2>LOGIN</h2>
-                <input type="text" id="email" placeholder="Email" name="email" required>
-                <input type="password" id="password" placeholder="Password" name="password" required>
-                <button type=button id="cancel">CANCEL</button>
-                <button type=button id="login">LOGIN</button>
+                <form id='loginForm' action='' method='post'>
+                    <input type="text" id="email" placeholder="Email" name="email" required>
+                    <input type="password" id="password" placeholder="Password" name="password" required>
+                    <button type=button id="cancel">CANCEL</button>
+                    <button type=submit id="login">LOGIN</button>
+                </form>
             </div>
         </div>
     </main>

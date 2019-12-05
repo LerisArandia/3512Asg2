@@ -36,8 +36,7 @@ if (isset($_GET["id"])) {
                             }
                 echo "  </div>";
             }                  
-?>
-    <!DOCTYPE html>
+?><!DOCTYPE html>
     <html>
 
     <head>

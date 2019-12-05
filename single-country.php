@@ -84,7 +84,7 @@ function generateCountryImages(){
     }
 }
 
-?>
+?><!DOCTYPE html>
 <html>
 
 <head>
