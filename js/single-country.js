@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         arrayToBeDisplayed.forEach(n => {
             let a = document.createElement("a");
             let br = document.createElement("br");
-            a.setAttribute("href", `https://localhost/3512Asg2/single-country.php?countryiso=${n.ISO}`);
+            a.setAttribute("href", `/3512Asg2/single-country.php?countryiso=${n.ISO}`);
             a.innerHTML = n.CountryName;
             a.append(br);
             results.appendChild(a);
