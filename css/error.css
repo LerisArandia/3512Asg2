@@ -34,3 +34,8 @@ ul#navigation li a:hover{
 ul#navigation li a:hover{
     color: black;
 }
+
+#logo{
+    margin-top: 1em;
+    width: 8em;
+}
