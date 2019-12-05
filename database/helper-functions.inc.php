@@ -20,11 +20,7 @@ function citySql(){
 }
 
 function getImageSql(){
-<<<<<<< HEAD
-    $sql = "SELECT Title, Description, i.CityCode, i.CountryCodeISO, i.Latitude, i.Longitude, AsciiName, CountryName , ContinentCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors 
-=======
     $sql = "SELECT ImageID, Title, Description, i.Latitude, i.Longitude, AsciiName, CountryName , ContinentCode, i.CountryCodeISO, i.CityCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors 
->>>>>>> ralph
             FROM imagedetails as i 
             INNER JOIN cities as city ON i.CityCode = city.CityCode
             INNER JOIN countries as c ON i.CountryCodeISO = c.ISO";
