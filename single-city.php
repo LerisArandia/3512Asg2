@@ -3,10 +3,53 @@
 require_once 'database/helper-functions.inc.php';
 
 function generateCityDetails($city){
-    echo "<h2>{$city['AsciiName']}</h2>";
+    echo "<h3>{$city['AsciiName']}</h3>";
     echo "<div id='cityPopulation'>Population: ".number_format($city['Population'])." residents</div>";
     echo "<div id='cityElevation'>Elevation: {$city['Elevation']}</div>";
     echo "<div id='cityTimeZone'>Time Zone: {$city['TimeZone']}</div>";
+}
+
+function generateContinentsCityPage(){
+    echo "<select name='continentCityPage' id='continentCityPage' placeholder='Search By Continent'>";
+    echo "<option value=''>Filter By Continent</option>";
+
+    $continents= getContinents(setConnectionInfo(DBCONNECTION,DBUSER,DBPASS));
+    foreach($continents as $continent){
+        echo "<option value='{$continent['ContinentCode']}'>{$continent['ContinentName']}</option>";
+    }
+
+    echo "</select>";
+}
+
+function generateMap($city){
+    $latitude = $city['Latitude'];
+    $longitude = $city['Longitude'];
+
+    $src = "https://maps.googleapis.com/maps/api/staticmap?center={$latitude},{$longitude}14&zoom=8&scale=1&size=390x310&maptype=roadmap&key=AIzaSyBAhEkdLdTVWcaBZVzD8LwGdtETG6HAFzI&format=jpg&visual_refresh=true";
+
+    echo "<img class='maps' id='mapImage' src={$src}>";
+}
+
+function generateCityImages($pdo, $city){
+    $citycode = $city['CityCode'];
+    $sql = allImageSql() . ' WHERE imagedetails.CityCode =' . $citycode;
+    $results = runQuery($pdo, $sql, $citycode);
+
+    if($results != null){
+
+        foreach($results as $photo){
+
+            echo "<a href='single-photo.php?id={$photo['ImageID']}'>
+                <picture>
+                <source media='(max-width: 800px)' srcset='images/square75/{$photo['Path']}'>
+                <img src='images/square150/{$photo['Path']}'>
+                </picture>
+                </a>";
+        }
+    }
+    else{
+        echo "<p>No images available for this city.</p>";
+    }
 }
 
 if(isset($_GET['citycode'])){
@@ -16,9 +59,8 @@ if(isset($_GET['citycode'])){
 
 
     foreach($results as $city){
-    ?>
+    ?><!DOCTYPE html>
 
-    <!DOCTYPE html>
     <html>
 
     <head>
@@ -30,18 +72,38 @@ if(isset($_GET['citycode'])){
     </head>
 
     <body>
+        <form id="filtersCountryCityPage">
+            <a href="" class="closebtn" id="close">&times;</a>
+            <input id="searchCountriesCityPage" type="text" placeholder="Search For Country">
+            <?php generateContinentsCityPage(); ?>                      
+            <div>
+                <input type="checkbox" id="imageCountryOnlyCityPage" name="imageCountry">Countries With Images Only
+            </div>
+            <button class="clearFilter" id="clearCountryCityPage">Clear All Country Filters</button>
+        </form>
         <main class="container">
         <?php include "includes/navigation.php" ; ?>
+        
             <div class="main" id="main-cityPage">
-                <div id="cityFilters">City Filters</div>
-                <div id="cityList">City List</div>
-                <div id="mainContent">
-                    <div class="details" id="cityDetails"><?php generateCityDetails($city); ?></div>
-                    <div id="cityMap">
-                        <img class="maps" id="mapImage"
-                        src="https://maps.googleapis.com/maps/api/staticmap?center=320,14&zoom=8&scale=1&size=600x400&maptype=roadmap&key=AIzaSyBAhEkdLdTVWcaBZVzD8LwGdtETG6HAFzI&format=jpg&visual_refresh=true">
+                <div id="filters">
+                    <p id="clickMe">Filter Countries</p>
+                </div>
+
+                
+                <div id="countryListCityPage">
+
+                </div>
+
+                <div id="mainContentCityPage">
+                    <div class="details" id="cityDetails">
+                        <?php generateCityDetails($city); ?>
                     </div>
-                    <div id="cityPhotos">City Photos</div>
+                    <div id="cityMap">
+                        <?php generateMap($city); ?>
+                    </div>
+                    <div id="cityPhotos">
+                        <?php generateCityImages($pdo, $city); ?>
+                    </div>
                 </div>
             </div>
 
@@ -51,14 +113,14 @@ if(isset($_GET['citycode'])){
 
 }
 else{
-    echo "<h1>HEEEEYYYAAAAA</h1>";
+    header('Location:error-page.php');
 }
 
 
 ?>
 </body>
     <script src="js/template.js"></script>
-    <!-- <script src="js/single-country.js"></script> -->
+    <script src="js/single-city.js"></script>
     </html>
 
 

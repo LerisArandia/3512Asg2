@@ -1,0 +1,36 @@
+body{
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#brokenImage{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  width: 12em;
+}
+
+#header{
+    background-color: rgb(255, 255, 255);
+    height: 2em;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2em;
+}
+
+ul#navigation li a{
+    color: rgb(0, 189, 236);
+}
+
+ul#navigation li{
+    margin-left: auto;
+}
+
+ul#navigation li a:hover{
+    background-color: rgb(164, 226, 255);
+}
+ul#navigation li a:hover{
+    color: black;
+}

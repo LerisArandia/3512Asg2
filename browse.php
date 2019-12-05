@@ -26,7 +26,7 @@
     }
     
    
-?>
+?><!DOCTYPE html>
 
 <html>
 <head>

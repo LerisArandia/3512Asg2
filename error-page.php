@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <?php 
+        $title = "Error: Page Not Found";
+        include "includes/head.php";
+    ?>
+    <link rel="stylesheet" href="css/error.css">
+</head>
+
+<body>
+
+<img id="brokenImage" src="images/broken.png"/>
+<h2>You found the Page Not Found Page.</h2>
+<p>Let's get you back on track!</p>
+
 <div id="header">
     <!-- insert logo here -->
     <!--For Media Query Nav-->
@@ -11,3 +27,14 @@
         <li><a href="signUp.php">Sign Up</a></li>
     </ul>
 </div>
+
+
+</body>
+
+
+
+
+
+
+
+</html>
