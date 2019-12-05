@@ -1,3 +1,11 @@
+<?php
+    include('database/config.inc.php');
+    session_start();
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,4 +31,5 @@
         </div>
     </main>
 <script src="js/template.js"></script>
+<script src="js/login.js"></script>
 </html>
