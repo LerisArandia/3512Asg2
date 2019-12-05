@@ -1,16 +1,81 @@
 .main{
     background-image: none;
+    background-color: rgba(238, 236, 236, 0.603);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    grid-gap: 2em;
     grid-template-rows: 1fr;
+    padding: 2em;
 }
 
-.main div{
-    border: solid black 1px;
+#photoFilter{
+    padding: 1em;
 }
 
-#results{
+#filters{
+    padding: 1em;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 0.5em;
+}
+
+.main > div{
+    background-color: rgba(220, 242, 252, 0.815);
+    border-radius: 1em;
+}
+
+#allResults{
     grid-column: 2/span 4;
+    overflow: auto;
+    display: grid;
+    grid-gap: 2em;
+    padding: 3em;
+}
+
+#singleResult{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1em;
+    padding: 1em;
+    background-color: white;
+    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
+}
+
+button{
+    height: 2em;
+    border: none;
+    border-radius: 1em;
+    background-color: rgb(22, 139, 139);
+    color:white;
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+button:hover{
+    background-color: rgb(111, 160, 160);
+}
+
+#singleResult button{
+    width: 75%;
+    margin-top: 1.5em;
+}
+
+#image{
+    grid-row: 1/span 3;
+}
+
+#imageTitle{
+    grid-row-start: 2;
+}
+
+#view, #fav{
+    grid-column: 3/span 1;
+    grid-row-start: 1;
+}
+
+#fav{
+    grid-row-start: 2;
 }
 
 @media only screen and (max-width: 800px){
