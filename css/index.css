@@ -12,8 +12,15 @@
     background-color: rgb(255, 255, 255);
 }
 
-input[name="searchPhotos"]{
+#textSearch{
     grid-column: 1/span 2;
+
+}
+
+input[name="textSearch"]{
+    grid-column: 1/span 2;
+    width: 100%;
+
     padding: 14px;
     border-radius: 10px;
     border: none;

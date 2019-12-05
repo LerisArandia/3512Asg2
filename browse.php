@@ -5,22 +5,28 @@ $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
 $allCountries = getCountriesWithImages($pdo);
 $allCities = getCitiesWithImages($pdo);
 $images = getAllImages($pdo);
-
+$imagesArray = array();
 // echo "<option value=''>Countries</option>";
 // foreach ($cities as $city){
 //     echo  $city['AsciiName'] . "<br> ";
 // }
 
+function filter(){
+
+}
 if (isset($_GET['cities']) && $_GET['cities'] != "") {
-    echo 'City selected is: ' . $_GET['cities'];
+    // echo 'City selected is: ' . $_GET['cities'];
     $cityID = $_GET['cities'];
     $cityImages = getCityImages($pdo, $cityID);
     $imagesArray = $cityImages;
+    
 } else if (isset($_GET['countries']) && $_GET['countries'] != "") {
-    echo 'Country selected is: ' . $_GET['countries'];
+    // echo 'Country selected is: ' . $_GET['countries'];
     $countryID = $_GET['countries'];
     $countryImages = getCountryImages($pdo, $countryID);
     $imagesArray = $countryImages;
+    
+
 } else if (isset($_GET['textSearch']) && $_GET['textSearch'] != "") {
     // echo 'Text entered is ' . $_GET['textSearch'];
     $string = $_GET['textSearch'];
@@ -28,23 +34,33 @@ if (isset($_GET['cities']) && $_GET['cities'] != "") {
 
 
     // https://tecadmin.net/check-string-contains-substring-in-php/
+    // finds matching input in any of the image titles
     foreach ($images as $i) {
         // echo $string . " - " . $i['Title'] . "<br>";
         if (strpos(strtolower($i['Title']), strtolower($string)) !== false) {
             $textSearchArray[] = $i;
-        }
+        } 
     }
     $imagesArray = $textSearchArray;
+
+   
 } else {
     $imagesArray = $images;
 }
 
+function removeFilter(){
+    if ((isset($_GET['cities']) && $_GET['cities'] != "") || 
+    (isset($_GET['countries']) && $_GET['countries'] != "") ||
+    (isset($_GET['textSearch']) && $_GET['textSearch'] != "")) {
+        echo "<button id='removeFilter' type='submit' value='Submit' class='button'>Remove Filter</button>";
+    }
+}
 
-function checkInput()
-{ }
-// foreach ($imagesArray as $i) {
-//     echo "<br>" . $i['CountryCodeISO'] . "<br>";
-// }
+function errorMessage($imagesArray){
+    if (count($imagesArray) == 0){
+        echo "Input does not match any title name. Please re-enter";
+    }
+}
 
 ?>
 
@@ -96,6 +112,7 @@ function checkInput()
                     <!-- Submit button -->
                     <button id="submitFilter" type='submit' value='Submit' class='button'>Filter</button>
 
+                    <?php removeFilter(); ?>
                 </form>
             </div>
 
@@ -103,12 +120,14 @@ function checkInput()
                 <h3>Browse/Search Results </h3>
 
                 <?php
+                
+                errorMessage($imagesArray);
                 foreach ($imagesArray as $i) {
                     echo "<div id='singleResult'>";
                     echo "<img id='image' src='images/medium640/" . $i['Path'] . "' width='150' height='150'>";
                     echo "<div id='imageTitle'>{$i['Title']}</div>";
                     echo "<br>";
-                    
+
                     echo "<a id='view' href='single-photo.php?id=" . $i['ImageID'] . "'>";
                     echo "<button> View </button>";
                     echo "</a>";
