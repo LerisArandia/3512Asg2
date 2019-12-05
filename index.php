@@ -17,7 +17,10 @@
                 <button type=button id="login">LOGIN</button>
                 <button type=button id="join">JOIN</button>
             <!-- </div> -->
-            <input type="search" name="searchPhotos" placeholder="SEARCH BOX FOR PHOTOS">
+
+            <form id="textSearch" method='get' action='browse.php?textSearch='>
+            <input type="search" name="textSearch" placeholder="SEARCH BOX FOR PHOTOS">
+            </form>
         </div>
     </main>
 </body>
