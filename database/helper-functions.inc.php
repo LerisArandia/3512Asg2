@@ -20,7 +20,7 @@ function citySql(){
 }
 
 function getImageSql(){
-    $sql = "SELECT Title, Description, i.Latitude, i.Longitude, AsciiName, CountryName , ContinentCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors 
+    $sql = "SELECT ImageID, Title, Description, i.Latitude, i.Longitude, AsciiName, CountryName , ContinentCode, i.CountryCodeISO, i.CityCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors 
             FROM imagedetails as i 
             INNER JOIN cities as city ON i.CityCode = city.CityCode
             INNER JOIN countries as c ON i.CountryCodeISO = c.ISO";
@@ -210,6 +210,30 @@ function getSingleImage($pdo, $id){
     try{
         $sql = getImageSql() . " WHERE ImageID='" . $id . "'";
         $result = runQuery($pdo, $sql, $id);
+
+        return $result;
+    }
+    catch(PDOException $e){
+        die($e->getMessage());
+    }
+}
+
+function getCityImages($pdo, $cityID){
+    try{
+        $sql = getImageSql() . " WHERE i.CityCode='" . $cityID . "'";
+        $result = runQuery($pdo, $sql, $cityID);
+
+        return $result;
+    }
+    catch(PDOException $e){
+        die($e->getMessage());
+    }
+}
+
+function getCountryImages($pdo, $countryID){
+    try{
+        $sql = getImageSql() . " WHERE i.CountryCodeISO='" . $countryID . "'";
+        $result = runQuery($pdo, $sql, $countryID);
 
         return $result;
     }
