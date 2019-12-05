@@ -5,6 +5,8 @@
     grid-template-rows: repeat(8, 1fr);
     grid-gap: 3em;
     padding: 3em;
+    height: 100%;
+    transition: margin-left .5s;
 }
 
 .main > div{
@@ -22,19 +24,38 @@
 }
 
 div#filters{
-    grid-row: 1/span 3;
+    grid-row: 1/span 2;
+    text-align: center;
+    text-justify: center;
+}
 
+p#clickMe{
+    padding: 0.5em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
+    cursor: pointer;
 }
 
 form#filtersCountryCityPage{
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0.5em;
-    height: 100%;
+    align-content: center;
+    /* height: 100%; */
 }
 
-div#cityList{
-    grid-row: 4/span 5;
+#filtersCountryCityPage *{
+    width: 100%;
+}
+
+div#countryListCityPage{
+    grid-row: 3/span 6;
+    overflow: auto;
+}
+
+#clearCountryCityPage{
+    height: 2em;
 }
 
 #mainContentCityPage{
@@ -60,12 +81,51 @@ div#cityList{
 #cityPhotos{
     grid-row: 1/ span 4;
     grid-column: 3 / span 2;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+#cityPhotos picture *{
+    
+    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
 }
 
 #searchCountriesCityPage, #continentCityPage{
     height: 2.5em;
     border-radius: 0.2em;
     border: none;
+}
+
+#fitersCountryCityPage #close {
+    position: absolute;
+    top: 0;
+    right: 1em;
+    font-size: 2em;
+    margin-left: 10em;
+}
+
+#filtersCountryCityPage {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5em;
+    justify-content: center;
+    height: 90%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgb(185, 185, 185); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 5em; /*Place content 60px from the top*/
+    padding-bottom: 5em;
+    transition: 0.5s;
+}
+
+#header{
+      transition: 0.5s;
 }
 
 @media only screen and (max-width: 800px){
@@ -77,10 +137,18 @@ div#cityList{
         overflow: auto;
         padding: 1rem;
     }
-    #countryListCityPage{
+    #countryListCityPage, #cityPhotos{
         height: 5em;
     }
     .clearFilter{
         height: 3em;
     }
+    #cityPhotos{
+        grid-template-columns: 1fr;
+    }
 }
+
+@media screen and (max-height: 450px) {
+    #filtersCountryCityPage {padding-top: 15px;}
+    #filtersCountryCityPage a {font-size: 18px;}
+  }

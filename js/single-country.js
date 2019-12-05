@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var countriesArray = [];
 
         // gets all countries
-        let allCountriesUrl = "/database/api-countries.php";
+        let allCountriesUrl = "/3512Asg2/database/api-countries.php";
 
         fetch(allCountriesUrl)
             .then(response => response.json())
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let countryListResults = document.querySelector("#countryList");
             countryListResults.textContent = "";
 
-            let countriesWithImage = "/database/api-countries.php?images=all";
+            let countriesWithImage = "/3512Asg2/database/api-countries.php?images=all";
 
             fetch(countriesWithImage)
                 .then(response => response.json())
@@ -158,5 +158,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 
+    document.querySelector("#close").addEventListener("click", closeNav);
+
+    document.querySelector("p#clickMe").addEventListener("click", openNav);
+
+
+    function openNav() {
+        document.getElementById("filters").style.width = "15em";
+        document.getElementById("main-countryPage").style.marginLeft = "15em";
+        document.getElementById("header").style.marginLeft = "15em";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+        document.getElementById("filters").style.width = "0em";
+        document.getElementById("main-countryPage").style.marginLeft = "0em";
+        document.getElementById("header").style.marginLeft = "0em";
+
+
+    }
 
 })

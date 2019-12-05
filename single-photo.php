@@ -107,7 +107,7 @@ if (isset($_GET["id"])) {
         echo "<h1>ERROR: IMAGE DOES NOT EXIST.</h1>";
     }
 } else {
-    echo "<h1>ERROR: PAGE DOES NOT EXIST.</h1>";
+    header('Location:error-page.php');
 }
 ?>
 
