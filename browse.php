@@ -68,7 +68,7 @@ function checkInput()
 
                 <h3>Photo Filter</h3>
 
-                <form method='get' name="filterForm" action='browse.php'>
+                <form id="filters" method='get' name="filterForm" action='browse.php'>
 
                     <select name="cities" id="cityList">
                         <option value="">Cities</option>
@@ -94,23 +94,27 @@ function checkInput()
                     <input type="text" class="search" name="textSearch" placeholder="Search by image name">
 
                     <!-- Submit button -->
-                    <button type='submit' value='Submit' class='button'>Filter</button>
+                    <button id="submitFilter" type='submit' value='Submit' class='button'>Filter</button>
 
                 </form>
             </div>
 
-            <div id="results">
+            <div id="allResults">
                 <h3>Browse/Search Results </h3>
 
                 <?php
                 foreach ($imagesArray as $i) {
-                    echo "<div>";
-                    echo "<img src='images/medium640/" . $i['Path'] . "' width='150' height='150'>";
-                    echo $i['Title'];
+                    echo "<div id='singleResult'>";
+                    echo "<img id='image' src='images/medium640/" . $i['Path'] . "' width='150' height='150'>";
+                    echo "<div id='imageTitle'>{$i['Title']}</div>";
                     echo "<br>";
                     
-                    echo "<a href='single-photo.php?id=" . $i['ImageID'] . "'>";
+                    echo "<a id='view' href='single-photo.php?id=" . $i['ImageID'] . "'>";
                     echo "<button> View </button>";
+                    echo "</a>";
+
+                    echo "<a id='fav' href=''>";
+                    echo "<button> Add To Favorites </button>";
                     echo "</a>";
 
                     echo "</div>";
