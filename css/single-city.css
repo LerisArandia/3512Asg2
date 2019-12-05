@@ -12,7 +12,7 @@
 .main > div{
     border-radius: 0.2em;
     padding: 1em;
-    background-color: rgba(225, 245, 247, 0.664);
+    background-color: rgba(225, 233, 247, 0.664);
 }
 
 #mainContentCityPage > div{
@@ -144,7 +144,11 @@ div#countryListCityPage{
         height: 3em;
     }
     #cityPhotos{
-        grid-template-columns: 1fr;
+        display: inline-flex;
+        /* grid-template-columns: repeat(4, 1fr); */
+        /* grid-template-rows: 1fr 1fr; */
+        /* grid-auto-flow: column; */
+        flex-flow: row;
     }
 }
 

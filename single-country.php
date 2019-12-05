@@ -68,7 +68,6 @@ function generateCountryImages(){
         $sql = allImageSql() . " WHERE imagedetails.CountryCodeISO ='". $countrycode."'";
         $results = runQuery($pdo, $sql, $countrycode);
 
-        echo '<h3>Country Images</h3>';
         foreach($results as $photo){
 
             echo "<a href='single-photo.php?id={$photo['ImageID']}'>

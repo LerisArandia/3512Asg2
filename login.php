@@ -15,7 +15,7 @@
         <div class="main">
             <div id="content">
                 <h2>LOGIN</h2>
-                <form id='loginForm' action='' method='post'>
+                <form id='loginForm' action='../includes/session.php' method='post'>
                     <input type="text" id="email" placeholder="Email" name="email" required>
                     <input type="password" id="password" placeholder="Password" name="password" required>
                     <button type=button id="cancel">CANCEL</button>
