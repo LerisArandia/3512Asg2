@@ -1,3 +1,12 @@
+<!-- 
+
+LERIS PLS OMG DO NOT FORGET TO HIDE FILTERS
+
+ https://www.w3schools.com/howto/howto_js_sidenav.asp
+LERIS OH MY GOD DONT FORGET TO HIDE FILTERS WOEJDKMSL,Q
+
+ -->
+
 <?php
 
 require_once 'database/helper-functions.inc.php';
@@ -6,7 +15,6 @@ function generateCountryDetails(){
     if(isset($_GET['countryiso'])){
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $countries = getACountry($pdo, $_GET['countryiso']);
-
 
         foreach($countries as $country){
             echo "<h3>{$country['CountryName']}</h3>";
@@ -22,7 +30,7 @@ function generateCountryDetails(){
         
     }
     else{
-        echo '<h2>Country Details</h2>';
+        echo '<h3>Country Details</h3>';
     }
 } 
 
@@ -38,7 +46,7 @@ function generateCities(){
         }
     }
     else{
-        echo '<h2>Cities</h2>';
+        echo '<h3>Cities</h3>';
     }
 }
 
@@ -50,13 +58,32 @@ function generateContinents(){
     foreach($continents as $continent){
         echo "<option value='{$continent['ContinentCode']}'>{$continent['ContinentName']}</option>";
     }
-
     echo "</select>";
 }
 
+function generateCountryImages(){
+    if(isset($_GET['countryiso'])){
+        $countrycode = $_GET['countryiso'];
+        $pdo = setConnectionInfo(DBCONNECTION,DBUSER,DBPASS);
+        $sql = allImageSql() . " WHERE imagedetails.CountryCodeISO ='". $countrycode."'";
+        $results = runQuery($pdo, $sql, $countrycode);
 
+        foreach($results as $photo){
 
-?>
+            echo "<a href='single-photo.php?id={$photo['ImageID']}'>
+                <picture>
+                <source media='(max-width: 800px)' srcset='images/square75/{$photo['Path']}'>
+                <img src='images/square150/{$photo['Path']}'>
+                </picture>
+                </a>";
+        }
+    }
+    else{
+        echo '<h3>Country Images</h3>';
+    }
+}
+
+?><!DOCTYPE html>
 <html>
 
 <head>
@@ -65,32 +92,35 @@ function generateContinents(){
         include "includes/head.php";
     ?>
     <link rel="stylesheet" href="css/single-country.css">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     
 </head>
 
 <body>
+        <form id="filters">
+            <a href="" class="closebtn" id="close">&times;</a>
+            <input id="searchCountries" type="text" placeholder="Search For Country">
+            <?php generateContinents(); ?>
+            <div>
+                <input type="checkbox" id="imageCountryOnly" name="imageCountry">Countries With Images Only
+            </div>
+            <button class="clearFilter" id="clearCountry">Clear All Country Filters</button>
+        </form>        
     <main class="container">
     <?php include "includes/navigation.php" ; ?>
         <div class="main" id="main-countryPage">
             <div id="countryFilters">
-                <form id="filters">
-                    <input id="searchCountries" type="text" placeholder="Search For Country">
-                        <?php generateContinents(); ?>
-                        <div><input type="checkbox" id="imageCountryOnly" name="imageCountry">Countries With Images Only</div>
-                        <button class="clearFilter" id="clearCountry">Clear All Country Filters</button>
-                </form>
+            <p id="clickMe">Filter Countries</p>
             </div>
 
             <div id="countryList"></div>
 
             <div id="mainContent">
                 <div class="details" id="countryDetails"><?php  generateCountryDetails(); ?>
-    </div>
+                </div>
                 <div id="cityList">
                     <?php generateCities(); ?>
                 </div>
-                <div id="countryPhotos">Country Photos</div>
+                <div id="countryPhotos"><?php generateCountryImages(); ?></div>
             </div>
         </div>
     </main>

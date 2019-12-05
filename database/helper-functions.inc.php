@@ -13,8 +13,14 @@ function getCitySql(){
     return $sql;
 }
 
+//specify country code iso
+function citySql(){
+    $sql = "SELECT cities.CityCode, AsciiName, cities.CountryCodeISO, cities.Latitude, cities.Longitude, cities.Population, Elevation, TimeZone FROM cities";
+    return $sql;
+}
+
 function getImageSql(){
-    $sql = "SELECT Title, Description, i.Latitude, i.Longitude, AsciiName, CountryName , ContinentCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors 
+    $sql = "SELECT ImageID, Title, Description, i.Latitude, i.Longitude, AsciiName, CountryName , ContinentCode, i.CountryCodeISO, i.CityCode, Path, Exif, ActualCreator, CreatorURL, SourceURL, Colors 
             FROM imagedetails as i 
             INNER JOIN cities as city ON i.CityCode = city.CityCode
             INNER JOIN countries as c ON i.CountryCodeISO = c.ISO";
@@ -33,6 +39,13 @@ function allImageSql(){
 
 function getCountriesWithImagesSql(){
     $sql =  getCountrySql() . " INNER JOIN imagedetails ON countries.ISO = imagedetails.CountryCodeISO GROUP BY countries.ISO";
+    // echo $sql;
+    return $sql;
+}
+
+function getCitiesWithImagesSql(){
+    $sql = citySql() . " INNER JOIN imagedetails ON cities.CityCode = imagedetails.CityCode GROUP BY cities.AsciiName ORDER BY cities.AsciiName ";
+    // echo $sql;
     return $sql;
 }
 
@@ -60,6 +73,17 @@ function getCountriesWithImages($connection){
         die( $e->getMessage() );
     }
 }
+
+function getCitiesWithImages($connection){
+    try{
+        $result = runQuery($connection, getCitiesWithImagesSql(), null);
+        return $result;
+    }
+    catch (PDOException $e){
+        die( $e->getMessage() );
+    }
+}
+
 
 function getAllCountries($connection){
 
@@ -186,6 +210,30 @@ function getSingleImage($pdo, $id){
     try{
         $sql = getImageSql() . " WHERE ImageID='" . $id . "'";
         $result = runQuery($pdo, $sql, $id);
+
+        return $result;
+    }
+    catch(PDOException $e){
+        die($e->getMessage());
+    }
+}
+
+function getCityImages($pdo, $cityID){
+    try{
+        $sql = getImageSql() . " WHERE i.CityCode='" . $cityID . "'";
+        $result = runQuery($pdo, $sql, $cityID);
+
+        return $result;
+    }
+    catch(PDOException $e){
+        die($e->getMessage());
+    }
+}
+
+function getCountryImages($pdo, $countryID){
+    try{
+        $sql = getImageSql() . " WHERE i.CountryCodeISO='" . $countryID . "'";
+        $result = runQuery($pdo, $sql, $countryID);
 
         return $result;
     }

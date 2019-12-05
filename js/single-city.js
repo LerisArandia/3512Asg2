@@ -1,38 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var countriesArray = [];
 
     function updateStorage(key, arrayName) { localStorage.setItem(key, JSON.stringify(arrayName)); }
     function retrieveStorage(key) { return JSON.parse(localStorage.getItem(key)) || []; }
     function removeStorage(key) { localStorage.removeItem(key); }
 
-    // --------------------------------checking local storage for countries array -------------------------------- //
-
-    var countriesArray = retrieveStorage("countries");
-
-    if (!retrieveStorage("countries") || retrieveStorage("countries").length === 0) { fillCountriesArray() }
-    else {
-        displayCountryArray(countriesArray);
-    }
-
-
-    function fillCountriesArray() {
-        var countriesArray = [];
-
-        // gets all countries
-        let allCountriesUrl = "./database/api-countries.php";
-
-        fetch(allCountriesUrl)
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(d => countriesArray.push(d));
-                updateStorage("countries", countriesArray);
-                displayCountryArray(countriesArray);
-            })
-            .catch(error => console.log(error));
-    }
+    var countriesArray = retrieveStorage('countries');
+    var countriesWithImagesArray = retrieveStorage('imageCountries');
+    displayCountryArray(countriesArray);
 
     function displayCountryArray(arrayToBeDisplayed) {
-        let results = document.querySelector("#countryList");
+        let results = document.querySelector("#countryListCityPage");
         results.innerHTML = "";
 
         arrayToBeDisplayed = sortArrayByName(arrayToBeDisplayed);
@@ -40,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         arrayToBeDisplayed.forEach(n => {
             let a = document.createElement("a");
             let br = document.createElement("br");
-            a.setAttribute("href", `/single-country.php?countryiso=${n.ISO}`);
+            a.setAttribute("href", `https://localhost/3512Asg2/single-country.php?countryiso=${n.ISO}`);
             a.innerHTML = n.CountryName;
             a.append(br);
             results.appendChild(a);
@@ -59,29 +36,29 @@ document.addEventListener("DOMContentLoaded", function () {
         return array;
     }
 
-    // --------- EVENT HANDLER FOR SEARCH FOR COUNTRIES ---------- //
+    // ------------ Search for Country --------------- //
 
-    document.querySelector("#searchCountries").addEventListener("input", displaySearchResults);
+    document.querySelector("#searchCountriesCityPage").addEventListener("input", displaySearchResults);
     function displaySearchResults() {
 
         if (this.value.length >= 2) {
             const matchingCountries = findMatches(this.value, countriesArray);
             matchingCountries.sort();
 
-            let results = document.querySelector("#countryList");
+            let results = document.querySelector("#countryListCityPage");
             results.innerHTML = "";
 
             matchingCountries.forEach(m => {
                 let a = document.createElement("a");
                 let br = document.createElement("br");
-                a.setAttribute("href", `/single-country.php?countryiso=${m.ISO}`);
+                a.setAttribute("href", `/3512Asg2/single-country.php?countryiso=${m.ISO}`);
                 a.innerHTML = m.CountryName;
                 a.append(br);
                 results.appendChild(a);
             })
         }
         else {
-            document.querySelector("#countryList").innerHTML = "";
+            document.querySelector("#countryListCityPage").innerHTML = "";
             displayCountryArray(countriesArray);
         }
     }
@@ -93,18 +70,17 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-    // ------------------------------ EVENT HANDLER FOR CONTINENT DROPDOWN ------------------------------------ //
+    // ------- Search By Continent ------ //
 
-    let option = document.querySelector("select#continent");
+    let option = document.querySelector("select#continentCityPage");
     option.addEventListener("click", function (e) {
-        console.log(this.value);
         displayByContinent(this.value);
     });
 
     function displayByContinent(chosenContinent) {
         if (chosenContinent != "") {
 
-            let countryListResults = document.querySelector("#countryList");
+            let countryListResults = document.querySelector("#countryListCityPage");
             countryListResults.textContent = "";
 
             let filteredContinents = findContinents(chosenContinent, countriesArray);
@@ -113,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             filteredContinents.forEach(c => {
                 let a = document.createElement("a");
                 let br = document.createElement("br");
-                a.setAttribute("href", `/single-country.php?countryiso=${c.ISO}`);
+                a.setAttribute("href", `/3512Asg2/single-country.php?countryiso=${c.ISO}`);
                 a.innerHTML = c.CountryName;
                 a.append(br);
                 countryListResults.appendChild(a);
@@ -131,26 +107,17 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-    // ------------------------------ EVENT HANDLER FOR COUNTRIES WITH IMAGES ------------------------------------ //
 
-    var imageCountriesArray = [];
-    document.querySelector("#imageCountryOnly").addEventListener("click", function () {
+    // ------- Countries With Images Only ------ //
+
+    document.querySelector("#imageCountryOnlyCityPage").addEventListener("click", function () {
         if (this.checked) {
 
-            let countryListResults = document.querySelector("#countryList");
+            let countryListResults = document.querySelector("#countryListCityPage");
             countryListResults.textContent = "";
 
-            let countriesWithImage = "./database/api-countries.php?images=all";
+            displayCountryArray(countriesWithImagesArray);
 
-            fetch(countriesWithImage)
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(d => imageCountriesArray.push(d));
-
-                    updateStorage("imageCountries", imageCountriesArray);
-                    displayCountryArray(imageCountriesArray);
-                })
-                .catch(error => console.log(error));
         }
         else {
             countriesArray = retrieveStorage("countries");
@@ -158,24 +125,49 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 
+    // ------ Clear All Filters ------- //
+
+    document.querySelector('#clearCountryCityPage').addEventListener("click", function (e) {
+        e.preventDefault();
+        let search = document.querySelector("#searchCountriesCityPage");
+        search.value = "";
+
+        let selectList = document.querySelector("select#continentCityPage");
+        selectList.value = "";
+
+        let clearButton = document.querySelector("#imageCountryOnlyCityPage");
+        clearButton.checked = false;
+
+        let countryListResults = document.querySelector("#countryListCityPage");
+        countryListResults.textContent = "";
+
+        displayCountryArray(countriesArray);
+
+
+    })
+
+    /* Set the width of the side navigation to 250px */
+
     document.querySelector("#close").addEventListener("click", closeNav);
 
     document.querySelector("p#clickMe").addEventListener("click", openNav);
 
 
     function openNav() {
-        document.getElementById("filters").style.width = "15em";
-        document.getElementById("main-countryPage").style.marginLeft = "15em";
+        console.log("help");
+        document.getElementById("filtersCountryCityPage").style.width = "15em";
+        document.getElementById("main-cityPage").style.marginLeft = "15em";
         document.getElementById("header").style.marginLeft = "15em";
     }
 
     /* Set the width of the side navigation to 0 */
     function closeNav() {
-        document.getElementById("filters").style.width = "0em";
-        document.getElementById("main-countryPage").style.marginLeft = "0em";
+        document.getElementById("filtersCountryCityPage").style.width = "0em";
+        document.getElementById("main-cityPage").style.marginLeft = "0em";
         document.getElementById("header").style.marginLeft = "0em";
-
-
     }
+
+
+
 
 })

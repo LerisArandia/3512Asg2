@@ -1,3 +1,9 @@
+<!-- 
+
+change city and country links PL ES
+
+ -->
+
 <?php
 
 require_once 'database/helper-functions.inc.php';
@@ -26,8 +32,8 @@ if (isset($_GET["id"])) {
                                 if($i['SourceURL'] == ""){
                                     $i['SourceURL'] = "NONE";
                                 }
-                                echo "<b>Actual Creator:</b>" . $i['ActualCreator'] . "<br>";
-                                echo "<b>Creator:</b> " . $i['CreatorURL'] . " <br>";
+                                echo "<b>Actual Creator: </b>" . $i['ActualCreator'] . "<br>";
+                                echo "<b>Creator: </b> " . $i['CreatorURL'] . " <br>";
                                 echo "<b>Source:</b> " . $i['SourceURL'] . " <br>";
                 echo "  </div>
                         <div class=\"spvcolors\">";
@@ -36,8 +42,7 @@ if (isset($_GET["id"])) {
                             }
                 echo "  </div>";
             }                  
-?>
-    <!DOCTYPE html>
+?><!DOCTYPE html>
     <html>
 
     <head>
@@ -69,7 +74,7 @@ if (isset($_GET["id"])) {
                 <div id="spvNames">
                     <h2 id="photoTitle"><?php echo $i['Title']; ?></h2>
                     <h3 id="photoUser"><?php echo $i['ActualCreator']; ?></h3>
-                    <h3 id="photoLocation"><?php echo $i['AsciiName'] . ', ' . $i['CountryName']; ?></h3>
+                    <h3 id="photoLocation"><?php echo "<a href='single-city.php?citycode={$i['CityCode']}'>{$i['AsciiName']}</a>, <a href='single-country.php?countryiso={$i['CountryCodeISO']}'>{$i['CountryName']}</a>" ?></h3>
 
                     <div class="spvButtons">
                         <button type="button" id="addFavorite">Add to favourites</button>
@@ -107,7 +112,7 @@ if (isset($_GET["id"])) {
         echo "<h1>ERROR: IMAGE DOES NOT EXIST.</h1>";
     }
 } else {
-    echo "<h1>ERROR: PAGE DOES NOT EXIST.</h1>";
+    header('Location:error-page.php');
 }
 ?>
 
@@ -115,5 +120,5 @@ if (isset($_GET["id"])) {
     <script src="js/template.js"></script>
     <script src="js/single-photo.js"></script>
     <!---Interactive Map--->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKSRi8PKjVcfWXCkYF7xFy_uT-P6pmUvg&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvRG7tyWWBJc3cGLMMfjYsAHFHM-dB7QA&callback=initMap"></script>
 </html>

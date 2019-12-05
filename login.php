@@ -1,3 +1,11 @@
+<?php
+    include('database/config.inc.php');
+    session_start();
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +23,15 @@
         <div class="main">
             <div id="content">
                 <h2>LOGIN</h2>
-                <input type="text" id="email" placeholder="Email" name="email" required>
-                <input type="password" id="password" placeholder="Password" name="password" required>
-                <button type=button id="cancel">CANCEL</button>
-                <button type=button id="login">LOGIN</button>
+                <form id='loginForm' action='../includes/session.php' method='post'>
+                    <input type="text" id="email" placeholder="Email" name="email" required>
+                    <input type="password" id="password" placeholder="Password" name="password" required>
+                    <button type=button id="cancel">CANCEL</button>
+                    <button type=submit id="login">LOGIN</button>
+                </form>
             </div>
         </div>
     </main>
 <script src="js/template.js"></script>
+<script src="js/login.js"></script>
 </html>

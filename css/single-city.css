@@ -1,25 +1,21 @@
 .main{
-    background-image: url("../images/aurora.jpg");
+    background-image: url("../images/peak.jpg");
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
     grid-gap: 3em;
     padding: 3em;
+    height: 100%;
+    transition: margin-left .5s;
 }
 
 .main > div{
     border-radius: 0.2em;
     padding: 1em;
-    background-color: rgba(225, 245, 247, 0.664);
+    background-color: rgba(225, 233, 247, 0.664);
 }
 
-
-#cityFilters{
-    grid-row: 1/span 3;
-    background-color: white;
-}
-
-#mainContent > div{
+#mainContentCityPage > div{
     /* border: solid black 1px; */
     background-color: white;
     border-radius: 1em;
@@ -27,12 +23,42 @@
     overflow: auto;
 }
 
-#cityList{
-    grid-row: 3/span 6;
-    background-color: white;
+div#filters{
+    grid-row: 1/span 2;
+    text-align: center;
+    text-justify: center;
 }
 
-#mainContent{
+p#clickMe{
+    padding: 0.5em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
+    cursor: pointer;
+}
+
+form#filtersCountryCityPage{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5em;
+    align-content: center;
+    /* height: 100%; */
+}
+
+#filtersCountryCityPage *{
+    width: 100%;
+}
+
+div#countryListCityPage{
+    grid-row: 3/span 6;
+    overflow: auto;
+}
+
+#clearCountryCityPage{
+    height: 2em;
+}
+
+#mainContentCityPage{
     grid-column: 2/span 3;
     grid-row: 1/ span 8;
     display: grid;
@@ -43,15 +69,90 @@
 }
 
 #cityDetails{
-    grid-column: 1/span 3;
-    grid-row: 1/ span 1;
+    grid-column: 1/span 2;
+    /* grid-row: 1/ span 1; */
 }
 
 #cityMap{
-    grid-column: 1/span 3;
+    grid-column: 1/span 2;
     grid-row: 2/ span 3;
 }
 
 #cityPhotos{
     grid-row: 1/ span 4;
+    grid-column: 3 / span 2;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
 }
+
+#cityPhotos picture *{
+    
+    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
+}
+
+#searchCountriesCityPage, #continentCityPage{
+    height: 2.5em;
+    border-radius: 0.2em;
+    border: none;
+}
+
+#fitersCountryCityPage #close {
+    position: absolute;
+    top: 0;
+    right: 1em;
+    font-size: 2em;
+    margin-left: 10em;
+}
+
+#filtersCountryCityPage {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5em;
+    justify-content: center;
+    height: 90%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgb(185, 185, 185); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 5em; /*Place content 60px from the top*/
+    padding-bottom: 5em;
+    transition: 0.5s;
+}
+
+#header{
+      transition: 0.5s;
+}
+
+@media only screen and (max-width: 800px){
+    .main, #mainContentCityPage{
+        display: block;
+    }
+    .main div{
+        margin-bottom: 5px;
+        overflow: auto;
+        padding: 1rem;
+    }
+    #countryListCityPage, #cityPhotos{
+        height: 5em;
+    }
+    .clearFilter{
+        height: 3em;
+    }
+    #cityPhotos{
+        display: inline-flex;
+        /* grid-template-columns: repeat(4, 1fr); */
+        /* grid-template-rows: 1fr 1fr; */
+        /* grid-auto-flow: column; */
+        flex-flow: row;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    #filtersCountryCityPage {padding-top: 15px;}
+    #filtersCountryCityPage a {font-size: 18px;}
+  }
