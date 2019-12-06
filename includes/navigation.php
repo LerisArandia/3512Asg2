@@ -2,8 +2,8 @@
     <!-- insert logo here -->
     <!--For Media Query Nav-->
     <div id="burger">&#9776;</div>
+    <div id="logo"><a href="index.php"><img id="logo" src="../images/logo.png"></a></div>
     <ul id="navigation">
-        <li><img id="logo" src="../images/logo.png"></li>
         <li><a href="index.php">Home</a></li>
         <li><a href="about.php">About</a></li>
         <li><a href="browse.php">Browse/Search</a></li>
