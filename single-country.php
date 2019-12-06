@@ -71,8 +71,8 @@ function generateCountryImages(){
 
             echo "<a href='single-photo.php?id={$photo['ImageID']}'>
                 <picture>
-                <source media='(max-width: 800px)' srcset='images/square75/{$photo['Path']}'>
-                <img src='images/square150/{$photo['Path']}'>
+                <source media='(max-width: 800px)' srcset='images/square75/" . strtolower($photo['Path']) . "'>
+                <img src='images/square150/" . strtolower( $photo['Path']) . "'>
                 </picture>
                 </a>";
         }

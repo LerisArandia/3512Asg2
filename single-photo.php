@@ -11,7 +11,6 @@ require_once 'database/helper-functions.inc.php';
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
     if($id != 0){
-        echo "hello ";
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $image = getSingleImage($pdo, $id);
         foreach($image as $i){
@@ -113,7 +112,7 @@ if (isset($_GET["id"])) {
         echo "<h1>ERROR: IMAGE DOES NOT EXIST.</h1>";
     }
 } else {
-    header('Location:error-page.php');
+    header('Location:/error-page.php');
 }
 ?>
 

@@ -124,7 +124,7 @@ function errorMessage($imagesArray){
                 errorMessage($imagesArray);
                 foreach ($imagesArray as $i) {
                     echo "<div id='singleResult'>";
-                    echo "<img id='image' src='images/medium640/" . $i['Path'] . "' width='150' height='150'>";
+                    echo "<img id='image' src='images/medium640/" . strtolower($i['Path']) . "' width='150' height='150'>";
                     echo "<div id='imageTitle'>{$i['Title']}</div>";
                     echo "<br>";
 
