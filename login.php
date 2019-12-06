@@ -1,10 +1,10 @@
 <?php
-    include('database/config.inc.php');
-    session_start();
+    include('class_login.php');
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-
+    if(isset($_SESSION['login_user'])){
+        header("location: index-loggedin.php");
     }
+
 ?>
 <!DOCTYPE html>
 <html>
