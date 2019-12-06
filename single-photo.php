@@ -11,6 +11,7 @@ require_once 'database/helper-functions.inc.php';
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
     if($id != 0){
+        echo "hello ";
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $image = getSingleImage($pdo, $id);
         foreach($image as $i){

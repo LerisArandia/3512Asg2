@@ -38,9 +38,9 @@ function generateCities(){
     if(isset($_GET['countryiso'])){
         $pdo = setConnectionInfo(DBCONNECTION,DBUSER,DBPASS);
         $city = getAllCitiesInCountry($pdo, $_GET['countryiso']);
-
         echo "<h3>Cities</h3>";
         foreach($city as $c){
+            echo "<br>before city list";
             echo "<a href='single-city.php?citycode={$c['CityCode']}'>{$c['AsciiName']}</a>";
             echo "<br>";
         }
