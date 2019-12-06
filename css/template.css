@@ -57,7 +57,7 @@ html, body{
     list-style-type: none;
     /* display: inline; */
     /* flex-flow: row wrap; */
-    padding-right: 4rem;
+    padding-left: 4rem;
     grid-template-rows: 1fr;
 }
 
