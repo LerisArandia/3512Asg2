@@ -25,7 +25,7 @@
         <li><a href="single-country.php">Countries</a></li>
         <li><a href="login.php">Login</a></li>
         <li><a href="signUp.php">Sign Up</a></li>
-        <img src="images/logo.png" id="logo">
+        <a href="index.php"><img src="images/logo.png" id="logo"></a>
     </ul>
 </div>
 

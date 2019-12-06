@@ -1,7 +1,13 @@
 <?php
     require_once('database/config.inc.php');
     require_once('includes/session-functions.php');
-?> 
+    include('class_login.php');
+
+    if(isset($_SESSION['login_user'])){
+        header("location: index-loggedin.php");
+    }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -145,5 +145,5 @@ function errorMessage($imagesArray){
             </div>
         </div>
     </main>
-
+    <script src="js/template.js"></script>
 </html>
