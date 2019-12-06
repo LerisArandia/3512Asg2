@@ -42,7 +42,7 @@ if (isset($_GET['cities']) && $_GET['cities'] != "") {
         } 
     }
     $imagesArray = $textSearchArray;
-
+    $pdo=null;
    
 } else {
     $imagesArray = $images;

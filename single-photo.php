@@ -1,9 +1,3 @@
-<!-- 
-
-change city and country links PL ES
-
- -->
-
 <?php
 
 require_once 'database/helper-functions.inc.php';
@@ -111,6 +105,7 @@ if (isset($_GET["id"])) {
     }else{
         echo "<h1>ERROR: IMAGE DOES NOT EXIST.</h1>";
     }
+    $pdo=null;
 } else {
     header('Location:error-page.php');
 }

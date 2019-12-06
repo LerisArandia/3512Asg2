@@ -19,6 +19,7 @@ function generateContinentsCityPage(){
     }
 
     echo "</select>";
+    $pdo=null;
 }
 
 function generateMap($city){
@@ -50,6 +51,7 @@ function generateCityImages($pdo, $city){
     else{
         echo "<p>No images available for this city.</p>";
     }
+    $pdo=null;
 }
 
 if(isset($_GET['citycode'])){
@@ -110,7 +112,7 @@ if(isset($_GET['citycode'])){
         </main>
     <?php
     } // end of for each
-
+    $pdo=null;
 }
 else{
     header('Location:error-page.php');

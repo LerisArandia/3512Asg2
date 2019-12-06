@@ -16,7 +16,7 @@
 
 form#loginForm{
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1em;
 }
@@ -55,4 +55,11 @@ form#loginForm{
 
 #login:hover{
     background-color: rgb(94, 172, 141);
+}
+
+.error{
+    grid-row-start: 4;
+    grid-column: 1 / span 2;
+    background-color: rgb(255, 182, 182);
+    padding: 0.5em;
 }

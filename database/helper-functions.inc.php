@@ -54,6 +54,24 @@ function getContinentSql(){
     return $sql;
 }
 
+function getUserInfoSql(){
+    $sql = "SELECT UserID, UserName, Password, Salt FROM userslogin";
+    return $sql;
+}
+
+function getUserInfo($connection, $username){
+    try{
+        $sql = getUserInfoSql() . " WHERE UserName = '" . $username ."'";
+        $result = $connection->query($sql);
+        $userInfo = $result->fetch();
+        
+        return $userInfo;
+    }
+    catch(PDOException $e){
+        die( $e->getMessage());
+    }
+}
+
 function getContinents($connection){
     try{
         $result = runQuery($connection, getContinentSql(), null);

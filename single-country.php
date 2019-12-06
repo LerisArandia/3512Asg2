@@ -27,11 +27,12 @@ function generateCountryDetails(){
             echo "<div id='neighbours'>Neighbours: ".findNeighboringCountries($pdo, $country['Neighbours'])."</div>";
             echo "<div id='languages'>Languages: ".findLanguages($pdo, $country['Languages'])."</div>";
         }
-        
+        $pdo=null;
     }
     else{
         echo '<h3>Country Details</h3>';
     }
+    
 } 
 
 function generateCities(){
@@ -44,6 +45,7 @@ function generateCities(){
             echo "<a href='single-city.php?citycode={$c['CityCode']}'>{$c['AsciiName']}</a>";
             echo "<br>";
         }
+        $pdo=null;
     }
     else{
         echo '<h3>Cities</h3>';
@@ -59,6 +61,7 @@ function generateContinents(){
         echo "<option value='{$continent['ContinentCode']}'>{$continent['ContinentName']}</option>";
     }
     echo "</select>";
+    $pdo=null;
 }
 
 function generateCountryImages(){
@@ -77,6 +80,7 @@ function generateCountryImages(){
                 </picture>
                 </a>";
         }
+        $pdo=null;
     }
     else{
         echo '<h3>Country Images</h3>';

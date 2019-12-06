@@ -1,11 +1,7 @@
 <?php
-    include('database/config.inc.php');
-    session_start();
-
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    }
-?>
+    require_once('database/config.inc.php');
+    require_once('includes/session-functions.php');
+?> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +19,16 @@
         <div class="main">
             <div id="content">
                 <h2>LOGIN</h2>
-                <form id='loginForm' action='../includes/session.php' method='post'>
+                <form id='loginForm' action='load.php' method='post'>
+
+                <?php
+                    if(isset($login_status) && false == $login_status) : ?>
+
+                <div class="error">
+                        <p>Your username and/or password are incorrect. Please try again!</p>
+                </div>
+                    <?php endif; ?>
+
                     <input type="text" id="email" placeholder="Email" name="email" required>
                     <input type="password" id="password" placeholder="Password" name="password" required>
                     <button type=button id="cancel">CANCEL</button>
