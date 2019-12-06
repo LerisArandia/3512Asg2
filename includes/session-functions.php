@@ -23,11 +23,11 @@ class Login{
 
                 // STARTS SESSION AYYYY
                 $_SESSION['email'] = $username;
-                echo "<p>Passwords match</p>";
+                //echo "<p>Passwords match</p>";
                 return true;
             }
             else{
-                echo "<p>Passwords don't match</p>";
+                //echo "<p>Passwords don't match</p>";
                 return false;
             }
         }
@@ -51,12 +51,11 @@ class Login{
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $result = getUserInfo($pdo, $username);
 
-        if ($result != false){
-            echo"<p>I found something</p>";
-        }
-        else{
-            echo "<p>I FOUND NOTHING</p>";
-        }
+        // if ($result != false) {
+        //     echo "<p>I found something</p>";
+        // } else {
+        //     echo "<p>I FOUND NOTHING</p>";
+        // }
 
         return $result;
         $pdo=null;
@@ -65,7 +64,6 @@ class Login{
     private function checkPassword($enteredPassword, $dbPassword, $salt){
         $digest = password_hash( $enteredPassword, PASSWORD_BCRYPT, ['cost' => 12] );
         if (password_verify($enteredPassword, $dbPassword)) {
-
             return true;
         }
         else{
