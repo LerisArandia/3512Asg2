@@ -1,6 +1,6 @@
 <?php
     require_once('database/config.inc.php');
-    require_once('includes/session-functions.php');
+    // require_once('includes/session-functions.php');
 ?> 
 <!DOCTYPE html>
 <html>

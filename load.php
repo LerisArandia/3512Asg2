@@ -5,13 +5,6 @@ require_once('includes/session-functions.php');
 //handle logins
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$login_status = $login->verify_login($_POST['email'], $_POST['password']);
-
-	// if ($login_status == false){
-	// 	include('login.php');
-	// }
-	// else{
-	// 	include ('index.php');
-	// }
 }
 
 // verify session
@@ -23,6 +16,6 @@ else{
 	echo "<p>Session not verified</p>";
     include ('login.php');
 }
-
+ 
 
 ?>
