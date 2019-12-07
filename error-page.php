@@ -19,7 +19,7 @@
     <!-- insert logo here -->
     <!--For Media Query Nav-->
     <div id="burger">&#9776;</div>
-    <?php if (isset($_SESSION["id"])) { ?>
+    <?php if (isset($_SESSION["email"])) { ?>
         <ul id="navigation">
             <li><a href="index-loggedin.php">Home</a></li>
             <li><a href="about.php">About</a></li>

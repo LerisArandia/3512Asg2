@@ -13,7 +13,7 @@ $imagesArray = array();
 // }
 
 if(isset($_POST["fav"])){
-    if(isset($_SESSION['id'])){
+    if(isset($_SESSION['email'])){
 
     }else{
         header("Location: login.php");

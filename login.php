@@ -1,17 +1,12 @@
 <?php
     require_once('database/config.inc.php');
-<<<<<<< HEAD
-    // require_once('includes/session-functions.php');
-?> 
-=======
     require_once('includes/session-functions.php');
 
-    if(isset($_SESSION['id'])){
+    if(isset($_SESSION['email'])){
         header("location: index-loggedin.php");
     }
 
 ?>
->>>>>>> c3b3b64d2b50a77cf78f135f4a435d7432a0e07a
 <!DOCTYPE html>
 <html>
 
@@ -34,11 +29,10 @@
 
                 <?php
                     if(isset($login_status) && false == $login_status) : ?>
-
-                <div class="error">
+                    <div class="error">
                         <p>Your username and/or password are incorrect. Please try again!</p>
-                </div>
-                    <?php endif; ?>
+                    </div>
+                <?php endif; ?>
 
                     <input type="text" id="email" placeholder="Email" name="email" required>
                     <input type="password" id="password" placeholder="Password" name="password" required>

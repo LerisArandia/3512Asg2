@@ -72,7 +72,7 @@ if (isset($_GET["id"])) {
 
                     <?php
                         if(isset($_POST["favorite"])){
-                            if(isset($_SESSION['id'])){
+                            if(isset($_SESSION['email'])){
 
                             }else{
                                 header("Location: login.php");

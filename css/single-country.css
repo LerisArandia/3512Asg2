@@ -1,5 +1,5 @@
 .main{
-    background-image: url("../images/peak.jpg");
+    /* background-image: url("../images/peak.jpg"); */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
@@ -10,18 +10,18 @@
 .main > div{
     border-radius: 0.2em;
     padding: 1em;
-    background-color: rgba(225, 245, 247, 0.664);
+    background-color: rgba(180, 205, 219, 0.664);
 }
 
-#filters *{
+/* #filters *{
     width: 100%;
-}
+} */
 
 
 #mainContent > div{
     /* border: solid black 1px; */
     background-color: white;
-    border-radius: 1em;
+    border-radius: 0.2em;
     padding: 1em;
     overflow: auto;
 }
@@ -33,10 +33,14 @@ div#countryFilters{
 }
 p#clickMe{
     padding: 0.5em;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(46, 128, 153);
     border-radius: 1em;
-    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
+    box-shadow: 0.5em 0.5em 0.7em #575d66;
     cursor: pointer;
+    color: white;
+}
+p#clickMe:hover{
+    background-color: rgb(112, 204, 231);
 }
 
 form#filters{
@@ -73,6 +77,11 @@ form#filters{
     grid-row: 1/ span 2;
 }
 
+#countryDetails > div{
+    margin: 0.4em;
+    font-size: 0.9em;
+}
+
 #cityList{
     grid-column: 1/span 2;
     grid-row: 3/ span 2;
@@ -88,7 +97,6 @@ form#filters{
 }
 
 #countryPhotos picture *{
-    
     box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
 }
 
@@ -110,6 +118,7 @@ form#filters{
 
 #filters {
     display: grid;
+    justify-content: start;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0.5em;
     justify-content: center;
@@ -119,12 +128,13 @@ form#filters{
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: rgb(185, 185, 185); /* Black*/
+    background-color: rgb(94, 94, 94); /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 5em; /*Place content 60px from the top */
     padding-bottom: 5em;
     /* padding: 5em; */
     transition: 0.5s;
+    color: white;
 }
 
 @media only screen and (max-width: 800px){

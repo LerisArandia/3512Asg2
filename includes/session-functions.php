@@ -14,19 +14,17 @@ class Login{
 
         // finds username in "database"
         $user = $this->usernameExists($username);
-
         if ( false != $user){
             $matching = $this->checkPassword($password, $user['Password'], $user['Salt']);
             if($matching == true){ // matching passwords
-
-                // STARTS SESSION
+                
+                // assigns to session
                 $_SESSION['email'] = $username;
-                $_SESSION['id'] = $user['UserID'];
-                //echo "<p>Passwords match</p>";
+                $_SESSION['id'] = $user['UserID']; // careful
+                
                 return true;
             }
             else{
-                //echo "<p>Passwords don't match</p>";
                 return false;
             }
         }
@@ -34,15 +32,17 @@ class Login{
     }
 
     public function verify_session(){
-        $username = $_SESSION['email'];
-        
-        $user = $this->usernameExists($_SESSION['email']);
+        if(isset($_SESSION['email'])){
+           $username = $_SESSION['email'];
+            $user = $this->usernameExists($_SESSION['email']);
 
-        if ( false != $user){
-            $this->user = $user;
-            return true;
+            if ( false != $user){
+                $this->user = $user;
+                return true;
+            }
+ 
         }
-
+        
         return false;
     }
 
@@ -50,15 +50,6 @@ class Login{
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $result = getUserInfo($pdo, $username);
 
-<<<<<<< HEAD
-=======
-        // if ($result != false) {
-        //     echo "<p>I found something</p>";
-        // } else {
-        //     echo "<p>I FOUND NOTHING</p>";
-        // }
-
->>>>>>> c3b3b64d2b50a77cf78f135f4a435d7432a0e07a
         return $result;
         $pdo=null;
     }

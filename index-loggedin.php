@@ -16,9 +16,15 @@
             <div id="userInfo">
                 user info
             </div>
-            <div id="favoritedImages">Favorited Images</div>
-            <div id="search">search</div>
-            <div id="images">images</div>
+            <div id="favoritedImages">Favorited Images
+
+            </div>
+            <div id="search">search
+
+            </div>
+            <div id="images">images
+                
+            </div>
         </div>
     </main>
 </body>

@@ -75,7 +75,7 @@ if(isset($_GET['citycode'])){
 
     <body>
         <form id="filtersCountryCityPage">
-            <a href="" class="closebtn" id="close">&times;</a>
+            <a href="javascript:void(0)" class="closebtn" id="close">&times;</a>
             <input id="searchCountriesCityPage" type="text" placeholder="Search For Country">
             <?php generateContinentsCityPage(); ?>                      
             <div>

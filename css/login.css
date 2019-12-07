@@ -61,5 +61,5 @@ form#loginForm{
     grid-row-start: 4;
     grid-column: 1 / span 2;
     background-color: rgb(255, 182, 182);
-    padding: 0.5em;
+    padding: 0.2em;
 }

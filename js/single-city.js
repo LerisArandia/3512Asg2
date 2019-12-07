@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#searchCountriesCityPage").addEventListener("input", displaySearchResults);
     function displaySearchResults() {
 
-        if (this.value.length >= 2) {
+        if (this.value.length >= 1) {
             const matchingCountries = findMatches(this.value, countriesArray);
             matchingCountries.sort();
 
@@ -142,19 +142,15 @@ document.addEventListener("DOMContentLoaded", function () {
         countryListResults.textContent = "";
 
         displayCountryArray(countriesArray);
-
-
     })
 
-    /* Set the width of the side navigation to 250px */
+    // --------- Filter Sidebar ---------- //
+
 
     document.querySelector("#close").addEventListener("click", closeNav);
-
     document.querySelector("p#clickMe").addEventListener("click", openNav);
 
-
     function openNav() {
-        console.log("help");
         document.getElementById("filtersCountryCityPage").style.width = "15em";
         document.getElementById("main-cityPage").style.marginLeft = "15em";
         document.getElementById("header").style.marginLeft = "15em";

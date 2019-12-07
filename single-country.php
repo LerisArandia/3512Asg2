@@ -100,7 +100,7 @@ function generateCountryImages(){
 
 <body>
         <form id="filters">
-            <a href="" class="closebtn" id="close">&times;</a>
+            <a href="javascript:void(0)" class="closebtn" id="close">&times;</a>
             <input id="searchCountries" type="text" placeholder="Search For Country">
             <?php generateContinents(); ?>
             <div>
