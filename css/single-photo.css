@@ -66,12 +66,16 @@ margin-top: 1.5em;
     padding-top:1em;    
 }
 
-.spvButtons button{
+.spvButtons button, .spvButtons #addFavorite{
     background-color: rgb(167, 234, 243);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     padding: 10px
+}
+
+.spvButtons button:hover, .spvButtons #addFavorite:hover{
+    background-color:rgb(146, 190, 226);
 }
 
 /*Hover Box CSS*/

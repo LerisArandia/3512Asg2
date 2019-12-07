@@ -16,8 +16,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 // verify session
 if ($login->verify_session()){
-	$user = $login->user;
-	include ('index-loggedin.php');
+		$user = $login->user;
+
+	if(isset($_SESSION["id"])){
+		header('Location: index-loggedin.php');
+	}
 }
 else{
 	echo "<p>Session not verified</p>";

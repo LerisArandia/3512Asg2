@@ -1,6 +1,6 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <?php 
         $title = "Home - Logged in";
@@ -12,7 +12,6 @@
 <body>
     <main class="container">
     <?php include "includes/navigation.php" ; ?>
-        
         <div class="main " id="main-loggedin">
             <div id="userInfo">
                 user info

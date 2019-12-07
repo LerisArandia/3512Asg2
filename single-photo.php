@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once 'database/helper-functions.inc.php';
 
 if (isset($_GET["id"])) {
@@ -70,11 +70,20 @@ if (isset($_GET["id"])) {
                     <h3 id="photoUser"><?php echo $i['ActualCreator']; ?></h3>
                     <h3 id="photoLocation"><?php echo "<a href='single-city.php?citycode={$i['CityCode']}'>{$i['AsciiName']}</a>, <a href='single-country.php?countryiso={$i['CountryCodeISO']}'>{$i['CountryName']}</a>" ?></h3>
 
-                    <div class="spvButtons">
-                        <button type="button" id="addFavorite">Add to favourites</button>
-                    </div>
-                </div>
+                    <?php
+                        if(isset($_POST["favorite"])){
+                            if(isset($_SESSION['id'])){
 
+                            }else{
+                                header("Location: login.php");
+                            }
+                        }
+                    ?>
+
+                    <form class="spvButtons" method="post">
+                        <input type="submit" id="addFavorite" value="Add to Favourites" name="favorite"/>
+                    </form>
+                </div>
 
                 <div id="infoBox">
                     <!-- buttons for description, details and map -->

@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once 'database/helper-functions.inc.php';
 
 class Login{
@@ -8,8 +8,6 @@ class Login{
 
     public function _construct(){
         global $users;
-
-        session_start();
     }
 
     public function verify_login($username, $password){
@@ -21,8 +19,9 @@ class Login{
             $matching = $this->checkPassword($password, $user['Password'], $user['Salt']);
             if($matching == true){ // matching passwords
 
-                // STARTS SESSION AYYYY
+                // STARTS SESSION
                 $_SESSION['email'] = $username;
+                $_SESSION['id'] = $user['UserID'];
                 //echo "<p>Passwords match</p>";
                 return true;
             }
@@ -37,7 +36,7 @@ class Login{
     public function verify_session(){
         $username = $_SESSION['email'];
         
-        $user = $this->usernameExists($_POST['email']);
+        $user = $this->usernameExists($_SESSION['email']);
 
         if ( false != $user){
             $this->user = $user;
