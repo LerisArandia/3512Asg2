@@ -9,6 +9,7 @@
                 <li><a href="browse.php">Browse/Search</a></li>
                 <li><a href="single-country.php">Countries</a></li>
                 <li><a href="favorites.php">Favorites</a></li>
+                <li><a href="profile.php">Profile</a></li>
                 <li><a href="includes/logout.php">Logout</a></li>
             </ul>
     <?php }else{ ?>
