@@ -3,8 +3,8 @@
 <?php
 session_start();
 require_once 'database/helper-functions.inc.php';
-
-if (isset($_POST['submit'])){
+// require_once 'users.php';
+if (isset($_POST['submit'])) {
     $firstName = $_POST['fName'];
     $lastName = $_POST['lName'];
     $city = $_POST['city'];
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])){
     echo $password . "<br>";
     echo $confirmPW . "<br>";
 
-    if ($password != $confirmPW){
+    if ($password != $confirmPW) {
         echo "passwords dont match";
         // header("Location: signUp.php?pw=bad");
     } else {
@@ -30,35 +30,38 @@ if (isset($_POST['submit'])){
 
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $sql = "SELECT * FROM users WHERE Email=?";
-        $statement = runQuery($pdo, $sql,array($email));
+        $statement = runQuery($pdo, $sql, array($email));
         
-        if (count($statement) == 0){
-            //hashes the password using md5 with generated salt
-            $hashedPassword=password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-
-                    
-            // inserts customers log in info into the customers table
-            $sqlInsert = "INSERT INTO users (UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy) VALUES (? , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            //$sqlTest = "INSERT INTO userslogin (UserID, UserName, Password, Salt, Password_sha256) VALUES (?, ?, ?, ?, ?)";
+        if (count($statement)==0) {
             
+            //hashes the password using md5 with generated salt
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+
+            //THERES AN ERROR
+            // inserts users  into the users table
+            $sqlInsert = "INSERT INTO users (UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy) VALUES (? , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            // insert users log in info to userslogin table
+            $sqlLoginInsert = "INSERT INTO userslogin (UserID, UserName, Password, Salt, Password_sha256,State, DateJoined, DateLastModified,) VALUES (?, ?, ?, ?, ?, ?, ? , ?)";
+
 
             // INCREMENT USERID AND ADD LOGIN INFO IN USERSLOGIN TABLE
-            $parameters=array(60, $firstName, $lastName, null, $city, null, $country, null, null, $email, null);
-               
-            
-            $smt = runQuery($pdo, $sqlInsert, $parameters);
-            
+            $parameters1 = array(61, $firstName, $lastName, null, $city, null, $country, null, null, $email, null);
+            $parameters2 = array(61, $email, $hashedPassword, null, null, null, null, null);
 
-            $userData = getSingleUser($email);
+             $smt1 = runQuery($pdo, $sqlInsert, $parameters1);
+            $smt2 = runQuery($pdo, $sqlLoginInsert, $parameters2);
+
+            //$userData = getSingleUser($email);
+
+            echo "hello";
+        } else {
+            echo "false";
         }
     }
-} else{
+} else {
     header("Location: signUp.php?nothing=working");;
 }
 
 
 
 ?>
-
-
-

@@ -25,8 +25,8 @@ if (isset($_SESSION['email'])) {
                 <form id="registerForm" action="addSignup.php" method="post">
                     <input type="text" placeholder="First Name" name="fName" required>
                     <input type="text" placeholder="Last Name" name="lName" required>
-                    <input type="text" placeholder="City" name="city" required>
                     <input type="text" placeholder="Country" name="country" required>
+                    <input type="text" placeholder="City" name="city" required>
                     <input type="email" placeholder="Email" name="email" required>
                     <input type="password" placeholder="Password" name="password" required>
                     <input type="password" placeholder="Confirm Password" name="confirm" required>
