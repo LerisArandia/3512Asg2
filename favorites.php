@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +28,6 @@
             <div>6</div>
             <div>7</div>
             <div>8</div>
-
-
             </div>
             <!-- put images here -->
             

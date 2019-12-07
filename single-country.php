@@ -8,7 +8,7 @@ LERIS OH MY GOD DONT FORGET TO HIDE FILTERS WOEJDKMSL,Q
  -->
 
 <?php
-
+session_start();
 require_once 'database/helper-functions.inc.php';
 
 function generateCountryDetails(){
@@ -39,7 +39,6 @@ function generateCities(){
     if(isset($_GET['countryiso'])){
         $pdo = setConnectionInfo(DBCONNECTION,DBUSER,DBPASS);
         $city = getAllCitiesInCountry($pdo, $_GET['countryiso']);
-
         echo "<h3>Cities</h3>";
         foreach($city as $c){
             echo "<a href='single-city.php?citycode={$c['CityCode']}'>{$c['AsciiName']}</a>";
@@ -75,8 +74,8 @@ function generateCountryImages(){
 
             echo "<a href='single-photo.php?id={$photo['ImageID']}'>
                 <picture>
-                <source media='(max-width: 800px)' srcset='images/square75/{$photo['Path']}'>
-                <img src='images/square150/{$photo['Path']}'>
+                <source media='(max-width: 800px)' srcset='images/square75/" . strtolower($photo['Path']) . "'>
+                <img src='images/square150/" . strtolower( $photo['Path']) . "'>
                 </picture>
                 </a>";
         }

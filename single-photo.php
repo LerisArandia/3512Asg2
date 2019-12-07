@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once 'database/helper-functions.inc.php';
 
 if (isset($_GET["id"])) {
@@ -55,8 +55,8 @@ if (isset($_GET["id"])) {
                 <!-- put image in here -->
                 <div id="spvImg">
                     <picture>
-                        <source media="(max-width: 1250px)" srcset="images/medium640/<?php echo $i['Path']; ?>">
-                        <img src="images/medium800/<?php echo $i['Path'];?>" alt="<?php echo $id;?>" id = "singleImage">
+                        <source media="(max-width:1250px)" srcset="images/medium640/<?php echo strtolower($i['Path']); ?>">
+                        <img src="images/medium800/<?php echo strtolower($i['Path']);?>" alt="<?php echo $id;?>" id="singleImage">
                     </picture>
                 </div>
                 <div id="hoverBox">
@@ -70,11 +70,20 @@ if (isset($_GET["id"])) {
                     <h3 id="photoUser"><?php echo $i['ActualCreator']; ?></h3>
                     <h3 id="photoLocation"><?php echo "<a href='single-city.php?citycode={$i['CityCode']}'>{$i['AsciiName']}</a>, <a href='single-country.php?countryiso={$i['CountryCodeISO']}'>{$i['CountryName']}</a>" ?></h3>
 
-                    <div class="spvButtons">
-                        <button type="button" id="addFavorite">Add to favourites</button>
-                    </div>
-                </div>
+                    <?php
+                        if(isset($_POST["favorite"])){
+                            if(isset($_SESSION['id'])){
 
+                            }else{
+                                header("Location: login.php");
+                            }
+                        }
+                    ?>
+
+                    <form class="spvButtons" method="post">
+                        <input type="submit" id="addFavorite" value="Add to Favourites" name="favorite"/>
+                    </form>
+                </div>
 
                 <div id="infoBox">
                     <!-- buttons for description, details and map -->
@@ -107,7 +116,7 @@ if (isset($_GET["id"])) {
     }
     $pdo=null;
 } else {
-    header('Location:error-page.php');
+    header('Location:/error-page.php');
 }
 ?>
 

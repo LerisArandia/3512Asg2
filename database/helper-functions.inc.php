@@ -44,7 +44,7 @@ function getCountriesWithImagesSql(){
 }
 
 function getCitiesWithImagesSql(){
-    $sql = citySql() . " INNER JOIN imagedetails ON cities.CityCode = imagedetails.CityCode GROUP BY cities.AsciiName ORDER BY cities.AsciiName ";
+    $sql = citySql() . " INNER JOIN imagedetails ON cities.CityCode = imagedetails.CityCode GROUP BY cities.CityCode ORDER BY AsciiName";
     // echo $sql;
     return $sql;
 }
