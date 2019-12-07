@@ -1,4 +1,5 @@
 
+<!--  not used -->
 <?php 
 
 require_once 'database/helper-functions.inc.php';
@@ -10,7 +11,7 @@ $connection = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
 
 function getAllUsers($connection){
 try{
-    $sql = "select * from travel";
+    $sql = "SELECT UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy FROM users";
     $statement = $connection -> prepare($sql);
     $statement -> execute();
     
@@ -27,7 +28,7 @@ try{
 //Retrieves only the single user 
 function getSingleUser(){
     try{
-        $sql = "select * from users where last=?";
+        $sql = "SELECT UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy FROM users WHERE last=?";
         $connection = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $statement = $connection -> prepare($sql);
         $statement -> bindValue(1, $_GET['last']);
