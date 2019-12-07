@@ -22,6 +22,11 @@ html, body{
 }
 
 .main{
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+    display: grid;
     background-color: rgb(247, 247, 247);
     grid-row: 2/span 7;
     height: 100%;

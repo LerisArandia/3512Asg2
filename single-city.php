@@ -75,13 +75,15 @@ if(isset($_GET['citycode'])){
 
     <body>
         <form id="filtersCountryCityPage">
-            <a href="javascript:void(0)" class="closebtn" id="close">&times;</a>
-            <input id="searchCountriesCityPage" type="text" placeholder="Search For Country">
-            <?php generateContinentsCityPage(); ?>                      
             <div>
-                <input type="checkbox" id="imageCountryOnlyCityPage" name="imageCountry">Countries With Images Only
+                <a href="javascript:void(0)" class="closebtn" id="close">&times;</a>
+                <input id="searchCountriesCityPage" type="text" placeholder="Search For Country">
+                <?php generateContinentsCityPage(); ?>                      
+                <div>
+                    <input type="checkbox" id="imageCountryOnlyCityPage" name="imageCountry">Countries With Images Only
+                </div>
+                <button class="clearFilter" id="clearCountryCityPage">Clear All Country Filters</button>
             </div>
-            <button class="clearFilter" id="clearCountryCityPage">Clear All Country Filters</button>
         </form>
         <main class="container">
         <?php include "includes/navigation.php" ; ?>

@@ -1,10 +1,5 @@
 #main-loggedin{
     background-image: url("../images/ocean.jpg");
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-    background-attachment: fixed;
-    display: grid;
     grid-template-columns: 1fr 1fr; /*equally divides between two columns*/
     grid-template-rows: repeat(5, 1fr);
     grid-gap: 1em;
