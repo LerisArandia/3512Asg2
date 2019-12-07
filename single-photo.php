@@ -55,8 +55,8 @@ if (isset($_GET["id"])) {
                 <!-- put image in here -->
                 <div id="spvImg">
                     <picture>
-                        <source media="(max-width: 1250px)" srcset="images/medium640/<?php echo strtolower($i['Path']); ?>">
-                        <img src="images/medium800/<?php echo strtolower($i['Path']);?>" alt="<?php echo $id;?>" id = "singleImage">
+                        <source media="(max-width:1250px)" srcset="images/medium640/<?php echo strtolower($i['Path']); ?>">
+                        <img src="images/medium800/<?php echo strtolower($i['Path']);?>" alt="<?php echo $id;?>">
                     </picture>
                 </div>
                 <div id="hoverBox">
