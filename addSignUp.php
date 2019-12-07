@@ -43,7 +43,7 @@ if (isset($_POST['submit'])){
             
 
             // INCREMENT USERID AND ADD LOGIN INFO IN USERSLOGIN TABLE
-            $parameters=array(55, $firstName, $lastName, null, $city, null, $country, null, null, $email, null);
+            $parameters=array(60, $firstName, $lastName, null, $city, null, $country, null, null, $email, null);
                
             
             $smt = runQuery($pdo, $sqlInsert, $parameters);
