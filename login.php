@@ -1,14 +1,10 @@
 <?php
-<<<<<<< HEAD
     require_once('database/config.inc.php');
     require_once('includes/session-functions.php');
-    include('class_login.php');
 
     if(isset($_SESSION['login_user'])){
         header("location: index-loggedin.php");
     }
-=======
->>>>>>> ralph
 
 ?>
 <!DOCTYPE html>
@@ -29,7 +25,6 @@
         <div class="main">
             <div id="content">
                 <h2>LOGIN</h2>
-<<<<<<< HEAD
                 <form id='loginForm' action='load.php' method='post'>
 
                 <?php
@@ -41,11 +36,6 @@
                     <?php endif; ?>
 
                     <input type="text" id="email" placeholder="Email" name="email" required>
-=======
-                <form id='loginForm' action='checklogin.php' method='post'>
-
-                    <input type="email" id="email" placeholder="Email" name="email" required>
->>>>>>> ralph
                     <input type="password" id="password" placeholder="Password" name="password" required>
 
                     <button type=button id="cancel">CANCEL</button>

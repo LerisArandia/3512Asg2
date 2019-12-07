@@ -1,17 +1,9 @@
-<?php
-// starts the session
-session_start();
-// checks if the user is already logged in
-// this session was passed from parseLogin.php
-if (isset($_SESSION['email'])) {
-    // if the user is still logged in, must log out before being able to register again
-    header("Location: login.php");
+<?php 
+session_start(); 
+if (isset($_SESSION['id'])) {
+    header("location: index-loggedin.php");
 }
-
-
-
 ?>
-
 <!DOCTYPE html>
 <html>
 

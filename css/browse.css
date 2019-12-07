@@ -41,8 +41,7 @@
     background-color: white;
     box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
 }
-
-button{
+button, #addFavorite{
     height: 2em;
     border: none;
     border-radius: 1em;
@@ -52,11 +51,11 @@ button{
     padding: 0.5em;
 }
 
-button:hover{
+button:hover, #addFavorite:hover{
     background-color: rgb(111, 160, 160);
 }
 
-#singleResult button{
+#singleResult button, #addFavorite{
     width: 75%;
     margin-top: 1.5em;
 }
@@ -78,6 +77,11 @@ button:hover{
     grid-row-start: 2;
 }
 
+@media only screen and (max-width: 1200px){
+    #singleResult button, #addFavorite{
+        width: 100%;
+    }
+}
 @media only screen and (max-width: 800px){
     .main{
         display: block;
@@ -88,6 +92,11 @@ button:hover{
     .main div{
         padding: 1rem;
     }
-}
-@media only screen and (max-width: 1200px){
+    #singleResult{
+        display: block;
+        text-align: center;
+    }
+    #singleResult button, #addFavorite{
+        width: 80%;
+    }
 }

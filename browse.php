@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'database/helper-functions.inc.php';
 
 $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
@@ -11,8 +12,12 @@ $imagesArray = array();
 //     echo  $city['AsciiName'] . "<br> ";
 // }
 
-function filter(){
+if(isset($_POST["fav"])){
+    if(isset($_SESSION['id'])){
 
+    }else{
+        header("Location: login.php");
+    }
 }
 if (isset($_GET['cities']) && $_GET['cities'] != "") {
     // echo 'City selected is: ' . $_GET['cities'];
@@ -120,7 +125,6 @@ function errorMessage($imagesArray){
                 <h3>Browse/Search Results </h3>
 
                 <?php
-                
                 errorMessage($imagesArray);
                 foreach ($imagesArray as $i) {
                     echo "<div id='singleResult'>";
@@ -132,9 +136,9 @@ function errorMessage($imagesArray){
                     echo "<button> View </button>";
                     echo "</a>";
 
-                    echo "<a id='fav' href=''>";
-                    echo "<button> Add To Favorites </button>";
-                    echo "</a>";
+                    echo "<form id='fav' method='post'>";
+                    echo "<input type='submit' id='addFavorite' value='Add to Favourites' name='fav'/>";
+                    echo "</form>";
 
                     echo "</div>";
                 }

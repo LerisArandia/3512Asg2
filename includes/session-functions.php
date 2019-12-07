@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once 'database/helper-functions.inc.php';
 
 class Login{
@@ -8,8 +8,6 @@ class Login{
 
     public function _construct(){
         global $users;
-
-        session_start();
     }
 
     public function verify_login($username, $password){
@@ -21,13 +19,14 @@ class Login{
             $matching = $this->checkPassword($password, $user['Password'], $user['Salt']);
             if($matching == true){ // matching passwords
 
-                // STARTS SESSION AYYYY
+                // STARTS SESSION
                 $_SESSION['email'] = $username;
-                echo "<p>Passwords match</p>";
+                $_SESSION['id'] = $user['UserID'];
+                //echo "<p>Passwords match</p>";
                 return true;
             }
             else{
-                echo "<p>Passwords don't match</p>";
+                //echo "<p>Passwords don't match</p>";
                 return false;
             }
         }
@@ -37,7 +36,7 @@ class Login{
     public function verify_session(){
         $username = $_SESSION['email'];
         
-        $user = $this->usernameExists($_POST['email']);
+        $user = $this->usernameExists($_SESSION['email']);
 
         if ( false != $user){
             $this->user = $user;
@@ -51,12 +50,11 @@ class Login{
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $result = getUserInfo($pdo, $username);
 
-        if ($result != false){
-            echo"<p>I found something</p>";
-        }
-        else{
-            echo "<p>I FOUND NOTHING</p>";
-        }
+        // if ($result != false) {
+        //     echo "<p>I found something</p>";
+        // } else {
+        //     echo "<p>I FOUND NOTHING</p>";
+        // }
 
         return $result;
         $pdo=null;
@@ -65,7 +63,6 @@ class Login{
     private function checkPassword($enteredPassword, $dbPassword, $salt){
         $digest = password_hash( $enteredPassword, PASSWORD_BCRYPT, ['cost' => 12] );
         if (password_verify($enteredPassword, $dbPassword)) {
-
             return true;
         }
         else{
