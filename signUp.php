@@ -1,29 +1,44 @@
+<?php
+// starts the session
+session_start();
+// checks if the user is already logged in
+// this session was passed from parseLogin.php
+if (isset($_SESSION['email'])) {
+    // if the user is still logged in, must log out before being able to register again
+    header("Location: login.php");
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <?php 
-            $title = "Sign Up";
-            include "includes/head.php";
-        ?>
-        <link rel="stylesheet" href="css/signUp.css">
-    </head>
+
+<head>
+    <?php
+    $title = "Sign Up";
+    include "includes/head.php";
+    ?>
+    <link rel="stylesheet" href="css/signUp.css">
+</head>
 
 <body>
     <main class="container">
-    <?php include "includes/navigation.php" ; ?>
+        <?php include "includes/navigation.php"; ?>
 
         <div class="main">
             <h2>Create an Account</h2>
             <div id="register">
-                <form id="registerForm" action="php" method="post"> 
-                    <input type="text" placeholder="First Name" name="fName">
-                    <input type="text" placeholder="Last Name" name="lName">
-                    <input type="text" placeholder="City" name="city">
-                    <input type="text" placeholder="Country" name="country">
-                    <input type="text" placeholder="Email" name="email">
-                    <input type="text" placeholder="Password" name="password">
-                    <input type="text" placeholder="Confirm Password" name="confirm">
-                    <button id="signUp" type="submit">Sign Up</button>
+                <form id="registerForm" action="addSignup.php" method="post">
+                    <input type="text" placeholder="First Name" name="fName" required>
+                    <input type="text" placeholder="Last Name" name="lName" required>
+                    <input type="text" placeholder="City" name="city" required>
+                    <input type="text" placeholder="Country" name="country" required>
+                    <input type="email" placeholder="Email" name="email" required>
+                    <input type="password" placeholder="Password" name="password" required>
+                    <input type="password" placeholder="Confirm Password" name="confirm" required>
+                    <button id="signUp" type="submit" name='submit'>Sign Up</button>
                 </form>
 
             </div>
@@ -33,4 +48,5 @@
 
 </body>
 <script src="js/template.js"></script>
+
 </html>

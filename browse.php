@@ -42,7 +42,7 @@ if (isset($_GET['cities']) && $_GET['cities'] != "") {
         } 
     }
     $imagesArray = $textSearchArray;
-
+ 
    
 } else {
     $imagesArray = $images;
