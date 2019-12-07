@@ -5,6 +5,7 @@
     grid-template-rows: repeat(8, 1fr);
     grid-gap: 3em;
     padding: 3em;
+    transition: 0.5s;
 }
 
 .main > div{
@@ -100,36 +101,29 @@ div#countryListCityPage{
     border: none;
 }
 
-#fitersCountryCityPage #close {
-    position: absolute;
-    top: 0;
-    right: 1em;
-    font-size: 2em;
-    margin-left: 10em;
-}
-
 #filtersCountryCityPage {
-    display: grid;
-    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
-    grid-gap: 0.5em;
-    justify-content: center;
-    height: 90%; /* 100% Full-height */
+    height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: rgb(94, 94, 94); /* Black*/
+    background-color: rgb(94, 94, 94);
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 5em; /*Place content 60px from the top */
-    padding-bottom: 5em;
-    /* padding: 5em; */
+    padding-top: 2em; 
+    padding-bottom: 10em;
     transition: 0.5s;
     color: white;
 }
 
+#filtersCountryCityPage > div{
+    display: grid;
+    justify-content: space-around;
+    grid-gap: 1em;
+}
+
 #header{
-      transition: 0.5s;
+    transition: 0.5s;
 }
 
 @media only screen and (max-width: 800px){

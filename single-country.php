@@ -100,13 +100,15 @@ function generateCountryImages(){
 
 <body>
         <form id="filters">
-            <a href="javascript:void(0)" class="closebtn" id="close">&times;</a>
-            <input id="searchCountries" type="text" placeholder="Search For Country">
-            <?php generateContinents(); ?>
             <div>
-                <input type="checkbox" id="imageCountryOnly" name="imageCountry">Countries With Images Only
+                <a href="javascript:void(0)" class="closebtn" id="close">&times;</a>
+                <input id="searchCountries" type="text" placeholder="Search For Country">
+                <?php generateContinents(); ?>
+                <div>
+                    <input type="checkbox" id="imageCountryOnly" name="imageCountry">Countries With Images Only
+                </div>
+                <button class="clearFilter" id="clearCountry">Clear All Country Filters</button>
             </div>
-            <button class="clearFilter" id="clearCountry">Clear All Country Filters</button>
         </form>        
     <main class="container">
     <?php include "includes/navigation.php" ; ?>
