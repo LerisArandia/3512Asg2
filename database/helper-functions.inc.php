@@ -295,4 +295,21 @@ function getCountryImages($pdo, $countryID){
     }
 }
 
+
+function getlastUserIDSql(){
+    $sql = "SELECT UserID FROM users ORDER BY UserID DESC LIMIT 1";
+    echo $sql;
+    return $sql;
+}
+
+function getLastUserID($connection){
+    try{
+        $result = runQuery($connection, getlastUserIDSql(), null);
+        
+        return $result;
+    }
+    catch (PDOException $e){
+        die( $e->getMessage() );
+    }
+}
 ?>

@@ -70,7 +70,6 @@ function errorMessage($imagesArray){
 ?>
 
 <html>
-
 <head>
     <?php
     $title = "Search & Browse";
