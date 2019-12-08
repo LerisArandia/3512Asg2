@@ -1,6 +1,10 @@
 <?php
 session_start();
+
 require_once 'database/helper-functions.inc.php';
+include 'includes/addFavorite.php';
+include 'includes/removeFavorite.php';
+
 //Checks if session variable favorite exists.
 if(!isset($_SESSION['favorite'])){
     $_SESSION['favorite'] = array();
@@ -170,7 +174,7 @@ function errorMessage($imagesArray){
                         echo "<input type='submit' id='remove' value='Remove from Favorites' name='remove'/>";
                         echo "<input type='hidden' name='removeID' value='" . $i['ImageID'] . "'>"; 
                     }else{
-                        echo "<input type='submit' id='addFavorite' value='Add to Favorites' name='fav'/>";
+                        echo "<input type='submit' id='addFavorite' value='Add to Favorites' name='favorite'/>";
                         echo "<input type='hidden' name='saveID' value='" . $i['ImageID'] . "'>";
                     }
 
