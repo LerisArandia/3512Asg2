@@ -1,6 +1,40 @@
 <?php
 session_start();
 require_once 'database/helper-functions.inc.php';
+//Checks if session variable favorite exists.
+if(!isset($_SESSION['favorite'])){
+    $_SESSION['favorite'] = array();
+}
+
+/**********Adding to Favorites**********/
+if(isset($_POST["fav"])){
+    unset($_POST['fav']);
+    if(isset($_SESSION['email'])){
+        if(!in_array($_POST['saveID'], $_SESSION['favorite'])){
+            $_SESSION['favorite'][] = $_POST['saveID'];
+            unset($_POST['saveID']);
+            //var_dump($_SESSION);
+        }
+    }else{
+        unset($_POST['fav']);
+        header("Location: login.php"); 
+    }
+}
+if(isset($_POST["remove"])){
+    unset($_POST['remove']);
+    if(isset($_SESSION['email'])){
+        if(in_array($_POST['removeID'], $_SESSION['favorite'])){
+            $key = array_search($_POST['removeID'],$_SESSION['favorite']);
+            if($key!==false){
+                unset($_SESSION['favorite'][$key]);
+                $_SESSION['favorite'] = array_values($_SESSION['favorite']);
+                unset($_POST['removeID']);
+                //var_dump($_SESSION);
+                
+            }
+        }
+    }
+}
 
 $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
 $allCountries = getCountriesWithImages($pdo);
@@ -12,13 +46,6 @@ $imagesArray = array();
 //     echo  $city['AsciiName'] . "<br> ";
 // }
 
-if(isset($_POST["fav"])){
-    if(isset($_SESSION['email'])){
-
-    }else{
-        header("Location: login.php");
-    }
-}
 if (isset($_GET['cities']) && $_GET['cities'] != "") {
     // echo 'City selected is: ' . $_GET['cities'];
     $cityID = $_GET['cities'];
@@ -137,7 +164,16 @@ function errorMessage($imagesArray){
                     echo "</a>";
 
                     echo "<form id='fav' method='post'>";
-                    echo "<input type='submit' id='addFavorite' value='Add to Favourites' name='fav'/>";
+                    
+                    $key = array_search($i['ImageID'],$_SESSION['favorite']);
+                    if(in_array($i['ImageID'], $_SESSION['favorite']) && $key!==false){
+                        echo "<input type='submit' id='remove' value='Remove from Favorites' name='remove'/>";
+                        echo "<input type='hidden' name='removeID' value='" . $i['ImageID'] . "'>"; 
+                    }else{
+                        echo "<input type='submit' id='addFavorite' value='Add to Favorites' name='fav'/>";
+                        echo "<input type='hidden' name='saveID' value='" . $i['ImageID'] . "'>";
+                    }
+
                     echo "</form>";
 
                     echo "</div>";

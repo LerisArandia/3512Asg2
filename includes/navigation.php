@@ -1,7 +1,7 @@
 <div id="header">
     <!--For Media Query Nav-->
     <div id="burger">&#9776;</div>
-    <?php if (isset($_SESSION["id"])) { ?>
+    <?php if (isset($_SESSION["email"])) { ?>
         <div id="logo"><a href="index-loggedin.php"><img id="logo" src="../images/logo.png"></a></div>
             <ul id="navigation">
                 <li><a href="index-loggedin.php">Home</a></li>
