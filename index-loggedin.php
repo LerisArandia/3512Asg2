@@ -9,17 +9,18 @@
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $user = getUser($pdo, $userEmail);
         $pdo=null;
+        if(!isset($_SESSION['favorite'])){
+            $_SESSION['favorite'] = array();
+        }
+        else{
+            $favArray = $_SESSION['favorite'];
+        }
     }
     else{
         header('Location: login.php');
     }
 
-    if(!isset($_SESSION['favorite'])){
-        $_SESSION['favorite'] = array();
-    }
-    else{
-        $favArray = $_SESSION['favorite'];
-    }
+    
 
 
     function generateUserDetails($user){
@@ -108,7 +109,7 @@
             </div>
             <div id="favoritedImages">
                 <h3>Your Favorites</h3>
-                <?=displayFavorites($favArray);?>
+                <?=displayFavorites($_SESSION['favorite']);?>
             </div>
             
                 <form id="textSearch" method='get' action='browse.php?textSearch='>
@@ -117,7 +118,7 @@
             
             <div id="images">
                 <h3>Images You May Like</h3>
-                <?=generateImagesAlgorithm($favArray);?>
+                <?=generateImagesAlgorithm($_SESSION['favorite']);?>
             </div>
         </div>
     </main>
