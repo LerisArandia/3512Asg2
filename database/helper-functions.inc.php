@@ -303,6 +303,6 @@ function getAllUsers($connection){
     }
 }
 
-function getUser($connection){
+// function getUser($connection){
     
-}
+// }

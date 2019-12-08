@@ -29,27 +29,34 @@ if (isset($_POST['submit'])) {
         // header("Location: signUp.php?pw=good");
 
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
-        $sql = "SELECT * FROM users WHERE Email=?";
-        $statement = runQuery($pdo, $sql, array($email));
+        $sql = "SELECT * FROM users WHERE Email='" . $email . "'"; // had to put quotations around $email bc @ escapes it
+        $result = $pdo->query($sql);
+        $statement =  $result->fetch();
+        // $statement = runQuery($pdo, $sql, array($email));
+        // run query didnt work because of "fetchAll" because it doesnt fetch anything from db
         
-        if (count($statement)==0) {
+        if ( $statement != null) {
             
             //hashes the password using md5 with generated salt
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 
             //THERES AN ERROR
             // inserts users  into the users table
-            $sqlInsert = "INSERT INTO users (UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy) VALUES (? , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sqlInsert = "INSERT INTO users (UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy) VALUES (92, '$firstName', '$lastName', null, '$city', null, '$country', null, null, '$email', null)";
             // insert users log in info to userslogin table
-            $sqlLoginInsert = "INSERT INTO userslogin (UserID, UserName, Password, Salt, Password_sha256,State, DateJoined, DateLastModified,) VALUES (?, ?, ?, ?, ?, ?, ? , ?)";
-
+            $sqlLoginInsert = "INSERT INTO userslogin (UserID, UserName, Password, Salt, Password_sha256, State, DateJoined, DateLastModified) VALUES (92, '$email', '$hashedPassword', null, null, null, null, null)";
 
             // INCREMENT USERID AND ADD LOGIN INFO IN USERSLOGIN TABLE
-            $parameters1 = array(61, $firstName, $lastName, null, $city, null, $country, null, null, $email, null);
-            $parameters2 = array(61, $email, $hashedPassword, null, null, null, null, null);
+            // $parameters1 = array(60, $firstName, $lastName, null, $city, null, $country, null, null, $email, null);
+            // $parameters2 = array(60, $email, $hashedPassword, null, null, null, null, null);
 
-             $smt1 = runQuery($pdo, $sqlInsert, $parameters1);
-            $smt2 = runQuery($pdo, $sqlLoginInsert, $parameters2);
+
+            $pdo->exec($sqlInsert);
+            $pdo->exec($sqlLoginInsert);
+
+
+            // $smt1 = runQuery($pdo, $sqlInsert, $parameters1);
+            // $smt2 = runQuery($pdo, $sqlLoginInsert, $parameters2);
 
             //$userData = getSingleUser($email);
 
