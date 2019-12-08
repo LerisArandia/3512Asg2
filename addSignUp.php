@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
         // header("Location: signUp.php?pw=bad");
     } else {
 
-
+        //check if password is not 8 characters long
         if (strlen($password) < 8) {
             header("Location: signUp.php");
             $_SESSION["invalid"] = "Password does not 8  contain characters. Please re-enter a new one.";
@@ -111,7 +111,8 @@ if (isset($_POST['submit'])) {
     }
 } else {
     //just in case user somehow gets to addSignUp.php without pressing submit button
-    header("Location: signUp.php?error=submit");;
+    header("Location: signUp.php?error=submit");
+    $_SESSION["invalid"];
 }
 
 
