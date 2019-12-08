@@ -26,23 +26,23 @@ try{
 }
 
 //Retrieves only the single user 
-function getSingleUser(){
-    try{
-        $sql = "SELECT UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy FROM users WHERE last=?";
-        $connection = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
-        $statement = $connection -> prepare($sql);
-        $statement -> bindValue(1, $_GET['last']);
-        $statement -> execute();
-        while ($row = $statement -> fetch(PDO::FETCH_ASSOC)) {
-          $result = json_encode($row, JSON_PRETTY_PRINT);
-        }
-        return $result;
-        $connection = null;
+// function getSingleUser(){
+//     try{
+//         $sql = "SELECT UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy FROM users WHERE last=?";
+//         $connection = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
+//         $statement = $connection -> prepare($sql);
+//         $statement -> bindValue(1, $_GET['last']);
+//         $statement -> execute();
+//         while ($row = $statement -> fetch(PDO::FETCH_ASSOC)) {
+//           $result = json_encode($row, JSON_PRETTY_PRINT);
+//         }
+//         return $result;
+//         $connection = null;
         
-    }catch(PDOExeption $e){
-        die($e->getMessage());
-    }
-}
+//     }catch(PDOExeption $e){
+//         die($e->getMessage());
+//     }
+// }
 
 
 ?>

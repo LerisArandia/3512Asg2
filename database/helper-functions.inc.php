@@ -59,24 +59,6 @@ function getUserInfoSql(){
     return $sql;
 }
 
-function getUserDetailsSql(){
-    $sql = "SELECT users.Email, FirstName, LastName, City, Country FROM users";
-    return $sql;
-}
-
-function getUser($connection, $email){
-    try{
-        $sql = getUserDetailsSql() . " WHERE users.Email = '" . $email ."'";
-        $result = $connection->query($sql);
-        $user = $result->fetch();
-        
-        return $user;
-    }
-    catch(PDOException $e){
-        die( $e->getMessage());
-    }
-}
-
 function getUserInfo($connection, $username){
     try{
         $sql = getUserInfoSql() . " WHERE UserName = '" . $username ."'";
@@ -278,6 +260,7 @@ function getCountryImages($pdo, $countryID){
     }
 }
 
+<<<<<<< HEAD
 
 // USERS -----
 
@@ -306,3 +289,6 @@ function getAllUsers($connection){
 // function getUser($connection){
     
 // }
+=======
+?>
+>>>>>>> ralph
