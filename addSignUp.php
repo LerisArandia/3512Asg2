@@ -35,16 +35,16 @@ if (isset($_POST['submit'])) {
         // $statement = runQuery($pdo, $sql, array($email));
         // run query didnt work because of "fetchAll" because it doesnt fetch anything from db
         
-        if ( $statement != null) {
+        if ( $statement == null) {
             
             //hashes the password using md5 with generated salt
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 
             //THERES AN ERROR
             // inserts users  into the users table
-            $sqlInsert = "INSERT INTO users (UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy) VALUES (92, '$firstName', '$lastName', null, '$city', null, '$country', null, null, '$email', null)";
+            $sqlInsert = "INSERT INTO users (UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy) VALUES (93, '$firstName', '$lastName', null, '$city', null, '$country', null, null, '$email', null)";
             // insert users log in info to userslogin table
-            $sqlLoginInsert = "INSERT INTO userslogin (UserID, UserName, Password, Salt, Password_sha256, State, DateJoined, DateLastModified) VALUES (92, '$email', '$hashedPassword', null, null, null, null, null)";
+            $sqlLoginInsert = "INSERT INTO userslogin (UserID, UserName, Password, Salt, Password_sha256, State, DateJoined, DateLastModified) VALUES (93, '$email', '$hashedPassword', null, null, null, null, null)";
 
             // INCREMENT USERID AND ADD LOGIN INFO IN USERSLOGIN TABLE
             // $parameters1 = array(60, $firstName, $lastName, null, $city, null, $country, null, null, $email, null);
@@ -60,9 +60,9 @@ if (isset($_POST['submit'])) {
 
             //$userData = getSingleUser($email);
 
-            echo "hello";
+            echo "<br> added";
         } else {
-            echo "false";
+            echo "<br> did not add";
         }
     }
 } else {
