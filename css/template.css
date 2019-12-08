@@ -1,6 +1,8 @@
-html, body{
-    height: 100vh;
-}
+html, body { 
+    height: 100vh; 
+    margin: 0;
+    background-color: rgb(46, 128, 153);
+} 
 
 .container{
     font-size: 1em;
@@ -29,10 +31,11 @@ html *{
     background-size: cover; /* Resize the background image to cover the entire container */
     background-attachment: fixed;
    
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(46, 128, 153);
     
     grid-row: 2/span 7;
     height: 100%;
+    /* overflow: auto; */
 }
 
 #header{

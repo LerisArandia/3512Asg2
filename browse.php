@@ -17,7 +17,7 @@ if(isset($_POST["fav"])){
         }
     }else{
         unset($_POST['fav']);
-        header("Location: login.php"); 
+        header("Location: login.php");  
     }
 }
 if(isset($_POST["remove"])){

@@ -6,7 +6,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var countriesArray = retrieveStorage('countries');
     var countriesWithImagesArray = retrieveStorage('imageCountries');
-    displayCountryArray(countriesArray);
+    if (!retrieveStorage("countries") || retrieveStorage("countries").length === 0) { fillCountriesArray() }
+    else {
+        displayCountryArray(countriesArray);
+    }
+
+
+    function fillCountriesArray() {
+        var countriesArray = [];
+
+        // gets all countries
+        let allCountriesUrl = "./database/api-countries.php";
+
+        fetch(allCountriesUrl)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(d => countriesArray.push(d));
+                updateStorage("countries", countriesArray);
+                displayCountryArray(countriesArray);
+            })
+            .catch(error => console.log(error));
+    }
 
     function displayCountryArray(arrayToBeDisplayed) {
         let results = document.querySelector("#countryListCityPage");
@@ -109,6 +129,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ------- Countries With Images Only ------ //
+
+    var imageCountriesArray = [];
+    document.querySelector("#imageCountryOnlyCityPage").addEventListener("click", function () {
+        if (this.checked) {
+
+            let countryListResults = document.querySelector("#countryListCityPage");
+            countryListResults.textContent = "";
+
+            let countriesWithImage = "./database/api-countries.php?images=all";
+
+            fetch(countriesWithImage)
+                .then(response => response.json())
+                .then(data => {
+                    imageCountriesArray = [];
+                    data.forEach(d => imageCountriesArray.push(d));
+
+                    updateStorage("imageCountries", imageCountriesArray);
+                    displayCountryArray(imageCountriesArray);
+                })
+                .catch(error => console.log(error));
+        }
+        else {
+            countriesArray = retrieveStorage("countries");
+            displayCountryArray(countriesArray);
+        }
+    })
 
     document.querySelector("#imageCountryOnlyCityPage").addEventListener("click", function () {
         if (this.checked) {

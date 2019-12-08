@@ -12,9 +12,63 @@
         header('Location: login.php');
     }
 
+    if(!isset($_SESSION['favorite'])){
+        $_SESSION['favorite'] = array();
+    }
+    else{
+        $favArray = $_SESSION['favorite'];
+    }
+
+
     function generateUserDetails($user){
         echo "<div id='name'><b>{$user['FirstName']} {$user['LastName']}</b></div>";
         echo "<div id='location'>{$user['City']}, {$user['Country']}</div>";
+    }
+
+    function displayFavorites($favArray){
+        if($favArray != null || count($favArray) > 0){
+            foreach($favArray as $pictureID){
+                $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
+                $picture = getSingleImage($pdo, $pictureID);
+    
+                foreach($picture as $p){
+                    echo "<div>";
+                    echo "<a href='single-photo.php?id={$p['ImageID']}'><img src='images/square150/{$p['Path']}'></a>";
+                    echo "<p>{$p['Title']}</p>";
+                    echo "<form id='fav' method='post'>";
+                        echo "<input type='submit' class='remove' value='Remove from Favorites' name='remove'/>";
+                        echo "<input type='hidden' name='removeID' value='" . $p['ImageID'] . "'><br><br>"; 
+                    echo "</form>";
+                    
+                    echo "</div>";
+                }
+                $pdo=null;
+            }
+        }
+        else{
+            echo "<div id='error'>";
+            echo "<p>You currently have no favorites ...</p>";
+            echo "<p>Explore our gallery now!</p>";
+            echo "<a href='browse.php'><img id='smartphone' src='images/smartphone.png'></a>";
+            echo "</div>";
+        }
+    }
+
+    if(isset($_POST["remove"])){
+        unset($_POST["remove"]);
+        if(isset($_SESSION['email'])){
+    
+            if(in_array($_POST['removeID'], $_SESSION['favorite'])){
+                $key = array_search($_POST['removeID'],$_SESSION['favorite']);
+                if($key!==false){
+                    unset($_SESSION['favorite'][$key]);
+                    $_SESSION['favorite'] = array_values($_SESSION['favorite']);
+                    unset($_POST['removeID']);
+                    $favArray = $_SESSION['favorite'];             
+                }
+            }
+    
+        }
     }
 
 
@@ -39,7 +93,8 @@
                 <?=generateUserDetails($user)?>
             </div>
             <div id="favoritedImages">
-                <p>Your Favorites</p>
+                <h3>Your Favorites</h3>
+                <?=displayFavorites($favArray);?>
             </div>
             
                 <form id="textSearch" method='get' action='browse.php?textSearch='>

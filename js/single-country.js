@@ -145,6 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
             fetch(countriesWithImage)
                 .then(response => response.json())
                 .then(data => {
+                    imageCountriesArray = [];
                     data.forEach(d => imageCountriesArray.push(d));
 
                     updateStorage("imageCountries", imageCountriesArray);

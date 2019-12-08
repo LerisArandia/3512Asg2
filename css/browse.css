@@ -1,6 +1,6 @@
 .main{
     background-image: none;
-    background-color: rgba(238, 236, 236, 0.603);
+    background-color: rgb(46, 128, 153);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 2em;
@@ -40,7 +40,7 @@
     grid-gap: 1em;
     padding: 1em;
     background-color: white;
-    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
+    box-shadow: 0.5em 0.5em 0.7em #2c4d63;
 }
 button, #addFavorite{
     height: 2em;

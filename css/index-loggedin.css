@@ -8,15 +8,16 @@ div#main-loggedin{
 }
 
 #main-loggedin > div{
-    background-color: rgba(180, 205, 219, 0.664);
+    background-color: rgba(206, 227, 240, 0.664);
 
     border-radius: 0.5em;
 }
-#userInfo{
+div#userInfo{
     grid-row: 1/span 2;
     text-align: center;
     padding-top: 3em;
     padding-bottom: 3em;
+    background-color: rgb(233, 243, 255);
 }
 
 #search{
@@ -33,10 +34,9 @@ input[type='search']{
     width: 100%;
     padding: 1.5em;
     background-color: rgb(224, 237, 240);
-
     border: none;
     border-radius: 1em;
-    box-shadow: 0.5em 0.5em 0.7em #9498a0;
+    box-shadow: 0.5em 0.5em 0.7em #2c4d63;
 }
 input[type='search']:hover{
     background-color: rgb(157, 232, 255);
@@ -45,12 +45,48 @@ input[type='search']:hover{
 #userInfo #name{ font-size: 2.3em; }
 #userInfo #location{ font-size: 1.3em; }
 
-#favoritedImages{
+div#favoritedImages{
     grid-row: 3/span 3;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-around;
+    padding: 2em 7em 2em 7em;
+    text-align: center;
+    grid-gap: 2em;
 }
+
+#favoritedImages div{
+    background-color: rgb(236, 246, 255);
+    padding: 1em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+}
+
+#favoritedImages h3{
+    grid-column: 1/span 2;
+}
+
+#favoritedImages #error{
+    grid-column: 1/span 2;
+}
+
+#error #smartphone{
+    width: 3em;
+    box-shadow: 0.5em 0.5em 0.7em #2c4d63;
+    background-color: white;
+    padding: 1em;
+    border-radius: 1em;    
+    border: solid 3px rgb(0, 43, 124); 
+}
+#error #smartphone:hover{ border: solid 3px rgb(214, 91, 91); }
+
 #images{
     grid-row: 2/span 4;
 }
+
+
+
 @media only screen and (max-width: 800px){
     #main-loggedin{
         display: block;
