@@ -260,35 +260,4 @@ function getCountryImages($pdo, $countryID){
     }
 }
 
-<<<<<<< HEAD
-
-// USERS -----
-
-function getAllUsersSql(){
-    $sql = "SELECT UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy FROM users";
-    return $sql;
-}
-
-function singleUserSql($email){
-    $sql = getAllUsersSql() . "WHERE Email='" . $email ."'";
-    return $sql;
-}
-
-
-/// connect
-function getAllUsers($connection){
-    try{
-        $result = runQuery($connection, getAllUsersSql(), null);
-        return $result;
-    }
-    catch (PDOException $e){
-        die( $e->getMessage() );
-    }
-}
-
-// function getUser($connection){
-    
-// }
-=======
 ?>
->>>>>>> ralph
