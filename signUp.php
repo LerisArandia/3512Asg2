@@ -1,5 +1,6 @@
 <?php 
 session_start(); 
+//if user is already logged in then redirect them
 if (isset($_SESSION['email'])) {
     header("location: index-loggedin.php");
 }

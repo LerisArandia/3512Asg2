@@ -7,19 +7,25 @@ require_once 'database/helper-functions.inc.php';
 if (isset($_POST['submit'])) {
     $firstName = $_POST['fName'];
     $lastName = $_POST['lName'];
-    $city = $_POST['city'];
     $country = $_POST['country'];
+    $city = $_POST['city'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirmPW = $_POST['confirm'];
 
-    echo $firstName . "<br>";
-    echo $lastName . "<br>";
-    echo $city . "<br>";
-    echo $country . "<br>";
-    echo $email . "<br>";
-    echo $password . "<br>";
-    echo $confirmPW . "<br>";
+    //save form data when registration fails
+    $_SESSION["firstName"] = $firstName;
+    $_SESSION["lastName"] = $lastName;
+    $_SESSION["country"] = $country;
+    $_SESSION["city"] = $city;
+
+    // echo $firstName . "<br>";
+    // echo $lastName . "<br>";
+    // echo $city . "<br>";
+    // echo $country . "<br>";
+    // echo $email . "<br>";
+    // echo $password . "<br>";
+    // echo $confirmPW . "<br>";
 
 
     if ($password != $confirmPW) {
@@ -97,14 +103,15 @@ if (isset($_POST['submit'])) {
                 }
             } else {
                 //another user used that existing email
-                header("Location: signUp.php?email=error");
+                header("Location: signUp.php?error=email");
                 $_SESSION["invalid"] = "The email you entered is already taken. Please try a different one.";
                 exit();
             }
         }
     }
 } else {
-    header("Location: signUp.php?nothing=working");;
+    //just in case user somehow gets to addSignUp.php without pressing submit button
+    header("Location: signUp.php?error=submit");;
 }
 
 
