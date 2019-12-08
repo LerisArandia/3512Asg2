@@ -58,9 +58,10 @@ if (isset($_GET["id"])) {
     <body>
         <main class="container">
             <?php include "includes/navigation.php"; ?>
-
+            <!--Displays when favorites is added/deleted-->
+            <div id="changeFavorite"></div>
             <div class="main" id="singlePhotoView">
-                <!-- put image in here -->
+
                 <div id="spvImg">
                     <picture>
                         <source media="(max-width:1250px)" srcset="images/medium640/<?php echo strtolower($i['Path']); ?>">
@@ -78,17 +79,22 @@ if (isset($_GET["id"])) {
                     <h3 id="photoUser"><?php echo $i['ActualCreator']; ?></h3>
                     <h3 id="photoLocation"><?php echo "<a href='single-city.php?citycode={$i['CityCode']}'>{$i['AsciiName']}</a>, <a href='single-country.php?countryiso={$i['CountryCodeISO']}'>{$i['CountryName']}</a>" ?></h3>
                     
-                    <form class="spvButtons" method="post">
                     <?php
-                        if(in_array($i['ImageID'], $_SESSION['favorite'])){
-                            echo '<input type="submit" id="remove" value="Remove from Favorites" name="remove"/>';
-                            echo "<input type='hidden' name='removeID' value='" . $i['ImageID'] . "'>";
-                        }else{
-                            echo '<input type="submit" id="addFavorite" value="Add to Favorites" name="favorite"/>';
-                            echo "<input type='hidden' name='saveID' value='" . $i['ImageID'] . "'>";
-                        }
+                    if(isset($_SESSION["email"])){
+                        echo '<form class="spvButtons" method="post" id="fav">';
+                    
+                            if(in_array($i['ImageID'], $_SESSION['favorite'])){
+                                echo '<input type="submit" id="remove" class="favorite" value="Remove from Favorites" name="remove"/>';
+                                echo "<input type='hidden' id='btn' name='btn' value='remove'/>";
+                            }else{
+                                echo '<input type="submit" id="addFavorite" class="favorite" value="Add to Favorites" name="favorite"/>';
+                                echo "<input type='hidden' id='btn' name='btn' value='favorite'/>";
+                            }
+                    
+                            echo "<input type='hidden' id='photoID' name='id' value='" . $i['ImageID'] . "'>";
+                        echo '</form>';
+                    }
                     ?>
-                </form>
                 </div>
 
                 <div id="infoBox">
@@ -129,6 +135,7 @@ if (isset($_GET["id"])) {
     </body>
     <script src="js/template.js"></script>
     <script src="js/single-photo.js"></script>
+    <script src="js/favorites.js"></script>
     <!---Interactive Map--->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvRG7tyWWBJc3cGLMMfjYsAHFHM-dB7QA&callback=initMap"></script>
 </html>
