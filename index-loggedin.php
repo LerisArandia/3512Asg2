@@ -2,6 +2,8 @@
     session_start(); 
 
     require_once ('database/helper-functions.inc.php');
+    require_once ('includes/imagesAlgorithm.php');
+
     if(isset($_SESSION['email'])){
         $userEmail = $_SESSION['email'];
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
@@ -33,6 +35,7 @@
     
                 foreach($picture as $p){
                     echo "<div>";
+                    // ----------- displays square images instead of small --------------- //
                     echo "<a href='single-photo.php?id={$p['ImageID']}'><img src='images/square150/{$p['Path']}'></a>";
                     echo "<p>{$p['Title']}</p>";
                     echo "<form id='fav' method='post'>";
@@ -71,6 +74,17 @@
         }
     }
 
+    function generateImagesAlgorithm($favArray){
+        $sameCountry = findSameCountry($favArray);
+        
+        if(count($favArray) == 0){
+            retrieveLastNumberResults($sameCountry, 12);
+        }
+        else{
+            getImagesFromCountry($sameCountry);
+        }
+    }
+
 
 
 ?>
@@ -101,8 +115,9 @@
                     <input type="search" name="textSearch" placeholder="SEARCH FOR PHOTOS">
                 </form>
             
-            <div id="images">images
-                
+            <div id="images">
+                <h3>Images You May Like</h3>
+                <?=generateImagesAlgorithm($favArray);?>
             </div>
         </div>
     </main>

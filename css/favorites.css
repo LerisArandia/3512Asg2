@@ -42,7 +42,7 @@ img#smartphone{
 div#error{
     grid-column: 1 / span 3;
     text-align: center;
-    background-color: rgb(231, 191, 191);
+    background-color: rgb(215, 235, 248);
     padding: 1em;
     border-radius: 5em;
     box-shadow: none;

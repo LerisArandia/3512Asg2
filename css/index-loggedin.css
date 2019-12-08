@@ -1,6 +1,6 @@
 div#main-loggedin{
     display: grid;
-    /* background-image: url("../images/ocean.jpg"); */
+    background-image: url("../images/peak.jpg");
     grid-template-columns: 1fr 1fr; /*equally divides between two columns*/
     grid-template-rows: repeat(5, 1fr);
     grid-gap: 3em;
@@ -83,6 +83,16 @@ div#favoritedImages{
 
 #images{
     grid-row: 2/span 4;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+    padding: 1em;
+    text-align: center;
+}
+
+#images h3{
+    grid-column: 1 / span 3;
 }
 
 
