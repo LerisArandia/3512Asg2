@@ -9,7 +9,7 @@ html, body{
 }
 
 /* to make sure that buttons and filters get font */
-.container *{ 
+html *{ 
     font-family: 'Gupter', serif !important;
 }
 

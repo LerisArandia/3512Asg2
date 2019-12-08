@@ -16,17 +16,20 @@ function generateCountryDetails(){
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $countries = getACountry($pdo, $_GET['countryiso']);
 
-        foreach($countries as $country){
-            echo "<h3>{$country['CountryName']}</h3>";
-            echo "<div id='capital'>Capital: {$country['Capital']}</div>";
-            echo "<div id='area'>Area: ".number_format($country['Area'])."</div>";
-            echo "<div id='domain'>Domain: {$country['TopLevelDomain']} </div>";
-            echo "<div id='currency'>Currency: {$country['CurrencyName']}</div>";
-            echo "<div id='Population'>Population: ".number_format($country['Population'])." residents</div>";
-            echo "<div id='description'>{$country['CountryDescription']}</div>";
-            echo "<div id='neighbours'>Neighbours: ".findNeighboringCountries($pdo, $country['Neighbours'])."</div>";
-            echo "<div id='languages'>Languages: ".findLanguages($pdo, $country['Languages'])."</div>";
+        if($countries != null){
+            foreach($countries as $country){
+                echo "<h3>{$country['CountryName']}</h3>";
+                echo "<div id='capital'>Capital: {$country['Capital']}</div>";
+                echo "<div id='area'>Area: ".number_format($country['Area'])."</div>";
+                echo "<div id='domain'>Domain: {$country['TopLevelDomain']} </div>";
+                echo "<div id='currency'>Currency: {$country['CurrencyName']}</div>";
+                echo "<div id='Population'>Population: ".number_format($country['Population'])." residents</div>";
+                echo "<div id='description'>{$country['CountryDescription']}</div>";
+                echo "<div id='neighbours'>Neighbours: ".findNeighboringCountries($pdo, $country['Neighbours'])."</div>";
+                echo "<div id='languages'>Languages: ".findLanguages($pdo, $country['Languages'])."</div>";
+            }
         }
+        
         $pdo=null;
     }
     else{
@@ -70,15 +73,20 @@ function generateCountryImages(){
         $sql = allImageSql() . " WHERE imagedetails.CountryCodeISO ='". $countrycode."'";
         $results = runQuery($pdo, $sql, $countrycode);
 
-        foreach($results as $photo){
-
-            echo "<a href='single-photo.php?id={$photo['ImageID']}'>
-                <picture>
-                <source media='(max-width: 800px)' srcset='images/square75/" . strtolower($photo['Path']) . "'>
-                <img src='images/square150/" . strtolower( $photo['Path']) . "'>
-                </picture>
-                </a>";
+        if ($results != null){
+           foreach($results as $photo){
+                echo "<a href='single-photo.php?id={$photo['ImageID']}'>
+                    <picture>
+                    <source media='(max-width: 800px)' srcset='images/square75/" . strtolower($photo['Path']) . "'>
+                    <img src='images/square150/" . strtolower( $photo['Path']) . "'>
+                    </picture>
+                    </a>";
+            }    
         }
+        else{
+            echo "<p>No images available for this country.</p>";
+        }
+        
         $pdo=null;
     }
     else{

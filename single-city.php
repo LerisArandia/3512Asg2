@@ -26,7 +26,7 @@ function generateMap($city){
     $latitude = $city['Latitude'];
     $longitude = $city['Longitude'];
 
-    $src = "https://maps.googleapis.com/maps/api/staticmap?center={$latitude},{$longitude}14&zoom=8&scale=1&size=390x310&maptype=roadmap&key=AIzaSyBAhEkdLdTVWcaBZVzD8LwGdtETG6HAFzI&format=jpg&visual_refresh=true";
+    $src = "https://maps.googleapis.com/maps/api/staticmap?center={$latitude},{$longitude}14&zoom=8&scale=1&size=360x310&maptype=roadmap&key=AIzaSyBAhEkdLdTVWcaBZVzD8LwGdtETG6HAFzI&format=jpg&visual_refresh=true";
 
     echo "<img class='maps' id='mapImage' src={$src}>";
 }

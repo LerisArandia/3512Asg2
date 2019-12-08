@@ -14,11 +14,6 @@
     background-color: rgba(180, 205, 219, 0.664);
 }
 
-/* #filters *{
-    width: 100%;
-} */
-
-
 #mainContent > div{
     /* border: solid black 1px; */
     background-color: white;
@@ -32,6 +27,7 @@ div#countryFilters{
     text-align: center;
     text-justify: center;
 }
+
 p#clickMe{
     padding: 0.5em;
     background-color: rgb(46, 128, 153);
@@ -128,6 +124,11 @@ form#filters{
     display: grid;
     justify-content: space-around;
     grid-gap: 1em;
+}
+
+#filters div a#close{
+    color: white;
+    font-size: 5em;
 }
 
 @media only screen and (max-width: 800px){

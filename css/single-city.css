@@ -1,5 +1,5 @@
 .main{
-    /* background-image: url("../images/peak.jpg"); */
+    background-image: url("../images/peak.jpg");
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
@@ -17,7 +17,7 @@
 #mainContentCityPage > div{
     /* border: solid black 1px; */
     background-color: white;
-    border-radius: 1em;
+    border-radius: 0.2em;
     padding: 1em;
     overflow: auto;
 }
@@ -67,7 +67,7 @@ div#countryListCityPage{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    grid-gap: 5px;
+    grid-gap: 2em;
     padding: 1em;
 }
 
@@ -120,6 +120,11 @@ div#countryListCityPage{
     display: grid;
     justify-content: space-around;
     grid-gap: 1em;
+}
+
+#filtersCountryCityPage div a#close{
+    color: rgb(255, 196, 196);
+    font-size: 5em;
 }
 
 #header{
