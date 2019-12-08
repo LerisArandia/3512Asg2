@@ -9,7 +9,7 @@ if(isset($_POST["remove"])){
                 unset($_SESSION['favorite'][$key]);
                 $_SESSION['favorite'] = array_values($_SESSION['favorite']);
                 unset($_POST['removeID']);
-                var_dump($_SESSION);
+                // var_dump($_SESSION);
                 
             }
         }

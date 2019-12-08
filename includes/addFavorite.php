@@ -6,7 +6,7 @@ if(isset($_POST["favorite"])){
         if(!in_array($_POST['saveID'], $_SESSION['favorite'])){
             $_SESSION['favorite'][] = $_POST['saveID'];
             unset($_POST['saveID']);
-            var_dump($_SESSION);
+            // var_dump($_SESSION);
         }
     }else{
         unset($_POST['fav']);
