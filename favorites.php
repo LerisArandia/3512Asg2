@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+//Checks if session variable favorite exists.
+if(!isset($_SESSION['favorite'])){
+    $_SESSION['favorite'] = array();
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,16 +25,25 @@
         <h2>Favorites</h2>
 
             <div id="favorites">
+            <!-- 
+                CAN YOU ADD A THING WHERE ITS LIKE OMG YOU DONT HAVE FAVORITES IF THERES NO FAVORITES
+                ALSO THE VARIABLE WITH THE ARRAY IN IT IS CALLED
+                FAVORITE
+                WITH NO U
+                YES
+                OK
+                HAVE FUN ILY <3
+            -->
                 <div>
                     <img src="images/aurora.jpg">
                 </div>
                 <div>2</div>
                 <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>7</div>
-            <div>8</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
             </div>
             <!-- put images here -->
             

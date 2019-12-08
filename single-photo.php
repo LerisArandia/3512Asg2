@@ -1,6 +1,13 @@
 <?php
+//start session 
 session_start();
+
 require_once 'database/helper-functions.inc.php';
+
+//Checks if session variable favorite exists.
+if(!isset($_SESSION['favorite'])){
+    $_SESSION['favorite'] = array();
+}
 
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
@@ -10,7 +17,6 @@ if (isset($_GET["id"])) {
         foreach($image as $i){
             $exifArray = json_decode($i['Exif'], true);
             $colorArray = json_decode($i['Colors'], true);
-            
             function generateDetails($i, $exif, $colors){
                 echo "  <div class='spvexif'>
                             <h3>Exif Information:</h3>
@@ -69,20 +75,41 @@ if (isset($_GET["id"])) {
                     <h2 id="photoTitle"><?php echo $i['Title']; ?></h2>
                     <h3 id="photoUser"><?php echo $i['ActualCreator']; ?></h3>
                     <h3 id="photoLocation"><?php echo "<a href='single-city.php?citycode={$i['CityCode']}'>{$i['AsciiName']}</a>, <a href='single-country.php?countryiso={$i['CountryCodeISO']}'>{$i['CountryName']}</a>" ?></h3>
-
+                    
+                    <form class="spvButtons" method="post">
+                    <!------------Adding to Favorites------------>
                     <?php
                         if(isset($_POST["favorite"])){
+                            unset($_POST['favorite']);
                             if(isset($_SESSION['email'])){
-
+                                if(!in_array($i['ImageID'], $_SESSION['favorite'])){
+                                    $_SESSION['favorite'][] = $i['ImageID'];
+                                    //var_dump($_SESSION);
+                                }
                             }else{
                                 header("Location: login.php");
                             }
                         }
+                        if(isset($_POST["remove"])){
+                            unset($_POST['remove']);
+                            if(isset($_SESSION['email'])){
+                                if(in_array($i['ImageID'], $_SESSION['favorite'])){
+                                    $key = array_search($i['ImageID'],$_SESSION['favorite']);
+                                    if($key!==false){
+                                        unset($_SESSION['favorite'][$key]);
+                                        $_SESSION['favorite'] = array_values($_SESSION['favorite']);
+                                        //var_dump($_SESSION);
+                                    }
+                                }
+                            }
+                        }
+                        if(in_array($i['ImageID'], $_SESSION['favorite'])){
+                                echo '<input type="submit" id="remove" value="Remove from Favorites" name="remove"/>';
+                        }else{
+                                echo '<input type="submit" id="addFavorite" value="Add to Favorites" name="favorite"/>';
+                        }
                     ?>
-
-                    <form class="spvButtons" method="post">
-                        <input type="submit" id="addFavorite" value="Add to Favourites" name="favorite"/>
-                    </form>
+                </form>
                 </div>
 
                 <div id="infoBox">

@@ -70,6 +70,13 @@
     cursor: pointer;
     padding: 10px
 }
+.spvButtons #remove{
+    background-color: rgb(209, 60, 60);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px
+}
 
 .spvButtons button:hover, .spvButtons #addFavorite:hover{
     background-color:rgb(146, 190, 226);

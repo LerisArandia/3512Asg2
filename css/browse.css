@@ -51,11 +51,21 @@ button, #addFavorite{
     padding: 0.5em;
 }
 
+#remove{
+    height: 2em;
+    border: none;
+    border-radius: 1em;
+    background-color: rgb(209, 60, 60);
+    color:white;
+    cursor: pointer;
+    padding: 0.5em;
+}
+
 button:hover, #addFavorite:hover{
     background-color: rgb(111, 160, 160);
 }
 
-#singleResult button, #addFavorite{
+#singleResult button, #addFavorite, #remove{
     width: 75%;
     margin-top: 1.5em;
 }
