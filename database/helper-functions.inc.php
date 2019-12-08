@@ -278,7 +278,6 @@ function getCountryImages($pdo, $countryID){
     }
 }
 
-<<<<<<< HEAD
 
 // USERS -----
 
@@ -307,6 +306,3 @@ function getAllUsers($connection){
 // function getUser($connection){
     
 // }
-=======
-?>
->>>>>>> ralph
