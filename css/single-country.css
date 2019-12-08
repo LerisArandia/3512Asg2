@@ -134,6 +134,7 @@ form#filters{
 @media only screen and (max-width: 800px){
     .main, #mainContent{
         display: block;
+        background-image: none;
     }
     .main div{
         margin-bottom: 5px;
