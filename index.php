@@ -1,8 +1,12 @@
 <?php 
 session_start(); 
+
 if (isset($_SESSION['email'])) {
+    echo $_SESSION['email'];
     header("Location: index-loggedin.php");
 }
+
+// unset($_SESSION["email"]);
 ?>
 <!DOCTYPE html>
 <html>

@@ -21,8 +21,11 @@ if (isset($_POST['submit'])) {
     echo $password . "<br>";
     echo $confirmPW . "<br>";
 
+
     if ($password != $confirmPW) {
-        echo "passwords dont match";
+        header("Location: signUp.php");
+        $_SESSION["invalid"] = "The passwords do not match. Please re-enter.";
+        exit();
         // header("Location: signUp.php?pw=bad");
     } else {
         echo "passwords match";
@@ -35,6 +38,7 @@ if (isset($_POST['submit'])) {
         // $statement = runQuery($pdo, $sql, array($email));
         // run query didnt work because of "fetchAll" because it doesnt fetch anything from db
         
+        // if email is not in the db already
         if ( $statement == null) {
             
             //hashes the password using md5 with generated salt
@@ -54,16 +58,28 @@ if (isset($_POST['submit'])) {
             $pdo->exec($sqlInsert);
             $pdo->exec($sqlLoginInsert);
 
-
+            
             // $smt1 = runQuery($pdo, $sqlInsert, $parameters1);
             // $smt2 = runQuery($pdo, $sqlLoginInsert, $parameters2);
 
             //$userData = getSingleUser($email);
 
-            echo "<br> added";
+            $checkUser = getUser($pdo, $email);
+            $checkLogin =  getUserLogin($pdo, $email);
+            if ($checkUser && $checkLogin){
+                echo "<br> user added";
+                header("Location: index.php");
+                $_SESSION['email'] = $email;
+                // unset($_SESSION["email"]);
+                exit();
+            }
+
+            
         } else {
-            echo "<br> did not add";
-        }
+            header("Location: signUp.php?email=error");
+            $_SESSION["invalid"] = "The email you entered is already taken. Please try a different one.";
+            exit();
+    }
     }
 } else {
     header("Location: signUp.php?nothing=working");;

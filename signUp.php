@@ -23,7 +23,7 @@ if (isset($_SESSION['email'])) {
             <h2>Create an Account</h2>
             <div id="register">
                 <form id="registerForm" action="addSignup.php" method="post">
-                    <input type="text" placeholder="First Name" name="fName" required>
+                    <input type="text" placeholder="First Name" name="fName" required >
                     <input type="text" placeholder="Last Name" name="lName" required>
                     <input type="text" placeholder="Country" name="country" required>
                     <input type="text" placeholder="City" name="city" required>
@@ -32,8 +32,17 @@ if (isset($_SESSION['email'])) {
                     <input type="password" placeholder="Confirm Password" name="confirm" required>
                     <button id="signUp" type="submit" name='submit'>Sign Up</button>
                 </form>
-
             </div>
+            <!-- Enter error message when registration goes wrong -->
+            <?php 
+            
+            if (isset($_SESSION["invalid"])){
+                $errorMsg = $_SESSION["invalid"];
+                echo $errorMsg;
+                unset($_SESSION["invalid"]);
+            }    
+        
+            ?>
 
         </div>
     </main>
