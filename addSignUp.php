@@ -42,9 +42,9 @@ if (isset($_POST['submit'])) {
 
             //THERES AN ERROR
             // inserts users  into the users table
-            $sqlInsert = "INSERT INTO users (UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy) VALUES (92, '$firstName', '$lastName', null, '$city', null, '$country', null, null, '$email', null)";
+            $sqlInsert = "INSERT INTO users (UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy) VALUES (69, '$firstName', '$lastName', null, '$city', null, '$country', null, null, '$email', null)";
             // insert users log in info to userslogin table
-            $sqlLoginInsert = "INSERT INTO userslogin (UserID, UserName, Password, Salt, Password_sha256, State, DateJoined, DateLastModified) VALUES (92, '$email', '$hashedPassword', null, null, null, null, null)";
+            $sqlLoginInsert = "INSERT INTO userslogin (UserID, UserName, Password, Salt, Password_sha256, State, DateJoined, DateLastModified) VALUES (69, '$email', '$hashedPassword', null, null, null, null, null)";
 
             // INCREMENT USERID AND ADD LOGIN INFO IN USERSLOGIN TABLE
             // $parameters1 = array(60, $firstName, $lastName, null, $city, null, $country, null, null, $email, null);

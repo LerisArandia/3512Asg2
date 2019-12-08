@@ -1,19 +1,52 @@
-#main-loggedin{
-    background-image: url("../images/ocean.jpg");
+div#main-loggedin{
+    display: grid;
+    /* background-image: url("../images/ocean.jpg"); */
     grid-template-columns: 1fr 1fr; /*equally divides between two columns*/
     grid-template-rows: repeat(5, 1fr);
-    grid-gap: 1em;
+    grid-gap: 3em;
+    padding: 3em;
+}
+
+#main-loggedin > div{
+    background-color: rgba(180, 205, 219, 0.664);
+
+    border-radius: 0.5em;
+}
+#userInfo{
+    grid-row: 1/span 2;
+    text-align: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+#search{
+    display: grid;
     padding: 1em;
 }
 
-#main-loggedin div{
-    background-color: rgb(218, 218, 218);
+form#textSearch{
+    margin: auto;
+    width: 100%;
 }
-#userInfo{
-    grid-row: 1/span 3;
+
+input[type='search']{
+    width: 100%;
+    padding: 1.5em;
+    background-color: rgb(224, 237, 240);
+
+    border: none;
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em 0.7em #9498a0;
 }
+input[type='search']:hover{
+    background-color: rgb(157, 232, 255);
+}
+
+#userInfo #name{ font-size: 2.3em; }
+#userInfo #location{ font-size: 1.3em; }
+
 #favoritedImages{
-    grid-row: 4/span 2;
+    grid-row: 3/span 3;
 }
 #images{
     grid-row: 2/span 4;

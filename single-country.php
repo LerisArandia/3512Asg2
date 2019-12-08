@@ -16,7 +16,6 @@ function generateCountryDetails(){
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $countries = getACountry($pdo, $_GET['countryiso']);
 
-        if($countries != null){
             foreach($countries as $country){
                 echo "<h3>{$country['CountryName']}</h3>";
                 echo "<div id='capital'>Capital: {$country['Capital']}</div>";
@@ -28,7 +27,6 @@ function generateCountryDetails(){
                 echo "<div id='neighbours'>Neighbours: ".findNeighboringCountries($pdo, $country['Neighbours'])."</div>";
                 echo "<div id='languages'>Languages: ".findLanguages($pdo, $country['Languages'])."</div>";
             }
-        }
         
         $pdo=null;
     }
@@ -43,10 +41,16 @@ function generateCities(){
         $pdo = setConnectionInfo(DBCONNECTION,DBUSER,DBPASS);
         $city = getAllCitiesInCountry($pdo, $_GET['countryiso']);
         echo "<h3>Cities</h3>";
-        foreach($city as $c){
-            echo "<a href='single-city.php?citycode={$c['CityCode']}'>{$c['AsciiName']}</a>";
-            echo "<br>";
+        if($city != null){
+            foreach($city as $c){
+                echo "<a href='single-city.php?citycode={$c['CityCode']}'>{$c['AsciiName']}</a>";
+                echo "<br>";
+            }
         }
+        else{
+            echo 'No cities are available to show for this country.';
+        }
+        
         $pdo=null;
     }
     else{

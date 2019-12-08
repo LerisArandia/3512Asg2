@@ -25,7 +25,7 @@ if (isset($_SESSION['email'])) {
             <!-- </div> -->
 
             <form id="textSearch" method='get' action='browse.php?textSearch='>
-            <input type="search" name="textSearch" placeholder="SEARCH BOX FOR PHOTOS">
+            <input type="search" name="textSearch" placeholder="SEARCH FOR PHOTOS">
             </form>
         </div>
     </main>

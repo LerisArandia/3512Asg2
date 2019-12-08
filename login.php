@@ -37,13 +37,14 @@
                     <input type="text" id="email" placeholder="Email" name="email" required>
                     <input type="password" id="password" placeholder="Password" name="password" required>
 
-                    <button type=button id="cancel">CANCEL</button>
+                    <!-- <button type=button action=""id="cancel">CANCEL</button> -->
+                    <a id="cancel" href="index.php">CANCEL</a>
                     <button type=submit id="login">LOGIN</button>
                 </form>
             </div>
         </div>
     </main>
     <script src="js/template.js"></script>
-    <script src="js/login.js"></script>
+    <!-- <script src="js/login.js"></script> -->
 
 </html>

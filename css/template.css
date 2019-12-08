@@ -1,11 +1,12 @@
 html, body{
-    height: 100%;
+    height: 100vh;
 }
+
 .container{
-    display: grid;
-    grid-template-rows: repeat(8, 1fr);
     font-size: 1em;
     height: 100%;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
 }
 
 /* to make sure that buttons and filters get font */
@@ -22,12 +23,14 @@ html *{
 }
 
 .main{
+    
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
     background-attachment: fixed;
-    display: grid;
+   
     background-color: rgb(247, 247, 247);
+    
     grid-row: 2/span 7;
     height: 100%;
 }

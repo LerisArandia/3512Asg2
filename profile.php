@@ -5,6 +5,7 @@
         $userEmail = $_SESSION['email'];
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $user = getUser($pdo, $userEmail);
+        $pdo=null;
     }
     else{
         header('Location: login.php');

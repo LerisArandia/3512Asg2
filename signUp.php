@@ -20,8 +20,9 @@ if (isset($_SESSION['email'])) {
         <?php include "includes/navigation.php"; ?>
 
         <div class="main">
-            <h2>Create an Account</h2>
+            
             <div id="register">
+                <h2>Create an Account</h2>
                 <form id="registerForm" action="addSignup.php" method="post">
                     <input type="text" placeholder="First Name" name="fName" required>
                     <input type="text" placeholder="Last Name" name="lName" required>

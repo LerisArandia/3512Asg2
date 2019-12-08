@@ -1,13 +1,13 @@
 .main {
-    /* display: grid; */
+    background-image: url("../images/peak.jpg");
     grid-template-columns: 1fr;
     /* padding-bottom: 10%; */
     
 }
 .main h2{
-    grid-row:2;
     text-align: center;
-    
+    padding-top: auto;
+    padding-bottom: auto;
 }
 
 /* #register{
