@@ -1,21 +1,14 @@
+<!-- File for the sign up page -->
 <?php
 session_start();
 //if user is already logged in then redirect them
 if (isset($_SESSION['email'])) {
     header("location: index-loggedin.php");
 }
-
-if (isset($_GET["email"])) {
-    echo $_GET["email"];
-    echo "<br> hello";
-}
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <?php
     $title = "Sign Up";
@@ -23,17 +16,14 @@ if (isset($_GET["email"])) {
     ?>
     <link rel="stylesheet" href="css/signUp.css">
 </head>
-
 <body>
     <main class="container">
         <?php include "includes/navigation.php"; ?>
-
         <div class="main">
-
             <div id="register">
                 <h2>Create an Account</h2>
-                <form id="registerForm" action="addSignup.php" method="post">
-
+                <form id="registerForm" action="addSignUp.php" method="post">
+                    <!-- display error message when registration errors occur -->
                     <?php
                     if (isset($_SESSION["invalid"])) {
                         $errorMsg = $_SESSION["invalid"];
@@ -41,6 +31,7 @@ if (isset($_GET["email"])) {
                         unset($_SESSION["invalid"]);
                     }
                     ?>
+                    <!-- save form data when registration errors occur -->
                     <input type="text" placeholder="First Name" name="fName" required value=<?php if (isset($_SESSION["firstName"])) {
                                                                                                 echo $_SESSION["firstName"];
                                                                                                 unset($_SESSION["firstName"]);
@@ -57,18 +48,15 @@ if (isset($_GET["email"])) {
                                                                                             echo $_SESSION["city"];
                                                                                             unset($_SESSION["city"]);
                                                                                         } ?>>
+                    <!-- dont save email and password when registration failure occurs-->
                     <input type="email" placeholder="Email" name="email" required value=<?= '' ?>>
                     <input type="password" placeholder="Password" name="password" required value=<?= '' ?>>
                     <input type="password" placeholder="Confirm Password" name="confirm" required value=<?= '' ?>>
                     <button id="signUp" type="submit" name='submit'>Sign Up</button>
                 </form>
             </div>
-            <!-- Enter error message when registration goes wrong -->
-
-
         </div>
     </main>
-
 </body>
 <script src="js/template.js"></script>
 
