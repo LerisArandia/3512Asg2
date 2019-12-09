@@ -1,11 +1,13 @@
-/***
-*   Web 3512 Assignment 1
-*   Jamie wong
+/*** 
+ * Functionality for Single Photo View Page
+ * Referenced Code from Jamie's Assignment 1 and Lab 3 - Chapter 10.
+ * 
 ***/
-//***********************Map for Photo***********************/
-/***The Map
- * Referenced Code from Lab 10
- * ***/
+/********************** Interactive Map ***********************/
+/***
+ * The Interactive Map
+ * Referenced Code from Lab 3 - Chapter 10
+***/
 var map;
 function initMap(latitude, longitude) {
     map = new google.maps.Map(document.querySelector('#spvMapBox'), {
@@ -13,9 +15,10 @@ function initMap(latitude, longitude) {
         zoom: 15
     });
 }
-/***Map Marker
- * Referenced Code from Lab 10
- * ***/
+/***
+ * Map Marker
+ * Referenced Code from Lab 3 - Chapter 10
+***/
 function createMarker(map, latitude, longitude, name) {
     let imageLatLong = { lat: latitude, lng: longitude };
     let marker = new google.maps.Marker({
@@ -24,12 +27,9 @@ function createMarker(map, latitude, longitude, name) {
         map: map
     });
 }
-/**********Fetch URL**********/
+/********** Fetch URL **********/
 let imageid = document.querySelector("#singleImage").getAttribute("alt");
-console.log(imageid);
 let url = "./database/api-images.php?id=" + imageid;
-
-console.log(url);
 
 fetch(url)
     .then(response => response.json())
@@ -40,12 +40,10 @@ fetch(url)
     })
     .catch(error => console.log(error));
 
-
 /**********Changing Tabs**********/
 descBox = document.querySelector('#spvDescBox');
 detailsBox = document.querySelector('#spvDetailsBox');
 mapBox = document.querySelector('#spvMapBox');
-
 
 //Description tab Event Listener
 document.querySelector('#spvDescTab').addEventListener('click', e => {

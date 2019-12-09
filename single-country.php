@@ -24,6 +24,7 @@ function generateCountryDetails(){
     }
     else{
         echo '<h3>Country Details</h3>';
+        echo '<p>Choose a country through our filters to find out more information!</p>';
     }
     
 } 
