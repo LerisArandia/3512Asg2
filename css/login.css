@@ -3,18 +3,6 @@
     background-color: azure;
     background-image: url("../images/peak.jpg");
 }
-
-/* #content{   
-    display: grid;
-    grid-template: '1fr' '1fr' '1fr' '1fr 1fr';
-    justify-content: center;
-    grid-gap: 1em;
-} */
-
-#content{
-    width: 100%;
-}
-
 form#loginForm{
     display: grid;
     grid-template-rows: repeat(4, auto);
@@ -69,12 +57,16 @@ a#cancel{ color: black;}
 }
 
 @media only screen and (max-width: 800px){
+    .main{
+        display: block;
+        text-align: center;
+        padding: 0;
+        padding-top: 3em;
+    }
     form#loginForm{
-        display: block !important;
-        width: content;
-        grid-template-columns: 1fr;
-        margin-right: auto;
-        margin-left: auto;
+        display: grid;
+        grid-template-columns: auto;
+        margin:  1em 10em 1em 10em;
     }
     
 }
