@@ -1,6 +1,5 @@
 /**
  * This Javascript is for the hamburger navigation (Media Query: 800px)
- * 
  */
 const hamburgerMenu = document.querySelector('#burger');
 hamburgerMenu.addEventListener('click', e => {

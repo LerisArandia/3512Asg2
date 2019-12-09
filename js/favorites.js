@@ -7,7 +7,6 @@
  * https://youtu.be/zvt8ff3d63Q
  * 
 ***/
-
 //Grabs inital form input information
 let form = {
     id: document.querySelector('#photoID'),
