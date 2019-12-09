@@ -18,9 +18,24 @@ class Login{
             $matching = $this->checkPassword($password, $user['Password'], $user['Salt']);
             if($matching == true){ // matching passwords
                 
+                if(isset($_COOKIE['$_SESSION[email][email]']) && isset($_COOKIE['$_SESSION[email][favorite]'])  ){
+                    $_SESSION['email'] = unserialize($_COOKIE['$_SESSION[email][email]']);
+                    $_SESSION['favorite'] = unserialize($_COOKIE['$_SESSION[email][favorite]']);
+                }
+                else{
+                    $_SESSION['email'] = $username;
+                    $_SESSION['favorite'] = array();
+                }
+
+
+
+
+
                 // assigns to session
-                $_SESSION['email'] = $username;
-                $_SESSION['id'] = $user['UserID']; // careful
+                
+                // $_SESSION['id'] = $user['UserID']; 
+                // setCookie('$_SESSION[email][email]', $_SESSION['email']);
+                // setCookie('$_SESSION[email][favorite]', $_SESSION['favorite']);
                 
                 return true;
             }
@@ -33,7 +48,7 @@ class Login{
 
     public function verify_session(){
         if(isset($_SESSION['email'])){
-           $username = $_SESSION['email'];
+            $username = $_SESSION['email'];
             $user = $this->usernameExists($_SESSION['email']);
 
             if ( false != $user){

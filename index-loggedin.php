@@ -1,25 +1,45 @@
 <?php 
-    session_start(); 
+
+session_start(); 
 
     require_once ('database/helper-functions.inc.php');
     require_once ('includes/imagesAlgorithm.php');
+
+    // if(isset($_COOKIE[$_SESSION['email']['favorite']])){
+    //     $_SESSION['favorite'] = unserialize($_COOKIE[$_SESSION['user']['favorite']]);
+    // }
+    // else{
+    //     $_SESSION['favorite'] = array();
+    //     $favArray = $_SESSION['favorite'];
+    // }
+    // $array = $_SESSION['favorite'];
+    // setCookie('$_SESSION[email][favorite]', serialize($array));
+    // print_r($_COOKIE);
+    // $newarray = unserialize($_COOKIE['cart']);
 
     if(isset($_SESSION['email'])){
         $userEmail = $_SESSION['email'];
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $user = getUser($pdo, $userEmail);
         $pdo=null;
-        if(!isset($_SESSION['favorite'])){
-            $_SESSION['favorite'] = array();
-        }
-        else{
-            $favArray = $_SESSION['favorite'];
-        }
+        // if(!isset($_SESSION['favorite'])){
+        //     $_SESSION['favorite'] = array();
+        // }
+        // else{
+        //     $favArray = $_SESSION['favorite'];
+        // }
     }
     else{
         header('Location: login.php');
     }
 
+    if(isset($_SESSION['favorite'])){
+        $favArray = $_SESSION['favorite'];
+    }
+    else{
+        $_SESSION['favorite'] = array();
+        $favArray = $_SESSION['favorite'];
+    }
     
 
 
