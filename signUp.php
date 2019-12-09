@@ -7,7 +7,7 @@ if (isset($_SESSION['email'])) {
 
 if (isset($_GET["email"])) {
     echo $_GET["email"];
-    echo "<br> hello";
+    // echo "<br> hello";
 }
 ?>
 
