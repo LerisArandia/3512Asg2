@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
                 $checkLogin =  getUserLogin($pdo, $email);
                 if ($checkUser && $checkLogin) {
 
-                    header("Location: index.php");
+                    header("Location: index-loggedin.php");
                     $_SESSION['email'] = $email;
                     // unset($_SESSION["email"]);
                     exit();
