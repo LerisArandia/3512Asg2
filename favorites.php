@@ -4,7 +4,7 @@ require_once('database/helper-functions.inc.php');
 
 //Checks if session variable favorite exists.
 if(!isset($_SESSION['favorite'])){
-    $_SESSION['favorite'] = array();
+    $favArray = array();
 }
 else{
     $favArray = $_SESSION['favorite'];

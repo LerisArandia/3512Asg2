@@ -12,7 +12,7 @@
     }
 
     if(!isset($_SESSION['favorite'])){
-        $_SESSION['favorite'] = array();
+        $favArray = array();
     }
     else{
         $favArray = $_SESSION['favorite'];

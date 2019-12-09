@@ -5,18 +5,6 @@ session_start();
     require_once ('database/helper-functions.inc.php');
     require_once ('includes/imagesAlgorithm.php');
 
-    // if(isset($_COOKIE[$_SESSION['email']['favorite']])){
-    //     $_SESSION['favorite'] = unserialize($_COOKIE[$_SESSION['user']['favorite']]);
-    // }
-    // else{
-    //     $_SESSION['favorite'] = array();
-    //     $favArray = $_SESSION['favorite'];
-    // }
-    // $array = $_SESSION['favorite'];
-    // setCookie('$_SESSION[email][favorite]', serialize($array));
-    // print_r($_COOKIE);
-    // $newarray = unserialize($_COOKIE['cart']);
-
     if(isset($_SESSION['email'])){
         $userEmail = $_SESSION['email'];
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
@@ -31,8 +19,7 @@ session_start();
         $favArray = $_SESSION['favorite'];
     }
     else{
-        $_SESSION['favorite'] = array();
-        $favArray = $_SESSION['favorite'];
+        $favArray = array();
     }
     
 
@@ -123,7 +110,7 @@ session_start();
             </div>
             <div id="favoritedImages">
                 <h3>Your Favorites</h3>
-                <?=displayFavorites($_SESSION['favorite']);?>
+                <?=displayFavorites($favArray);?>
             </div>
             
                 <form id="textSearch" method='get' action='browse.php?textSearch='>
@@ -132,7 +119,7 @@ session_start();
             
             <div id="images">
                 <h3>Images You May Like</h3>
-                <?=generateImagesAlgorithm($_SESSION['favorite']);?>
+                <?=generateImagesAlgorithm($favArray);?>
             </div>
         </div>
     </main>

@@ -298,7 +298,7 @@ function getCountryImages($pdo, $countryID){
 
 function getlastUserIDSql(){
     $sql = "SELECT UserID FROM users ORDER BY UserID DESC LIMIT 1";
-    echo $sql;
+    //echo $sql;
     return $sql;
 }
 

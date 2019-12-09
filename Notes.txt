@@ -1,3 +1,0 @@
-Media Queries
-Mobile: 800px 
-Tablet: 1200px 

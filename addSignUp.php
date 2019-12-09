@@ -79,7 +79,4 @@ if (isset($_POST['submit'])) {
     $_SESSION["invalid"];
     header("Location: signUp.php?error=submit");
 }
-
-
-
 ?>
