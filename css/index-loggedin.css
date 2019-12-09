@@ -114,6 +114,7 @@ div#favoritedImages{
         margin: 0.5em;
     }
     div#images, div#favoritedImages{
+        display: block;
         height: 15em;
     }
 }

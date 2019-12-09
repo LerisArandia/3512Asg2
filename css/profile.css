@@ -7,7 +7,7 @@
     padding: 5em;
 }
 
-.main div{
+.main > div{
     background-color: rgb(190, 229, 236);
     border-radius: 2em;
     padding: 0.5em;
@@ -16,9 +16,11 @@
 #userInfo{
     grid-row: 1/span 1;
     border-radius: 2em;
-    padding: 0.5em;
+    padding: 0.8em;
     font-size: 0.8em;
+    background-color: white;
     margin: 0em 15em 0em 15em;
+    /* width: 100%; */
 }
 
 #personalPhotos{ grid-row: 2/span 3; }
@@ -61,7 +63,7 @@ div#error{
 }
 
 @media only screen and (max-width: 800px){
-    .main, #userInfo{
+    .main{
         display: block;
     }
     #userDescription{
@@ -73,6 +75,18 @@ div#error{
     .main div{
         padding: 1rem;
     }
+
+    #userInfo{
+        margin: 0;
+        margin-bottom: 2em;
+    }
+
+    #favPhotos{
+        display: block;
+    }
+
+
+
 }
 @media only screen and (max-width: 1200px){
 }

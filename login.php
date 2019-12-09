@@ -32,8 +32,8 @@
                         echo $msg;
                         unset($_SESSION["registerGood"]);
                     }
-                ?>
-                <h2>LOGIN</h2>
+                    ?>
+                    <h2>LOGIN</h2>
                 <form id='loginForm' action='load.php' method='post'>
 
                 <?php
