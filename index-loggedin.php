@@ -5,6 +5,7 @@ session_start();
     require_once ('database/helper-functions.inc.php');
     require_once ('includes/imagesAlgorithm.php');
     
+
     if(isset($_SESSION['email'])){
         $userEmail = $_SESSION['email'];
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
@@ -19,8 +20,7 @@ session_start();
         $favArray = $_SESSION['favorite'];
     }
     else{
-        $_SESSION['favorite'] = array();
-        $favArray = $_SESSION['favorite'];
+        $favArray = array();
     }
     
 
@@ -113,7 +113,7 @@ session_start();
             </a>
             <div id="favoritedImages">
                 <h3>Your Favorites</h3>
-                <?=displayFavorites($_SESSION['favorite']);?>
+                <?=displayFavorites($favArray);?>
             </div>
             
                 <form id="textSearch" method='get' action='browse.php?textSearch='>
@@ -122,7 +122,7 @@ session_start();
             
             <div id="images">
                 <h3>Images You May Like</h3>
-                <?=generateImagesAlgorithm($_SESSION['favorite']);?>
+                <?=generateImagesAlgorithm($favArray);?>
             </div>
         </div>
     </main>

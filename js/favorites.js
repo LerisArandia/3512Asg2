@@ -1,8 +1,10 @@
 /*** 
+ * Adding and Removing Favorites 
+ * 
  * Followed this tutorial: 
  * 
+ * https://github.com/dcode-youtube/js-ajax-form-submission
  * https://youtu.be/zvt8ff3d63Q
- * https://github.com/dcode-youtube/js-ajax-form-submission/blob/master/index.html 
  * 
 ***/
 let form = {
@@ -20,9 +22,6 @@ fav.addEventListener('click', e => {
         btn: document.querySelector('#btn'),
         submit: document.querySelector('.favorite')
     }
-
-    //console.log("the form:" + form.btn.value);
-    //console.log("the id:" + form.id.value);
 
     const request = new XMLHttpRequest();
 
@@ -51,8 +50,6 @@ fav.addEventListener('click', e => {
         request.open('POST', './includes/addFavorite.php');
     }
 
-    //console.log(requestData);
-
     request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     request.send(requestData);
         
@@ -60,8 +57,6 @@ fav.addEventListener('click', e => {
         console.log(responseObject);
         let ok = responseObject.ok;
         let msg = responseObject.message;
-        //console.log(ok);
-        //console.log(msg);
         if(ok == 'favorite'){
             fav.innerHTML = `<input type="submit" id="remove" class="favorite" value="Remove from Favorites" name="remove"/>
                              <input type='hidden' id='btn' name='btn' value='remove'/>

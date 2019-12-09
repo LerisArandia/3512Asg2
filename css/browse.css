@@ -46,6 +46,7 @@
     background-color: white;
     box-shadow: 0.5em 0.5em 0.7em #2c4d63;
 }
+
 button, #addFavorite{
     height: 2em;
     border: none;
@@ -93,7 +94,7 @@ button:hover, #addFavorite:hover{
 }
 
 @media only screen and (max-width: 1200px){
-    #singleResult button, #addFavorite{
+    #singleResult button, #addFavorite, #remove{
         width: 100%;
     }
 }

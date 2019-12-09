@@ -18,6 +18,4 @@ if ($login->verify_session()){
 else{
     include ('login.php');
 }
- 
-
 ?>
