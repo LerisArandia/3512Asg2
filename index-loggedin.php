@@ -1,8 +1,21 @@
 <?php 
-    session_start(); 
+
+session_start(); 
 
     require_once ('database/helper-functions.inc.php');
     require_once ('includes/imagesAlgorithm.php');
+
+    // if(isset($_COOKIE[$_SESSION['email']['favorite']])){
+    //     $_SESSION['favorite'] = unserialize($_COOKIE[$_SESSION['user']['favorite']]);
+    // }
+    // else{
+    //     $_SESSION['favorite'] = array();
+    //     $favArray = $_SESSION['favorite'];
+    // }
+    // $array = $_SESSION['favorite'];
+    // setCookie('$_SESSION[email][favorite]', serialize($array));
+    print_r($_COOKIE);
+    // $newarray = unserialize($_COOKIE['cart']);
 
     if(isset($_SESSION['email'])){
         $userEmail = $_SESSION['email'];
@@ -14,12 +27,14 @@
         header('Location: login.php');
     }
 
-    if(!isset($_SESSION['favorite'])){
-        $_SESSION['favorite'] = array();
-    }
-    else{
+    if(isset($_SESSION['favorite'])){
         $favArray = $_SESSION['favorite'];
     }
+    else{
+        $_SESSION['favorite'] = array();
+        $favArray = $_SESSION['favorite'];
+    }
+    
 
 
     function generateUserDetails($user){
@@ -108,7 +123,7 @@
             </div>
             <div id="favoritedImages">
                 <h3>Your Favorites</h3>
-                <?=displayFavorites($favArray);?>
+                <?=displayFavorites($_SESSION['favorite']);?>
             </div>
             
                 <form id="textSearch" method='get' action='browse.php?textSearch='>
@@ -117,7 +132,7 @@
             
             <div id="images">
                 <h3>Images You May Like</h3>
-                <?=generateImagesAlgorithm($favArray);?>
+                <?=generateImagesAlgorithm($_SESSION['favorite']);?>
             </div>
         </div>
     </main>

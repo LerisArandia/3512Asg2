@@ -1,16 +1,35 @@
 <?php
+if(!isset($_SESSION['email'])){
+    session_start();
+}
+
 /**********Adding to Favorites**********/
+$message = '';
+$ok = true;
+
 if(isset($_POST["favorite"])){
     unset($_POST['favorite']);
     if(isset($_SESSION['email'])){
-        if(!in_array($_POST['saveID'], $_SESSION['favorite'])){
-            $_SESSION['favorite'][] = $_POST['saveID'];
-            unset($_POST['saveID']);
-            var_dump($_SESSION);
+        if(!in_array($_POST['id'], $_SESSION['favorite'])){
+            $_SESSION['favorite'][] = $_POST['id'];
+            unset($_POST['id']);
+            //var_dump($_SESSION);
+            $message = "Added to Favorites!";
+            $ok = 'favorite';
         }
     }else{
         unset($_POST['fav']);
-        header("Location: login.php"); 
+        $message = "login.php";
+        $ok = 'login';
     }
+}
+
+if(isset($_POST['single'])){
+    echo json_encode(
+        array(
+            'ok' => $ok,
+            'message' => $message
+        )
+    );
 }
 ?>

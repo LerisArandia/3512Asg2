@@ -90,6 +90,23 @@ function getUserInfo($connection, $username){
     }
 }
 
+function getUserLoginSql(){
+    $sql = "SELECT UserID, userslogin.UserName FROM userslogin";
+    return $sql;
+}
+
+function getUserLogin($connection, $email){
+    try{
+        $sql = getUserLoginSql() . " WHERE userslogin.UserName = '" . $email ."'";
+        $result = $connection->query($sql);
+        $user = $result->fetch();
+        
+        return $user;
+    }
+    catch(PDOException $e){
+        die( $e->getMessage());
+    }
+}
 function getContinents($connection){
     try{
         $result = runQuery($connection, getContinentSql(), null);
@@ -278,6 +295,8 @@ function getCountryImages($pdo, $countryID){
     }
 }
 
+<<<<<<< HEAD
+=======
 
 // USERS -----
 
@@ -285,24 +304,30 @@ function getAllUsersSql(){
     $sql = "SELECT UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy FROM users";
     return $sql;
 }
+>>>>>>> b253d599dedd4874167c1c8fbb9dbc8c6cbcc3bc
 
-function singleUserSql($email){
-    $sql = getAllUsersSql() . "WHERE Email='" . $email ."'";
+function getlastUserIDSql(){
+    $sql = "SELECT UserID FROM users ORDER BY UserID DESC LIMIT 1";
+    echo $sql;
     return $sql;
 }
 
-
-/// connect
-function getAllUsers($connection){
+function getLastUserID($connection){
     try{
-        $result = runQuery($connection, getAllUsersSql(), null);
+        $result = runQuery($connection, getlastUserIDSql(), null);
+        
         return $result;
     }
     catch (PDOException $e){
         die( $e->getMessage() );
     }
 }
+<<<<<<< HEAD
+?>
+=======
 
 // function getUser($connection){
     
 // }
+?>
+>>>>>>> b253d599dedd4874167c1c8fbb9dbc8c6cbcc3bc

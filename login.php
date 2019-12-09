@@ -6,6 +6,8 @@
         header("location: index-loggedin.php");
     }
 
+    // unset($_SESSION['email']);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,6 +26,13 @@
         <?php include "includes/navigation.php"; ?>
         <div class="main">
             <div id="content">
+                <?php
+                    if(isset($_SESSION["registerGood"])){
+                        $msg = $_SESSION["registerGood"];
+                        echo $msg;
+                        unset($_SESSION["registerGood"]);
+                    }
+                ?>
                 <h2>LOGIN</h2>
                 <form id='loginForm' action='load.php' method='post'>
 
