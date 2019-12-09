@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     var countriesArray = [];
-
+    
     function updateStorage(key, arrayName) { localStorage.setItem(key, JSON.stringify(arrayName)); }
     function retrieveStorage(key) { return JSON.parse(localStorage.getItem(key)) || []; }
     function removeStorage(key) { localStorage.removeItem(key); }

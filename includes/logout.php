@@ -1,3 +1,5 @@
+<!-- Destroys all the session automatically when directed to logout.php -->
+<!-- Directs back to index.php -->
 <?php
     session_start();
     if(isset($_SESSION['email'])){
