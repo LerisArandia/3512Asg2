@@ -1,8 +1,8 @@
 <?php
-if(!isset($_SESSION['email'])){
+/**********Removing from Favorites**********/
+if(isset($_POST['single'])){
     session_start();
 }
-/**********Removing from Favorites**********/
 $message = '';
 
 if(isset($_POST["remove"])){
