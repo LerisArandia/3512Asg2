@@ -4,11 +4,11 @@
 
         $email = $_SESSION['email'];
         $favArray = $_SESSION['favorite'];
+        $favName = $email . "favorite";
 
 
-
-        setCookie('$_SESSION[email][email]', $_SESSION['email']);
-        setCookie('$_SESSION[email][favorite]', serialize($favArray));
+        setCookie($email, $email);
+        setCookie($favName, serialize($favArray));
 
 
         session_unset();

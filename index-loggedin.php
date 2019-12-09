@@ -14,7 +14,7 @@ session_start();
     // }
     // $array = $_SESSION['favorite'];
     // setCookie('$_SESSION[email][favorite]', serialize($array));
-    // print_r($_COOKIE);
+    print_r($_COOKIE);
     // $newarray = unserialize($_COOKIE['cart']);
 
     if(isset($_SESSION['email'])){
@@ -22,12 +22,6 @@ session_start();
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $user = getUser($pdo, $userEmail);
         $pdo=null;
-        // if(!isset($_SESSION['favorite'])){
-        //     $_SESSION['favorite'] = array();
-        // }
-        // else{
-        //     $favArray = $_SESSION['favorite'];
-        // }
     }
     else{
         header('Location: login.php');
