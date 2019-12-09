@@ -18,3 +18,4 @@ define('DBCONNECTION',"mysql:host=" . DBHOST . ";dbname=" . DBNAME . ";charset=u
 
 //https://comp-3512-asg-2-2019.appspot.com
 //API KEY: AIzaSyDvRG7tyWWBJc3cGLMMfjYsAHFHM-dB7QA
+?>
