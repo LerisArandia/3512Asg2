@@ -296,13 +296,6 @@ function getCountryImages($pdo, $countryID){
 }
 
 
-// USERS -----
-
-function getAllUsersSql(){
-    $sql = "SELECT UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy FROM users";
-    return $sql;
-}
-
 function getlastUserIDSql(){
     $sql = "SELECT UserID FROM users ORDER BY UserID DESC LIMIT 1";
     echo $sql;
@@ -319,8 +312,4 @@ function getLastUserID($connection){
         die( $e->getMessage() );
     }
 }
-
-// function getUser($connection){
-    
-// }
 ?>

@@ -18,9 +18,44 @@ class Login{
             $matching = $this->checkPassword($password, $user['Password'], $user['Salt']);
             if($matching == true){ // matching passwords
                 
+                $userFavsLabel = $username . "favorite";
+
+                if(isset($_COOKIE[$username])){
+                    $_SESSION['email'] = $_COOKIE[$username];
+                }
+                else{
+                    setCookie($username, $username);
+                    $_SESSION['email'] = $username;
+                }
+
+                if(isset($_COOKIE[$userFavsLabel]) && $_COOKIE[$userFavsLabel]){
+                    $_SESSION['favorite'] = unserialize($_COOKIE[$userFavsLabel]);
+                }
+                else{
+                    setCookie($usersFavsLabel, serialize(array()));
+                    $_SESSION['favorite'] = array();
+                }
+
+
+
+                // if(isset($_COOKIE[$username['email']]) && isset($_COOKIE[$username['favorite']])  ){
+                //     $_SESSION['email'] = $_COOKIE[$username]['email'];
+                //     $_SESSION['favorite'] = unserialize($_COOKIE['$_SESSION[email][favorite]']);
+                // }
+                // else{
+                //     $_SESSION['email'] = $username;
+                //     $_SESSION['favorite'] = array();
+                // }
+
+
+
+
+
                 // assigns to session
-                $_SESSION['email'] = $username;
-                $_SESSION['id'] = $user['UserID']; // careful
+                
+                // $_SESSION['id'] = $user['UserID']; 
+                // setCookie('$_SESSION[email][email]', $_SESSION['email']);
+                // setCookie('$_SESSION[email][favorite]', $_SESSION['favorite']);
                 
                 return true;
             }
@@ -33,7 +68,7 @@ class Login{
 
     public function verify_session(){
         if(isset($_SESSION['email'])){
-           $username = $_SESSION['email'];
+            $username = $_SESSION['email'];
             $user = $this->usernameExists($_SESSION['email']);
 
             if ( false != $user){
