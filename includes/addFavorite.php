@@ -1,11 +1,14 @@
 <?php
 /**********Adding to Favorites**********/
+if(isset($_POST['single'])){
+    session_start();
+}
+
 $message = '';
 $ok = true;
 
 if(isset($_POST["favorite"])){
     unset($_POST['favorite']);
-    session_start();
     if(isset($_SESSION['email'])){
         if(!in_array($_POST['id'], $_SESSION['favorite'])){
             $_SESSION['favorite'][] = $_POST['id'];

@@ -1,7 +1,6 @@
 <?php
-if(isset($_SESSION['email'])){
-    session_start();
-}
+session_start();
+
 
 require_once 'database/helper-functions.inc.php';
 include 'includes/addFavorite.php';
