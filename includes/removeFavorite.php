@@ -1,11 +1,9 @@
 <?php
-if(!isset($_SESSION['email'])){
-    session_start();
-}
 /**********Removing from Favorites**********/
 $message = '';
 
 if(isset($_POST["remove"])){
+    session_start();
     unset($_POST['remove']);
     if(isset($_SESSION['email'])){
         if(in_array($_POST['id'], $_SESSION['favorite'])){

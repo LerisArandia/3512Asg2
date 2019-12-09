@@ -1,8 +1,8 @@
 /*** 
  * Followed this tutorial: 
  * 
+ * https://github.com/dcode-youtube/js-ajax-form-submission
  * https://youtu.be/zvt8ff3d63Q
- * https://github.com/dcode-youtube/js-ajax-form-submission/blob/master/index.html 
  * 
 ***/
 let form = {

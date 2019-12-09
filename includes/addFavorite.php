@@ -1,14 +1,11 @@
 <?php
-if(!isset($_SESSION['email'])){
-    session_start();
-}
-
 /**********Adding to Favorites**********/
 $message = '';
 $ok = true;
 
 if(isset($_POST["favorite"])){
     unset($_POST['favorite']);
+    session_start();
     if(isset($_SESSION['email'])){
         if(!in_array($_POST['id'], $_SESSION['favorite'])){
             $_SESSION['favorite'][] = $_POST['id'];
@@ -21,6 +18,9 @@ if(isset($_POST["favorite"])){
         unset($_POST['fav']);
         $message = "login.php";
         $ok = 'login';
+        if(!isset($_POST['single'])){
+            header('Location: login.php');
+        }
     }
 }
 
