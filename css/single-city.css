@@ -133,6 +133,7 @@ div#countryListCityPage{
 @media only screen and (max-width: 800px){
     .main, #mainContentCityPage{
         display: block;
+        background-image: none; 
     }
     .main div{
         margin-bottom: 5px;

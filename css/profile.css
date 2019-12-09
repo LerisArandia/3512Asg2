@@ -110,28 +110,38 @@ div#favPhotos{
 
 @media only screen and (max-width: 800px){
     .main{
-        display: block;
+        grid-template-columns: 1fr;
     }
     #userDescription{
         text-align: center;
     }
     .main div{
         margin-bottom: 5px;
-    }
-    .main div{
         padding: 1rem;
+    }
+    #favorites{
+        display: block;
+        grid-column: 1 / span 2;
     }
 
     #userInfo{
         margin: 0;
         margin-bottom: 2em;
     }
-
     #favPhotos{
         display: block;
         overflow: auto;
         height: 20em;
     }
+    #userPosts{
+        display: block;
+        grid-column: 1;
+        grid-column: 1 / span 2;
+    }
+    #singlePost{
+        display: block;
+    }
+
 }
 @media only screen and (max-width: 1200px){
 }
