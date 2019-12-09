@@ -91,7 +91,6 @@ div#countryListCityPage{
 }
 
 #cityPhotos picture *{
-    
     box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
 }
 
@@ -147,10 +146,7 @@ div#countryListCityPage{
         height: 3em;
     }
     #cityPhotos{
-        display: inline-flex;
-        /* grid-template-columns: repeat(4, 1fr); */
-        /* grid-template-rows: 1fr 1fr; */
-        /* grid-auto-flow: column; */
+        grid-template-columns: 1fr;
         flex-flow: row;
     }
 }

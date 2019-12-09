@@ -12,12 +12,17 @@ div#main-loggedin{
 
     border-radius: 0.5em;
 }
-div#userInfo{
+#userInfo{
     grid-row: 1/span 2;
     text-align: center;
     padding-top: 3em;
     padding-bottom: 3em;
     background-color: rgb(233, 243, 255);
+    color: black;
+}
+#userInfo:hover{
+    box-shadow: 0.5em 0.5em 0.7em #2c4d63;
+
 }
 
 #search{

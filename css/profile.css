@@ -1,7 +1,14 @@
-.main{
-    background-image: none;
+html{
+    background-color: none;
+}
+html, body{
+    background-image: url("images/peak.jpg") !important;
+
+}
+
+div.main{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 3fr;
     grid-template-rows: repeat(4, 1fr);
     grid-gap: 2em;
     padding: 5em;
@@ -14,13 +21,13 @@
     text-align: center;
 }
 #userInfo{
+    grid-column: 1/span 2;
     grid-row: 1/span 1;
     border-radius: 2em;
     padding: 0.8em;
     font-size: 0.8em;
     background-color: white;
     margin: 0em 15em 0em 15em;
-    /* width: 100%; */
 }
 
 #personalPhotos{ grid-row: 2/span 3; }
@@ -39,7 +46,6 @@ img#smartphone{
 div#error{
     grid-column: 1 / span 3;
     text-align: center;
-    /* background-color: rgb(231, 191, 191); */
     padding: 1em;
     border-radius: 5em;
     box-shadow: none;
@@ -49,10 +55,23 @@ div#error{
     border: solid 3px rgb(214, 91, 91); 
 }
 
-#favPhotos{
+div#favorites{
+    grid-row: 2/ span 1;
+    height: 20em;
+}
+
+#favorites h3{
+    padding: 0;
+    margin: 0;
+}
+
+div#favPhotos{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    padding: 1em;
+    overflow:auto;
+    height: 15em;
+    margin: 1em;
 }
 
 #favPhotos img{
@@ -61,6 +80,33 @@ div#error{
 #favPhotos img:hover{
     border: solid 0.3em rgba(45, 82, 104, 0.719);
 }
+
+#singlePost{
+    border: solid 1px white;
+    padding: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    background-color: rgb(239, 252, 255);
+}
+
+#singlePost #mainImage{
+    grid-column: 1;
+    margin: 1em;
+}
+
+#singlePost div{
+    text-align: left;
+}
+
+#userPosts{
+    grid-template-rows: 2/ span 3;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-gap: 2em;
+    padding: 2em;
+}
+
+
 
 @media only screen and (max-width: 800px){
     .main{
@@ -83,10 +129,9 @@ div#error{
 
     #favPhotos{
         display: block;
+        overflow: auto;
+        height: 20em;
     }
-
-
-
 }
 @media only screen and (max-width: 1200px){
 }
