@@ -28,9 +28,7 @@ html *{
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
     background-attachment: fixed;
-   
     background-color: rgb(247, 247, 247);
-    
     grid-row: 2/span 7;
     height: 100%;
 }
@@ -89,6 +87,30 @@ ul#navigation li a:hover{
     background-color: rgb(164, 226, 255);
     border-radius: 5px;
 }
+
+/*CSS for when adding/removing a Favorite*/
+#changeFav{
+    margin: auto;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 25px;
+    max-width: 250px;
+    display: none;
+    border-radius: 0;
+}
+    
+.removeFav{
+    background-color: rgb(255, 232, 232) !important;
+    border: 1px solid red;
+    color: red;
+}
+
+.addFav{
+    background-color: rgb(237, 255, 232) !important;
+    border: 1px solid green;
+    color: green;
+}
+
 @media only screen and (max-width: 800px){
     #header{
         padding: 0;

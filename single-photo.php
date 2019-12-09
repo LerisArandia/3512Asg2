@@ -3,8 +3,6 @@
 session_start();
 
 require_once 'database/helper-functions.inc.php';
-include 'includes/addFavorite.php';
-include 'includes/removeFavorite.php';
 
 //Checks if session variable favorite exists.
 if(!isset($_SESSION['favorite'])){
@@ -58,10 +56,9 @@ if (isset($_GET["id"])) {
     <body>
         <main class="container">
             <?php include "includes/navigation.php"; ?>
-            <!--Displays when favorites is added/deleted-->
-            <div id="changeFavorite"></div>
             <div class="main" id="singlePhotoView">
-
+            <!--Displays when favorites is added/deleted-->
+            <div id="changeFav"></div>
                 <div id="spvImg">
                     <picture>
                         <source media="(max-width:1250px)" srcset="images/medium640/<?php echo strtolower($i['Path']); ?>">
@@ -80,7 +77,7 @@ if (isset($_GET["id"])) {
                     <h3 id="photoLocation"><?php echo "<a href='single-city.php?citycode={$i['CityCode']}'>{$i['AsciiName']}</a>, <a href='single-country.php?countryiso={$i['CountryCodeISO']}'>{$i['CountryName']}</a>" ?></h3>
                     
                     <?php
-                    if(isset($_SESSION["email"])){
+                    //if(isset($_SESSION["email"])){
                         echo '<form class="spvButtons" method="post" id="fav">';
                     
                             if(in_array($i['ImageID'], $_SESSION['favorite'])){
@@ -93,7 +90,7 @@ if (isset($_GET["id"])) {
                     
                             echo "<input type='hidden' id='photoID' name='id' value='" . $i['ImageID'] . "'>";
                         echo '</form>';
-                    }
+                    //}
                     ?>
                 </div>
 

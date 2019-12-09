@@ -1,25 +1,34 @@
+/**CSS for page**/
 .main{
     background-image: none;
     background-color: white;
     display: grid;
     grid-template-columns: 800px auto;
     grid-column-gap: 15px;
-    grid-template-rows: auto auto;
+    grid-template-rows: 55px auto auto;
     /* grid-row: 2/span 7; */
     /* grid-gap: 1em; */
     padding: 3em;
+    padding-top: 0;
 }
 .main > div{
     margin: 10px;
     background-color: rgba(255, 255, 255, 0.678);
 }
 
+#changeFav{
+    grid-column: 1 / span 2;
+    grid-row: 1/ span 1;
+}
+
 #spvImg{
     grid-column: 1 / span 1;
-    grid-row: 1 / span 2;
+    grid-row: 2 / span 2;
+    text-align: center;
 }
 #spvNames{
-    grid-row: 1 / span 1; 
+    grid-column: 2;
+    grid-row: 2 / span 1; 
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
@@ -28,6 +37,8 @@
 }
 
 #infoBox{
+    grid-column: 2;
+    grid-row: 3;
     box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
     border-radius: 15px;
     height: 300px;

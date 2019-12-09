@@ -145,7 +145,7 @@ function errorMessage($imagesArray){
                     }else{
                         echo "<input type='submit' id='addFavorite' value='Add to Favorites' name='favorite'/>";
                     }
-                    echo "<input type='hidden' name='saveID' value='" . $i['ImageID'] . "'>";
+                    echo "<input type='hidden' name='id' value='" . $i['ImageID'] . "'>";
                     echo "</form>";
 
                     echo "</div>";

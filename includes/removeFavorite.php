@@ -1,5 +1,10 @@
 <?php
+if(!isset($_SESSION['email'])){
+    session_start();
+}
 /**********Removing from Favorites**********/
+$message = '';
+
 if(isset($_POST["remove"])){
     unset($_POST['remove']);
     if(isset($_SESSION['email'])){
@@ -10,9 +15,18 @@ if(isset($_POST["remove"])){
                 $_SESSION['favorite'] = array_values($_SESSION['favorite']);
                 unset($_POST['id']);
                 //var_dump($_SESSION);
-                
+                $message = "Removed from Favorites!";
+                $ok = 'remove';
             }
         }
     }
+}
+if (isset($_POST['single'])) {
+    echo json_encode(
+        array(
+            'ok' => $ok,
+            'message' => $message
+        )
+    );
 }
 ?>
