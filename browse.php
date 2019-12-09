@@ -2,7 +2,6 @@
 <?php
 session_start();
 
-
 require_once 'database/helper-functions.inc.php';
 include 'includes/addFavorite.php';
 include 'includes/removeFavorite.php';
