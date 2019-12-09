@@ -1,13 +1,13 @@
-<?php 
-session_start(); 
+<?php
+session_start();
 //if user is already logged in then redirect them
 if (isset($_SESSION['email'])) {
     header("location: index-loggedin.php");
 }
 
-if (isset($_GET["email"])){
+if (isset($_GET["email"])) {
     echo $_GET["email"];
-    echo "<br> hello";
+    // echo "<br> hello";
 }
 ?>
 
@@ -29,30 +29,42 @@ if (isset($_GET["email"])){
         <?php include "includes/navigation.php"; ?>
 
         <div class="main">
-            
+
             <div id="register">
                 <h2>Create an Account</h2>
-                <form id="registerForm" action="addSignup.php" method="post">
-                    <input type="text" placeholder="First Name" name="fName" required value=<?= 'ralph'?>> 
-                    <input type="text" placeholder="Last Name" name="lName" required value=<?= 'acusar'?>>
-                    <input type="text" placeholder="Country" name="country" required value=<?= 'canada'?>>
-                    <input type="text" placeholder="City" name="city" required value=<?= 'calgary'?>>
-                    <input type="email" placeholder="Email" name="email" required value=<?= 'racus946@mtroyal.ca'?>>
-                    <input type="password" placeholder="Password" name="password" required value=<?= 'mypassword'?>>
-                    <input type="password" placeholder="Confirm Password" name="confirm" required value=<?= 'mypassword'?>>
+                <form id="registerForm" action="addSignUp.php" method="post">
+
+                    <?php
+                    if (isset($_SESSION["invalid"])) {
+                        $errorMsg = $_SESSION["invalid"];
+                        echo "<p class='error'>" .  $errorMsg .  " </p>";
+                        unset($_SESSION["invalid"]);
+                    }
+                    ?>
+                    <input type="text" placeholder="First Name" name="fName" required value=<?php if (isset($_SESSION["firstName"])) {
+                                                                                                echo $_SESSION["firstName"];
+                                                                                                unset($_SESSION["firstName"]);
+                                                                                            } ?>>
+                    <input type="text" placeholder="Last Name" name="lName" required value=<?php if (isset($_SESSION["lastName"])) {
+                                                                                                echo $_SESSION["lastName"];
+                                                                                                unset($_SESSION["lastName"]);
+                                                                                            } ?>>
+                    <input type="text" placeholder="Country" name="country" required value=<?php if (isset($_SESSION["country"])) {
+                                                                                                echo $_SESSION["country"];
+                                                                                                unset($_SESSION["country"]);
+                                                                                            } ?>>
+                    <input type="text" placeholder="City" name="city" required value=<?php if (isset($_SESSION["city"])) {
+                                                                                            echo $_SESSION["city"];
+                                                                                            unset($_SESSION["city"]);
+                                                                                        } ?>>
+                    <input type="email" placeholder="Email" name="email" required value=<?= '' ?>>
+                    <input type="password" placeholder="Password" name="password" required value=<?= '' ?>>
+                    <input type="password" placeholder="Confirm Password" name="confirm" required value=<?= '' ?>>
                     <button id="signUp" type="submit" name='submit'>Sign Up</button>
                 </form>
             </div>
             <!-- Enter error message when registration goes wrong -->
-            <?php 
-            
-            if (isset($_SESSION["invalid"])){
-                $errorMsg = $_SESSION["invalid"];
-                echo $errorMsg;
-                unset($_SESSION["invalid"]);
-            }    
-        
-            ?>
+
 
         </div>
     </main>
