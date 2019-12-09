@@ -32,7 +32,7 @@ if (isset($_GET["email"])) {
 
             <div id="register">
                 <h2>Create an Account</h2>
-                <form id="registerForm" action="addSignup.php" method="post">
+                <form id="registerForm" action="addSignUp.php" method="post">
 
                     <?php
                     if (isset($_SESSION["invalid"])) {

@@ -47,27 +47,24 @@ $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
 $allCountries = getCountriesWithImages($pdo);
 $allCities = getCitiesWithImages($pdo);
 $images = getAllImages($pdo);
-$imagesArray = array();
-// echo "<option value=''>Countries</option>";
-// foreach ($cities as $city){
-//     echo  $city['AsciiName'] . "<br> ";
-// }
+$imagesArray = array(); //images array used to print out stuff
 
+//check if any filters has been used and change images array
 if (isset($_GET['cities']) && $_GET['cities'] != "") {
-    // echo 'City selected is: ' . $_GET['cities'];
+    
     $cityID = $_GET['cities'];
     $cityImages = getCityImages($pdo, $cityID);
     $imagesArray = $cityImages;
     
 } else if (isset($_GET['countries']) && $_GET['countries'] != "") {
-    // echo 'Country selected is: ' . $_GET['countries'];
+    
     $countryID = $_GET['countries'];
     $countryImages = getCountryImages($pdo, $countryID);
     $imagesArray = $countryImages;
     
 
 } else if (isset($_GET['textSearch']) && $_GET['textSearch'] != "") {
-    // echo 'Text entered is ' . $_GET['textSearch'];
+    
     $string = $_GET['textSearch'];
     $textSearchArray = [];
 
@@ -75,7 +72,6 @@ if (isset($_GET['cities']) && $_GET['cities'] != "") {
     // https://tecadmin.net/check-string-contains-substring-in-php/
     // finds matching input in any of the image titles
     foreach ($images as $i) {
-        // echo $string . " - " . $i['Title'] . "<br>";
         if (strpos(strtolower($i['Title']), strtolower($string)) !== false) {
             $textSearchArray[] = $i;
         } 
