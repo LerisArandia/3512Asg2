@@ -32,7 +32,7 @@ class Login{
                     $_SESSION['favorite'] = unserialize($_COOKIE[$userFavsLabel]);
                 }
                 else{
-                    setCookie($usersFavsLabel, serialize(array()));
+                    setCookie($userFavsLabel, serialize(array()));
                     $_SESSION['favorite'] = array();
                 }
 

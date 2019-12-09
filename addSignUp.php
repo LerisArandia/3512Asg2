@@ -1,8 +1,7 @@
-
 <?php
 session_start();
 require_once 'database/helper-functions.inc.php';
-// require_once 'users.php';
+
 if (isset($_POST['submit'])) {
     $firstName = $_POST['fName'];
     $lastName = $_POST['lName'];
@@ -20,20 +19,16 @@ if (isset($_POST['submit'])) {
 
 
     if ($password != $confirmPW) {
-        header("Location: signUp.php");
         $_SESSION["invalid"] = "The passwords do not match. Please re-enter.";
+        header("Location: signUp.php");
         exit();
-        // header("Location: signUp.php?pw=bad");
     } else {
 
         //check if password is not 8 characters long
         if (strlen($password) < 8) {
+            $_SESSION["invalid"] = "Password does not 8 contain characters. Please re-enter a new one.";
             header("Location: signUp.php");
-            $_SESSION["invalid"] = "Password does not 8  contain characters. Please re-enter a new one.";
         } else {
-            echo "passwords match";
-            // header("Location: signUp.php?pw=good");
-
             $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
             $sql = "SELECT * FROM users WHERE Email='" . $email . "'"; 
             $result = $pdo->query($sql);
@@ -50,7 +45,6 @@ if (isset($_POST['submit'])) {
                 //hashes the password using md5 with generated salt
                 $hashedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 
-                //THERES AN ERROR
                 // inserts users  into the users table
                 $sqlInsert = "INSERT INTO users (UserID, FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy) VALUES ('$newUserID', '$firstName', '$lastName', null, '$city', null, '$country', null, null, '$email', null)";
 
@@ -64,28 +58,26 @@ if (isset($_POST['submit'])) {
                 $checkUser = getUser($pdo, $email);
                 $checkLogin =  getUserLogin($pdo, $email);
                 if ($checkUser && $checkLogin) {
-
-                    header("Location: index-loggedin.php");
                     $_SESSION['email'] = $email;
-                    // unset($_SESSION["email"]);
+                    header("Location: index-loggedin.php");
                     exit();
                 } else {
                     //just in case something went wrong with db
-                    header("Location: signUp.php");
                     $_SESSION["invalid"] = "There's an unknown error in the registration. Please try again.";
+                    header("Location: signUp.php");
                 }
             } else {
                 //another user used that existing email
-                header("Location: signUp.php?error=email");
                 $_SESSION["invalid"] = "The email you entered is already taken. Please try a different one.";
+                header("Location: signUp.php?error=email");
                 exit();
             }
         }
     }
 } else {
     //just in case user somehow gets to addSignUp.php without pressing submit button
-    header("Location: signUp.php?error=submit");
     $_SESSION["invalid"];
+    header("Location: signUp.php?error=submit");
 }
 
 
