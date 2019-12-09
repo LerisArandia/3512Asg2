@@ -68,7 +68,7 @@ if (isset($_GET['cities']) && $_GET['cities'] != "") {
         }
     }
     $imagesArray = $textSearchArray;
-    $pdo = null;
+   
 } else {
     $imagesArray = $images;
 }
@@ -89,6 +89,7 @@ function errorMessage($imagesArray)
     }
 }
 
+$pdo = null;
 ?>
 
 <html>
