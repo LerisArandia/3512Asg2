@@ -120,12 +120,11 @@ else{
     header('Location:/error-page.php');
 }
 
-
 ?>
 </body>
     <script src="js/template.js"></script>
     <script src="js/single-city.js"></script>
-    </html>
+</html>
 
 
 

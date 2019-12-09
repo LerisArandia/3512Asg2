@@ -65,11 +65,6 @@ function displayFavorites($favArray){
     }
 }
 
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html>
