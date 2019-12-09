@@ -1,7 +1,7 @@
 /**CSS for page**/
 .main{
     background-image: none;
-    background-color: white;
+    /* background-color: white; */
     display: grid;
     grid-template-columns: 800px auto;
     grid-column-gap: 15px;
@@ -25,6 +25,8 @@
     grid-column: 1 / span 1;
     grid-row: 2 / span 2;
     text-align: center;
+    box-shadow: 0.5em 0.5em 0.7em #2c4d63;
+
 }
 #spvNames{
     grid-column: 2;
@@ -32,25 +34,25 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
-    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
+    box-shadow: 0.5em 0.5em 0.7em #2c4d63;
     /* padding: 2em; */
 }
 
 #infoBox{
     grid-column: 2;
     grid-row: 3;
-    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
+    box-shadow: 0.5em 0.5em 0.7em #2c4d63;
     border-radius: 15px;
     height: 300px;
 }
 
 #spvImg img{
-    width: 100%;
+    width: 90%;
     padding: 0.3em;
     border: 0.5px solid var(--light);
     border-radius: 15px;
     background-color: var(--grey);
-    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
+
 }
 #spvImg{
     position: relative;

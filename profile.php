@@ -26,13 +26,8 @@
     
                 foreach($picture as $p){
                     echo "<div>";
-                    echo "<a href='single-photo.php?id={$p['ImageID']}'><img src='images/small320/{$p['Path']}'></a>";
-                    echo "<p>{$p['Title']}</p>";
-                    // echo "<form id='fav' method='post'>";
-                    //     echo "<input type='submit' class='remove' value='Remove from Favorites' name='remove'/>";
-                    //     echo "<input type='hidden' name='removeID' value='" . $p['ImageID'] . "'><br><br>"; 
-                    // echo "</form>";
-                    
+                    echo "<a href='single-photo.php?id={$p['ImageID']}'><img src='images/square150/{$p['Path']}'></a>";
+                    echo "<p>{$p['Title']}</p>";                    
                     echo "</div>";
                 }
                 $pdo=null;
@@ -50,6 +45,21 @@
     function generateUserDetails($user){
         echo "<div id='name'><b>{$user['FirstName']} {$user['LastName']}</b></div>";
         echo "<div id='location'>{$user['City']}, {$user['Country']}</div>";
+    }
+
+    function generateUserPosts($user){
+        $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
+        $postDetails = getUserPosts($pdo, $user['UserID']);
+        foreach($postDetails as $details){
+            echo "<div id='singlePost'>";
+            echo "<a id='mainImage' href='single-photo.php?id={$details['MainPostImage']}'><img src='images/square150/{$details['Path']}'></a>";
+            echo "<div>";
+            echo "<h3 id='postTitle'>{$details['Title']}</h3>";
+            echo "<p id='postMessage'>{$details['Message']}</p>";
+            echo "<p id='postTime'><i>Posted on: {$details['PostTime']}</i></p>";
+            echo "</div>";
+            echo "</div>";
+        }
     }
 
 
@@ -79,6 +89,10 @@
                     <?=displayFavorites($favArray)?>
                 </div>
             </div>
+
+            <div id="userPosts">    
+                <?=generateUserPosts($user)?>
+            </div>  
         </div>
     </main>
 </body>

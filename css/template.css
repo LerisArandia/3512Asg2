@@ -1,7 +1,7 @@
 html, body { 
     height: 100vh; 
     margin: 0;
-    background-color: rgb(46, 128, 153);
+    background-color: rgba(46, 128, 153, 0);
 } 
 
 .container{
@@ -26,7 +26,6 @@ html *{
 }
 
 .main{
-    
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */

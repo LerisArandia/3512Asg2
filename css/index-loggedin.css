@@ -12,12 +12,17 @@ div#main-loggedin{
 
     border-radius: 0.5em;
 }
-div#userInfo{
+#userInfo{
     grid-row: 1/span 2;
     text-align: center;
     padding-top: 3em;
     padding-bottom: 3em;
     background-color: rgb(233, 243, 255);
+    color: black;
+}
+#userInfo:hover{
+    box-shadow: 0.5em 0.5em 0.7em #2c4d63;
+
 }
 
 #search{
@@ -98,14 +103,24 @@ div#favoritedImages{
 
 
 @media only screen and (max-width: 800px){
-    #main-loggedin{
-        display: block;
+    .main{
+        display: block !important;
+        /* grid-template-columns: 1fr; */
+    }
+    div#main-loggedin{
+        
+        background-image: none;
     }
     #userInfo, #favoritedImages, #search{
         margin-bottom: 5px;
     }
-    .main div{
+    .main > div{
         padding: 1rem;
+        margin: 0.5em;
+    }
+    div#images, div#favoritedImages{
+        display: block;
+        height: 15em;
     }
 }
 @media only screen and (max-width: 1200px){
