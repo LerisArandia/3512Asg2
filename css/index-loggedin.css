@@ -98,14 +98,23 @@ div#favoritedImages{
 
 
 @media only screen and (max-width: 800px){
-    #main-loggedin{
-        display: block;
+    .main{
+        display: block !important;
+        /* grid-template-columns: 1fr; */
+    }
+    div#main-loggedin{
+        
+        background-image: none;
     }
     #userInfo, #favoritedImages, #search{
         margin-bottom: 5px;
     }
-    .main div{
+    .main > div{
         padding: 1rem;
+        margin: 0.5em;
+    }
+    div#images, div#favoritedImages{
+        height: 15em;
     }
 }
 @media only screen and (max-width: 1200px){

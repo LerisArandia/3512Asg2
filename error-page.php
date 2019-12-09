@@ -6,6 +6,7 @@
         $title = "Error: Page Not Found";
         include "includes/head.php";
     ?>
+    <link rel="stylesheet" href="css/template.css">
     <link rel="stylesheet" href="css/error.css">
 </head>
 
