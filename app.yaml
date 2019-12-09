@@ -1,6 +1,10 @@
+# For Google Cloud Platform App Engine.
+# Ensures files are connecting to App Engine Instance.
+
 runtime: php55
 api_version: 1
 
+# SQL connection
 env_variables:
   MYSQL_USER: "root"
   MYSQL_PASSWORD: "password"

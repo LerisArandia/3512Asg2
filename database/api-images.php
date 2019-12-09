@@ -1,3 +1,4 @@
+<!-- API for ImagesDetail Database table -->
 <?php 
 
 require_once 'config.inc.php';
@@ -5,7 +6,6 @@ require_once 'db-functions.inc.php';
 require_once 'helper-functions.inc.php';
 
 header('Content-Type: application/json');
-
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
