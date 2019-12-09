@@ -14,7 +14,7 @@ session_start();
     // }
     // $array = $_SESSION['favorite'];
     // setCookie('$_SESSION[email][favorite]', serialize($array));
-    print_r($_COOKIE);
+    // print_r($_COOKIE);
     // $newarray = unserialize($_COOKIE['cart']);
 
     if(isset($_SESSION['email'])){
