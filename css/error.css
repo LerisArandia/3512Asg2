@@ -1,3 +1,7 @@
+
+/* -------------------------------- ERROR PAGE CSS ------------------------------------- */
+
+
 body{
     text-align: center;
     font-family: 'Quicksand', sans-serif;
@@ -38,4 +42,14 @@ ul#navigation li a:hover{
 #logo{
     margin-top: 1em;
     width: 8em;
+}
+
+div#burger{
+    margin: 0;
+    margin-right: 1em;
+    margin-top: 0.2em;
+}
+
+#burger{
+    color: black;
 }

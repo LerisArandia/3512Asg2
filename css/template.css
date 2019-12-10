@@ -1,3 +1,6 @@
+
+/* -------------------------- CSS TO BE APPLIED TO ALL PAGES -------------------- */
+
 html, body { 
     height: 100vh; 
     margin: 0;
@@ -45,9 +48,10 @@ html *{
     color: white;
     padding-top: 0.5em;
     padding-bottom: 1.5em;
-    /* display: inline-block; */
-    /* grid-template-rows: 1fr; */
 }
+
+/* ---------------------------------- NAVIGATION -------------------------------- */
+
 #burger {
     display: none;
     width: 20px;
@@ -64,8 +68,6 @@ html *{
 
 #navigation{
     list-style-type: none;
-    /* display: inline; */
-    /* flex-flow: row wrap; */
     padding-left: 4rem;
     grid-template-rows: 1fr;
 }
@@ -92,6 +94,8 @@ ul#navigation li a:hover{
     border-radius: 5px;
 }
 
+/* ------------------------------ FAVORITE ALERT MESSAGES ------------------------- */
+
 /*CSS for when adding/removing a Favorite*/
 #changeFav{
     margin: auto;
@@ -102,7 +106,7 @@ ul#navigation li a:hover{
     display: none;
     border-radius: 0;
 }
-    
+
 .removeFav{
     background-color: rgb(255, 232, 232) !important;
     border: 1px solid red;
@@ -114,6 +118,8 @@ ul#navigation li a:hover{
     border: 1px solid green;
     color: green;
 }
+
+/* --------------------------------- MEDIA QUERY ------------------------------- */
 
 @media only screen and (max-width: 800px){
     #header{
@@ -142,8 +148,4 @@ ul#navigation li a:hover{
         background-color: grey;
         color: black;
     }
-}
-
-@media only screen and (max-width: 1200px){
-
 }

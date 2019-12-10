@@ -1,3 +1,6 @@
+
+/* ---------------------------- SINGLE COUNTRY CSS ------------------------------ */
+
 .main{
     background-image: url("../images/peak.jpg");
     display: grid;
@@ -22,12 +25,15 @@
     overflow: auto;
 }
 
+/* --------------------------------- FILTERS ----------------------------------------- */
+
 div#countryFilters{
     grid-row: 1/span 2;
     text-align: center;
     text-justify: center;
 }
 
+/* BUTTON TO OPEN FILTERS SIDE NAV  */
 p#clickMe{
     padding: 0.5em;
     background-color: rgb(46, 128, 153);
@@ -40,68 +46,13 @@ p#clickMe:hover{
     background-color: rgb(112, 204, 231);
 }
 
+/* --------------------------------- FILTERS SIDE NAV ------------------------------ */
+
 form#filters{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0.5em;
     height: 100%;
-}
-
-#countryList{
-    grid-row: 3/span 6;
-    overflow: auto;
-}
-
-#mainContent{
-    grid-column: 2/span 3;
-    grid-row: 1/ span 8;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-gap: 2em;
-    padding: 1em;
-}
-
-#searchCountries, #continent{
-    height: 2.5em;
-    border-radius: 0.2em;
-    border: none;
-}
-
-#countryDetails{
-    grid-column: 1/span 2;
-    grid-row: 1/ span 2;
-}
-
-#countryDetails > div{
-    margin: 0.4em;
-    font-size: 0.9em;
-}
-
-#cityList{
-    grid-column: 1/span 2;
-    grid-row: 3/ span 2;
-}
-
-#countryPhotos{
-    grid-row: 1/ span 4;
-    grid-column: 3 / span 2;
-    justify-items: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1em;
-}
-
-#countryPhotos picture *{
-    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
-}
-
-#header{
-    transition: 0.5s;
-}
-
-#clearCountry{
-    height: 2em;
 }
 
 #filters {
@@ -129,6 +80,72 @@ form#filters{
     color: white;
     font-size: 5em;
 }
+
+#searchCountries, #continent{
+    height: 2.5em;
+    border-radius: 0.2em;
+    border: none;
+}
+
+#clearCountry{
+    height: 2em;
+}
+
+/* ANIMATION FOR NAV OPENING AND CLOSING */
+#header{
+    transition: 0.5s;
+}
+
+/* -------------------------------- COUNTRY RESULTS -------------------------------- */
+
+#countryList{
+    grid-row: 3/span 6;
+    overflow: auto;
+}
+
+/* ----------------------------------------------------------------- */
+
+#mainContent{
+    grid-column: 2/span 3;
+    grid-row: 1/ span 8;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 2em;
+    padding: 1em;
+}
+
+#countryDetails{
+    grid-column: 1/span 2;
+    grid-row: 1/ span 2;
+}
+
+#countryDetails > div{
+    margin: 0.4em;
+    font-size: 0.9em;
+}
+
+#cityList{
+    grid-column: 1/span 2;
+    grid-row: 3/ span 2;
+}
+
+/* ------------------------------- COUNTRY PHOTOS ---------------------------------- */
+
+#countryPhotos{
+    grid-row: 1/ span 4;
+    grid-column: 3 / span 2;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+#countryPhotos picture *{
+    box-shadow: 0.5em 0.5em 0.7em #c4c3c3;
+}
+
+/* -------------------------------- MEDIA QUERY ------------------------------------- */
 
 @media only screen and (max-width: 800px){
     .main, #mainContent{

@@ -7,11 +7,11 @@ require_once 'helper-functions.inc.php';
 
 header('Content-Type: application/json');
 
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
+if(isset($_GET['id'])){ // --------------------- get a single image -------------------------- //
+    $id = $_GET['id']; // image id
     $image = getSingleImage(setConnectionInfo(DBCONNECTION, DBUSER, DBPASS), $id);
 }
-else{
+else{ // ------------------------ get all images ----------------------- //
     $image = getAllImages(setConnectionInfo(DBCONNECTION, DBUSER, DBPASS));
 }
 

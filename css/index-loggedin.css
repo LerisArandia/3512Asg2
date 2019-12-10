@@ -1,3 +1,6 @@
+
+/* --------------------------- INDEX LOGGED IN CSS --------------------------------- */
+
 div#main-loggedin{
     display: grid;
     background-image: url("../images/peak.jpg");
@@ -12,6 +15,9 @@ div#main-loggedin{
 
     border-radius: 0.5em;
 }
+
+/* ----------------------------- USER INFO DIV ------------------------------------ */
+
 #userInfo{
     grid-row: 1/span 2;
     text-align: center;
@@ -22,8 +28,13 @@ div#main-loggedin{
 }
 #userInfo:hover{
     box-shadow: 0.5em 0.5em 0.7em #2c4d63;
-
 }
+
+#userInfo #name{ font-size: 2.3em; }
+#userInfo #location{ font-size: 1.3em; }
+
+/* --------------------------------- SEARCH BAR------------------------------ */
+
 
 #search{
     display: grid;
@@ -47,8 +58,8 @@ input[type='search']:hover{
     background-color: rgb(157, 232, 255);
 }
 
-#userInfo #name{ font-size: 2.3em; }
-#userInfo #location{ font-size: 1.3em; }
+/* ------------------------------- FAVORITE IMAGES DIV ---------------------------------- */
+
 
 div#favoritedImages{
     grid-row: 3/span 3;
@@ -76,6 +87,9 @@ div#favoritedImages{
     grid-column: 1/span 2;
 }
 
+/* ------------------------------------EMPTY FAVS ERROR ------------------------------- */
+
+
 #error #smartphone{
     width: 3em;
     box-shadow: 0.5em 0.5em 0.7em #2c4d63;
@@ -85,6 +99,8 @@ div#favoritedImages{
     border: solid 3px rgb(0, 43, 124); 
 }
 #error #smartphone:hover{ border: solid 3px rgb(214, 91, 91); }
+
+/* ---------------------------------- IMAGES YOU MAY LIKE DIV ----------------------- */
 
 #images{
     grid-row: 2/span 4;
@@ -100,7 +116,7 @@ div#favoritedImages{
     grid-column: 1 / span 3;
 }
 
-
+/* --------------------------------- MEDIA QUERY ---------------------------------- */
 
 @media only screen and (max-width: 800px){
     .main{
@@ -122,6 +138,4 @@ div#favoritedImages{
         display: block;
         height: 15em;
     }
-}
-@media only screen and (max-width: 1200px){
 }

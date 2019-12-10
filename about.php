@@ -1,3 +1,6 @@
+
+<!--------------------- ABOUT PAGE  --------------------->
+
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html>
@@ -13,9 +16,13 @@
     <main class="container">
     <?php include "includes/navigation.php" ; ?>
         <div class="main">
+
+            <!-- Group Picture -->
             <div id='bannerImage'>
                 <img id='groupPic' src="images/group.jpg">
             </div>
+
+            <!-- Contains class, uni, professor, sem/year, tech used, and website description -->
             <div id="details">
                     <p id='class'>COMP 3512: Web Development II</p> 
                     <p id='university'>Mount Royal University</p> 
@@ -36,6 +43,7 @@
                     </p>
             </div>
 
+            <!-- Contains group members, github information, and referenced external links -->
             <div id="group">
                 <div>
                     <p class='personName'>Main Github Page</p>
@@ -82,9 +90,12 @@
                             Substring function: https://tecadmin.net/check-string-contains-substring-in-php
                         </li>
                     </ul>
-                </div>
-            </div>
-        </div>
+                
+                </div> <!-- End of References -->
+            
+            </div> <!-- End of Group Info -->
+        
+        </div> <!-- End of Main-->
     </main>
     <script src="js/template.js"></script>
 </html>

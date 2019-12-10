@@ -1,23 +1,35 @@
+/** 
+ * This js is connected to the single-city php page
+ * Referenced Leris' Assignment 1 javascript page
+ * 
+ * Stores and retrieves countries, countries with images, and cities in local storage
+ * 
+*/
 document.addEventListener("DOMContentLoaded", function () {
 
+    // --------------------------------- LOCAL STORAGE FUNCTIONS ------------------------------------- //
     function updateStorage(key, arrayName) { localStorage.setItem(key, JSON.stringify(arrayName)); }
     function retrieveStorage(key) { return JSON.parse(localStorage.getItem(key)) || []; }
     function removeStorage(key) { localStorage.removeItem(key); }
 
+    // ----------------------------------------------------------------------------------------------- //
+
     var countriesArray = retrieveStorage('countries');
     var countriesWithImagesArray = retrieveStorage('imageCountries');
+
+    // If it doesn't exist in local storage, retrieve and display countries
+    // Otherwise, display countries
     if (!retrieveStorage("countries") || retrieveStorage("countries").length === 0) { fillCountriesArray() }
     else {
         displayCountryArray(countriesArray);
     }
 
-
+    // fetch country information and set to local storage
     function fillCountriesArray() {
         var countriesArray = [];
 
         // gets all countries
         let allCountriesUrl = "./database/api-countries.php";
-
         fetch(allCountriesUrl)
             .then(response => response.json())
             .then(data => {
@@ -28,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.log(error));
     }
 
+    // displays any country array passed to it
     function displayCountryArray(arrayToBeDisplayed) {
         let results = document.querySelector("#countryListCityPage");
         results.innerHTML = "";
@@ -45,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         )
     }
 
+    // sorts country by name rather than country ISO
     function sortArrayByName(array) {
         array.sort((a, b) => {
             var x = a.CountryName.toLowerCase();
@@ -56,8 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return array;
     }
 
-    // ------------ Search for Country --------------- //
-
+    // ------------ Search Event Listener for Country --------------- //
     document.querySelector("#searchCountriesCityPage").addEventListener("input", displaySearchResults);
     function displaySearchResults() {
 
@@ -90,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-    // ------- Search By Continent ------ //
+    // ------- Search By Continent Event Listener ------ //
 
     let option = document.querySelector("select#continentCityPage");
     option.addEventListener("click", function (e) {
@@ -128,8 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // ------- Countries With Images Only ------ //
-
+    // -------------------- Fetchs countries with images and stores in local storage ----------------------------- //
     var imageCountriesArray = [];
     document.querySelector("#imageCountryOnlyCityPage").addEventListener("click", function () {
         if (this.checked) {
@@ -156,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 
+    // ------- Countries With Images Only Checkbox Event Listener ------ //
     document.querySelector("#imageCountryOnlyCityPage").addEventListener("click", function () {
         if (this.checked) {
 
@@ -163,7 +176,6 @@ document.addEventListener("DOMContentLoaded", function () {
             countryListResults.textContent = "";
 
             displayCountryArray(countriesWithImagesArray);
-
         }
         else {
             countriesArray = retrieveStorage("countries");
@@ -171,8 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 
-    // ------ Clear All Filters ------- //
-
+    // ------ Clear All Filters Event Listener ------- //
     document.querySelector('#clearCountryCityPage').addEventListener("click", function (e) {
         e.preventDefault();
         let search = document.querySelector("#searchCountriesCityPage");
@@ -191,7 +202,8 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     // --------- Filter Sidebar ---------- //
-
+    // Was referenced from W3 School 
+    // https://www.w3schools.com/howto/howto_js_sidenav.asp
 
     document.querySelector("#close").addEventListener("click", closeNav);
     document.querySelector("p#clickMe").addEventListener("click", openNav);
@@ -208,8 +220,5 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("main-cityPage").style.marginLeft = "0em";
         document.getElementById("header").style.marginLeft = "0em";
     }
-
-
-
 
 })

@@ -1,3 +1,7 @@
+
+/* ------------------------------- SEARCH/BROWSE CSS -------------------------------- */
+
+
 .main{
     background-image: none;
     background-color: rgb(46, 128, 153);
@@ -8,9 +12,18 @@
     padding: 2em;
 }
 
+.main > div{
+    background-color: rgba(180, 205, 219, 0.664);
+
+    border-radius: 1em;
+}
+
 #changeFav{
     grid-column: 1 / span all;
 }
+
+/* ------------------------------- FILTER BAR ----------------------------- */
+
 
 #photoFilter{
     padding: 1em;
@@ -23,11 +36,7 @@
     grid-gap: 0.5em;
 }
 
-.main > div{
-    background-color: rgba(180, 205, 219, 0.664);
-
-    border-radius: 1em;
-}
+/* ------------------------------ RESULTS DIV ----------------------------- */
 
 #allResults{
     grid-column: 2/span 4;
@@ -46,6 +55,14 @@
     background-color: white;
     box-shadow: 0.5em 0.5em 0.7em #2c4d63;
 }
+
+#singleResult button, #addFavorite, #remove{
+    width: 75%;
+    margin-top: 1.5em;
+}
+
+/* --------------------------------- BUTTONS ----------------------------------- */
+
 
 button, #addFavorite{
     height: 2em;
@@ -71,10 +88,8 @@ button:hover, #addFavorite:hover{
     background-color: rgb(111, 160, 160);
 }
 
-#singleResult button, #addFavorite, #remove{
-    width: 75%;
-    margin-top: 1.5em;
-}
+/* ------------------------------------------------------------------------ */
+
 
 #image{
     grid-row: 1/span 3;
@@ -92,6 +107,9 @@ button:hover, #addFavorite:hover{
 #fav{
     grid-row-start: 2;
 }
+
+/* -------------------------------- MEDIA QUERY -------------------------------- */
+
 
 @media only screen and (max-width: 1200px){
     #singleResult button, #addFavorite, #remove{

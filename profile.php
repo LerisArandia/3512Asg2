@@ -1,6 +1,11 @@
+
+<!-- DISPLAYS A USER'S PROFILE PAGE -->
+<!-- Their favorites, and posts -->
+
 <?php 
     require_once ('database/helper-functions.inc.php');
     session_start(); 
+
     if(isset($_SESSION['email'])){
         $userEmail = $_SESSION['email'];
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
@@ -18,6 +23,7 @@
         $favArray = $_SESSION['favorite'];
     }
 
+    // displays favorites photo cards
     function displayFavorites($favArray){
         if($favArray != null || count($favArray) > 0){
             foreach($favArray as $pictureID){
@@ -42,11 +48,13 @@
         }
     }
 
+    // displays user's name, city, and country
     function generateUserDetails($user){
         echo "<div id='name'><b>{$user['FirstName']} {$user['LastName']}</b></div>";
         echo "<div id='location'>{$user['City']}, {$user['Country']}</div>";
     }
 
+    // generates user posts cards
     function generateUserPosts($user){
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $postDetails = getUserPosts($pdo, $user['UserID']);
@@ -61,7 +69,6 @@
             echo "</div>";
         }
     }
-
 
 ?>
 <!DOCTYPE html>

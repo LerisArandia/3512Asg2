@@ -99,23 +99,26 @@ if (isset($_GET["id"])) {
                     <h3 id="photoLocation"><?php echo "<a href='single-city.php?citycode={$i['CityCode']}'>{$i['AsciiName']}</a>, <a href='single-country.php?countryiso={$i['CountryCodeISO']}'>{$i['CountryName']}</a>" ?></h3>
                     
                     <?php
-                        //Favorites Form/Button
-                        echo '<form class="spvButtons" method="post" id="fav">';
-                            //If image is in session favorites array, show remove favorites button
-                            if(in_array($i['ImageID'], $_SESSION['favorite'])){
-                                //Remove from Favorites button
-                                echo '<input type="submit" id="remove" class="favorite" value="Remove from Favorites" name="remove"/>';
-                                //Post information for type of button
-                                echo "<input type='hidden' id='btn' name='btn' value='remove'/>";
-                            }else{ //Else if image is NOT in session favorites array, show add to favorites button
-                                //Add to Favorites button
-                                echo '<input type="submit" id="addFavorite" class="favorite" value="Add to Favorites" name="favorite"/>';
-                                //Post information for type of button
-                                echo "<input type='hidden' id='btn' name='btn' value='favorite'/>";
-                            }
-                            //Post information for photo id. 
-                            echo "<input type='hidden' id='photoID' name='id' value='" . $i['ImageID'] . "'>";
-                        echo '</form>';
+                        if(isset($_SESSION['email'])){
+                            //Favorites Form/Button
+                            echo '<form class="spvButtons" method="post" id="fav">';
+                                //If image is in session favorites array, show remove favorites button
+                                if(in_array($i['ImageID'], $_SESSION['favorite'])){
+                                    //Remove from Favorites button
+                                    echo '<input type="submit" id="remove" class="favorite" value="Remove from Favorites" name="remove"/>';
+                                    //Post information for type of button
+                                    echo "<input type='hidden' id='btn' name='btn' value='remove'/>";
+                                }else{ //Else if image is NOT in session favorites array, show add to favorites button
+                                    //Add to Favorites button
+                                    echo '<input type="submit" id="addFavorite" class="favorite" value="Add to Favorites" name="favorite"/>';
+                                    //Post information for type of button
+                                    echo "<input type='hidden' id='btn' name='btn' value='favorite'/>";
+                                }
+                                //Post information for photo id. 
+                                echo "<input type='hidden' id='photoID' name='id' value='" . $i['ImageID'] . "'>";
+                            echo '</form>';
+                        }
+
                     ?>
                 </div>
 

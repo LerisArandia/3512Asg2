@@ -1,4 +1,6 @@
-/**CSS for page**/
+
+/* ------------------------------- SINGLE PHOTO CSS --------------------------- */
+
 .main{
     background-image: none;
     /* background-color: white; */
@@ -16,18 +18,31 @@
     background-color: rgba(255, 255, 255, 0.678);
 }
 
+/* DISPLAYS ADDED/REMOVED FAV MESSAGE */
 #changeFav{
     grid-column: 1 / span 2;
     grid-row: 1/ span 1;
 }
+
+/* ------------------------------- DISPLAYED IMAGE ----------------------------------- */
 
 #spvImg{
     grid-column: 1 / span 1;
     grid-row: 2 / span 2;
     text-align: center;
     box-shadow: 0.5em 0.5em 0.7em #2c4d63;
-
+    position: relative;
 }
+
+#photoTitle, #photoUser,  #photoLocation{
+    grid-column: 1;
+    align-content: center;    
+    text-align: center;
+    margin: 0;
+}
+
+/* -------------------------------- CREATOR NAMES --------------------------------- */
+
 #spvNames{
     grid-column: 2;
     grid-row: 2 / span 1; 
@@ -35,8 +50,21 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
     box-shadow: 0.5em 0.5em 0.7em #2c4d63;
-    /* padding: 2em; */
 }
+
+#photoTitle{
+    margin-top: 1.5em;
+}
+
+#spvNames .spvButtons{
+    grid-column: 2;
+    grid-row: 1;
+    align-content: center;
+    text-align: center;
+    padding-top:1em;    
+}
+
+/* ---------------------------------- TABBED BUTTONS ---------------------------------- */
 
 #infoBox{
     grid-column: 2;
@@ -53,27 +81,6 @@
     border-radius: 15px;
     background-color: var(--grey);
 
-}
-#spvImg{
-    position: relative;
-}
-#photoTitle, #photoUser,  #photoLocation{
-    grid-column: 1;
-    align-content: center;    
-    text-align: center;
-    margin: 0;
-}
-
-#photoTitle{
-    margin-top: 1.5em;
-}
-
-#spvNames .spvButtons{
-    grid-column: 2;
-    grid-row: 1;
-    align-content: center;
-    text-align: center;
-    padding-top:1em;    
 }
 
 .spvButtons button, .spvButtons #addFavorite{

@@ -1,7 +1,12 @@
+
+<!-- Displays information for a city, the city's map, and photos in city -->
+<!-- Can filter through countries again -->
+
 <?php
 session_start();
 require_once 'database/helper-functions.inc.php';
 
+// details for specific city
 function generateCityDetails($city){
     echo "<h3>{$city['AsciiName']}</h3>";
     echo "<div id='cityPopulation'>Population: ".number_format($city['Population'])." residents</div>";
@@ -9,6 +14,7 @@ function generateCityDetails($city){
     echo "<div id='cityTimeZone'>Time Zone: {$city['TimeZone']}</div>";
 }
 
+// displays continent dropdown filter
 function generateContinentsCityPage(){
     echo "<select name='continentCityPage' id='continentCityPage' placeholder='Search By Continent'>";
     echo "<option value=''>Filter By Continent</option>";
@@ -22,6 +28,7 @@ function generateContinentsCityPage(){
     $pdo=null;
 }
 
+// changes location of map to reflect city latitude and longitude
 function generateMap($city){
     $latitude = $city['Latitude'];
     $longitude = $city['Longitude'];
@@ -31,6 +38,7 @@ function generateMap($city){
     echo "<img class='maps' id='mapImage' src={$src}>";
 }
 
+// displays photos from specific city
 function generateCityImages($pdo, $city){
     $citycode = $city['CityCode'];
     $sql = allImageSql() . ' WHERE imagedetails.CityCode =' . $citycode;
@@ -75,6 +83,8 @@ if(isset($_GET['citycode'])){
 
     <body>
         <form id="filtersCountryCityPage">
+
+            <!-- hideable country filters -->
             <div>
                 <a href="javascript:void(0)" class="closebtn" id="close">&times;</a>
                 <input id="searchCountriesCityPage" type="text" placeholder="Search For Country">
@@ -84,18 +94,18 @@ if(isset($_GET['citycode'])){
                 </div>
                 <button class="clearFilter" id="clearCountryCityPage">Clear All Country Filters</button>
             </div>
+
         </form>
         <main class="container">
         <?php include "includes/navigation.php" ; ?>
         
             <div class="main" id="main-cityPage">
                 <div id="filters">
+                    <!-- shows country filters -->
                     <p id="clickMe">Filter Countries</p>
                 </div>
-
                 
                 <div id="countryListCityPage">
-
                 </div>
 
                 <div id="mainContentCityPage">
@@ -116,7 +126,7 @@ if(isset($_GET['citycode'])){
     } // end of for each
     $pdo=null;
 }
-else{
+else{ // if no city is provided to page
     header('Location:/error-page.php');
 }
 

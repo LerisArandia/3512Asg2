@@ -18,6 +18,9 @@
     background-color: rgb(255, 255, 255);
 }
 
+/* -------------------------------- SEARCH BAR ----------------------------------- */
+
+
 #textSearch{
     grid-column: 1/span 2;
 
@@ -33,6 +36,9 @@ input[name="textSearch"]{
     cursor: pointer;
     opacity: 0.7;
 }
+
+/* ----------------------------- LOGIN & JOIN BUTTONS ------------------------- */
+
 
 button#login, button#join{
     padding: 1em 5em 1em 5em;

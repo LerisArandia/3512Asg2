@@ -1,3 +1,7 @@
+
+/* ------------------------------ PROFILE PAGE CSS ---------------------------- */
+
+
 html{
     background-color: none;
 }
@@ -20,6 +24,9 @@ div.main{
     padding: 0.5em;
     text-align: center;
 }
+
+/* -------------------------------- USER INFO --------------------------------- */
+
 #userInfo{
     grid-column: 1/span 2;
     grid-row: 1/span 1;
@@ -30,9 +37,10 @@ div.main{
     margin: 0em 15em 0em 15em;
 }
 
-#personalPhotos{ grid-row: 2/span 3; }
 #userDescription #name{ font-size: 2.3em; }
 #userDescription #location{ font-size: 1.3em; }
+
+/* ------------------------------ EMPTY FAVS ERROR ------------------------- */
 
 img#smartphone{
     width: 4em;
@@ -54,6 +62,9 @@ div#error{
 #error #smartphone:hover{
     border: solid 3px rgb(214, 91, 91); 
 }
+
+/* --------------------------------- FAVORITES ASIDE ---------------------------- */
+
 
 div#favorites{
     grid-row: 2/ span 1;
@@ -81,6 +92,9 @@ div#favPhotos{
     border: solid 0.3em rgba(45, 82, 104, 0.719);
 }
 
+/* ---------------------------------- USER POSTS ------------------------------------ */
+
+
 #singlePost{
     border: solid 1px white;
     padding: 1.5em;
@@ -106,6 +120,7 @@ div#favPhotos{
     padding: 2em;
 }
 
+/* -------------------------------------- MEDIA QUERY ------------------------------ */
 
 
 @media only screen and (max-width: 800px){
@@ -142,6 +157,4 @@ div#favPhotos{
         display: block;
     }
 
-}
-@media only screen and (max-width: 1200px){
 }

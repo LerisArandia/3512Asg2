@@ -1,8 +1,13 @@
+
+/* ------------------------------- LOGIN PAGE CSS -------------------------------- */
+
+
 .main{
     padding: 3em 25em 3em 25em;
     background-color: azure;
     background-image: url("../images/peak.jpg");
 }
+
 form#loginForm{
     display: grid;
     grid-template-rows: repeat(4, auto);
@@ -10,6 +15,9 @@ form#loginForm{
     grid-gap: 1em;
     margin: 0;
 }
+
+/* ---------------------- EMAIL AND PASSWORD INPUT FIELD ---------------------- */
+
 
 #email, #password{
     grid-column: 1/span 2;
@@ -20,6 +28,24 @@ form#loginForm{
     background-color: white;
     width: auto;
 }
+
+/* ------------------------------------ LOGIN BUTTON ----------------------------- */
+
+
+#login{
+    grid-row-start: 3;
+    grid-column: 2/span 1;
+    padding: 1em 5em 1em 5em;
+    background-color: rgb(169, 224, 201);
+    border: none;
+    border-radius: 0.2em;
+}
+
+#login:hover{
+    background-color: rgb(94, 172, 141);
+}
+
+/* --------------------------------- CANCEL BUTTON ---------------------------------- */
 
 #cancel{
     grid-row-start: 3;
@@ -36,18 +62,9 @@ a#cancel{ color: black;}
     background-color: rgb(255, 118, 118);
 }
 
-#login{
-    grid-row-start: 3;
-    grid-column: 2/span 1;
-    padding: 1em 5em 1em 5em;
-    background-color: rgb(169, 224, 201);
-    border: none;
-    border-radius: 0.2em;
-}
 
-#login:hover{
-    background-color: rgb(94, 172, 141);
-}
+/* ---------------------------------- ERROR MESSAGES ---------------------------- */
+
 
 .error{
     grid-row-start: 4;
@@ -55,6 +72,9 @@ a#cancel{ color: black;}
     background-color: rgb(255, 182, 182);
     padding: 0.2em;
 }
+
+/* ------------------------------ MEDIA QUERY ------------------------------------- */
+
 
 @media only screen and (max-width: 800px){
     .main{

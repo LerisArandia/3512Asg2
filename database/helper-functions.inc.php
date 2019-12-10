@@ -1,12 +1,13 @@
+
+<!--------------------- FUNCTIONS THAT HELP RETRIEVE INFORMATION FROM TRAVEL DATABASE  ---------------------->
+
 <?php
 
 require_once 'config.inc.php';
 require_once 'db-functions.inc.php'; 
 
-
 // --------------------------------------- For Countries --------------------------------- //
 
-// 
 function getCountrySql(){
     $sql = 'SELECT ISO, ISONumeric, CountryName, Capital, countries.CityCode, Area, countries.Population, Continent, TopLevelDomain, CurrencyCode, CurrencyName, PhoneCountryCode, Languages, Neighbours, CountryDescription FROM countries';
     return $sql;

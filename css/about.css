@@ -1,3 +1,7 @@
+
+/* --------------------------- ABOUT PAGE CSS ---------------------------- */
+
+
 div.main{
     background-image: none;
     display: grid;
@@ -11,15 +15,18 @@ div.main{
     background-color: white;
 }
 
+/* ------------------------------ GROUP PICTURE --------------------------- */
+
 #bannerImage{
     grid-row: 1;
     grid-column: 1;
 }
-
 #groupPic{
     border-radius: 20em;
     box-shadow: 0.5em 0.5em 0.7em #2c4d63;
 }
+
+/* ---------------------- GROUP DETAILS & INFO ----------------------------- */
 
 #group{
     grid-column: 2 ;
@@ -55,11 +62,16 @@ div.main{
     font-weight: bold;
 }
 
+/* -----------------------------FINAL DIV FOR REFERENCES ------------------------ */
+
+
 div#references{
     display: block;
     padding: 0.5em;
 }
 
+
+/* ---------------------------- MOBILE MEDIA QUERY ------------------------------ */
 @media only screen and (max-width: 800px){
     .main{
         /* grid-template-columns: 1fr; */

@@ -1,8 +1,12 @@
 
+<!-- Displays information for a country, the country's cities, and photos in country -->
+<!-- Can filter through countries -->
+
 <?php
 session_start();
 require_once 'database/helper-functions.inc.php';
 
+// details for specific country
 function generateCountryDetails(){
     if(isset($_GET['countryiso'])){
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
@@ -29,6 +33,7 @@ function generateCountryDetails(){
     
 } 
 
+// displays cities in specific country
 function generateCities(){
     if(isset($_GET['countryiso'])){
         $pdo = setConnectionInfo(DBCONNECTION,DBUSER,DBPASS);
@@ -51,6 +56,7 @@ function generateCities(){
     }
 }
 
+// displays continent dropdown filter
 function generateContinents(){
     echo "<select name='continent' id='continent' placeholder='Search By Continent'>";
     echo "<option value=''>Filter By Continent</option>";
@@ -63,6 +69,7 @@ function generateContinents(){
     $pdo=null;
 }
 
+// displays images from specific country
 function generateCountryImages(){
     if(isset($_GET['countryiso'])){
         $countrycode = $_GET['countryiso'];
@@ -110,6 +117,7 @@ function generateCountryImages(){
         hiding sidenav
          -->
         <div>
+            <!-- hideable country filters -->
             <a href="javascript:void(0)" class="closebtn" id="close">&times;</a>
                 <input id="searchCountries" type="text" placeholder="Search For Country">
                 <?php generateContinents(); ?>
@@ -122,6 +130,8 @@ function generateCountryImages(){
         <main class="container">
             <?php include "includes/navigation.php" ; ?>
             <div class="main" id="main-countryPage">
+
+                <!-- shows country filters -->
                 <div id="countryFilters">
                     <p id="clickMe">Filter Countries</p>
                 </div>

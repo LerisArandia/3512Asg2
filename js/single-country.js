@@ -1,20 +1,30 @@
+/** 
+ * This js is connected to the single-country php page
+ * Referenced Leris' Assignment 1 javascript page
+ * 
+ * Stores and retrieves countries, countries with images, and cities in local storage
+ * 
+*/
 document.addEventListener("DOMContentLoaded", function () {
     var countriesArray = [];
-    
+
+    // --------------------------------- LOCAL STORAGE FUNCTIONS ------------------------------------- //
     function updateStorage(key, arrayName) { localStorage.setItem(key, JSON.stringify(arrayName)); }
     function retrieveStorage(key) { return JSON.parse(localStorage.getItem(key)) || []; }
     function removeStorage(key) { localStorage.removeItem(key); }
 
-    // --------------------------------checking local storage for countries array -------------------------------- //
+    // ----------------------------------------------------------------------------------------------- //
 
     var countriesArray = retrieveStorage("countries");
 
+    // If it doesn't exist in local storage, retrieve and display countries
+    // Otherwise, display countries
     if (!retrieveStorage("countries") || retrieveStorage("countries").length === 0) { fillCountriesArray() }
     else {
         displayCountryArray(countriesArray);
     }
 
-
+    // fetch country information and set to local storage
     function fillCountriesArray() {
         var countriesArray = [];
 
@@ -31,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.log(error));
     }
 
+    // displays any country array passed to it
     function displayCountryArray(arrayToBeDisplayed) {
         let results = document.querySelector("#countryList");
         results.innerHTML = "";
@@ -48,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         )
     }
 
+    // sorts country by name rather than country ISO
     function sortArrayByName(array) {
         array.sort((a, b) => {
             var x = a.CountryName.toLowerCase();
@@ -59,8 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return array;
     }
 
-    // --------- EVENT HANDLER FOR SEARCH FOR COUNTRIES ---------- //
-
+    // ------------ Search Event Listener for Country --------------- //
     document.querySelector("#searchCountries").addEventListener("input", displaySearchResults);
     function displaySearchResults() {
 
@@ -97,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let option = document.querySelector("select#continent");
     option.addEventListener("click", function (e) {
-        console.log(this.value);
         displayByContinent(this.value);
     });
 
@@ -131,8 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-    // ------------------------------ EVENT HANDLER FOR COUNTRIES WITH IMAGES ------------------------------------ //
-
+    // -------------------- Fetchs countries with images and stores in local storage ----------------------------- //
     var imageCountriesArray = [];
     document.querySelector("#imageCountryOnly").addEventListener("click", function () {
         if (this.checked) {
@@ -159,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 
-    //  ---- Clear Filters ------ //
+    // ------ Clear All Filters Event Listener ------- //
     document.querySelector('#clearCountry').addEventListener("click", function (e) {
         e.preventDefault();
         let search = document.querySelector("#searchCountries");
@@ -178,6 +187,8 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     // --------- Filter Sidebar ---------- //
+    // Was referenced from W3 School 
+    // https://www.w3schools.com/howto/howto_js_sidenav.asp
 
     document.querySelector("#close").addEventListener("click", closeNav);
     document.querySelector("p#clickMe").addEventListener("click", openNav);

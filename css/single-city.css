@@ -1,3 +1,6 @@
+
+/* ------------------------ SINGLE CITY CSS ---------------------- */
+
 .main{
     background-image: url("../images/peak.jpg");
     display: grid;
@@ -14,19 +17,24 @@
     background-color: rgba(180, 205, 219, 0.664);
 }
 
+/* --------------------- CITY INFO, MAP & DETAILS -------------------------- */
+
 #mainContentCityPage > div{
-    /* border: solid black 1px; */
     background-color: white;
     border-radius: 0.2em;
     padding: 1em;
     overflow: auto;
 }
 
+/* ------------------------- FILTERS ------------------------------------- */
+
 div#filters{
     grid-row: 1/span 2;
     text-align: center;
     text-justify: center;
 }
+
+/* ------------------------- BUTTON TO OPEN NAV ---------------------------- */
 
 p#clickMe{
     padding: 0.5em;
@@ -40,17 +48,52 @@ p#clickMe:hover{
     background-color: rgb(112, 204, 231);
 }
 
+/* ----------------------------- FILTERS ASIDE ----------------------------- */
+
 form#filtersCountryCityPage{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0.5em;
     align-content: center;
-    /* height: 100%; */
 }
 
 #filtersCountryCityPage *{
     width: 100%;
 }
+
+/* ANIMATION FOR NAV OPENING AND CLOSING */
+#filtersCountryCityPage {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgb(94, 94, 94);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 2em; 
+    padding-bottom: 10em;
+    transition: 0.5s;
+    color: white;
+}
+
+#filtersCountryCityPage > div{
+    display: grid;
+    justify-content: space-around;
+    grid-gap: 1em;
+}
+
+#filtersCountryCityPage div a#close{
+    color: rgb(255, 196, 196);
+    font-size: 5em;
+}
+
+/* ANIMATION FOR NAV OPENING AND CLOSING */
+#header{
+    transition: 0.5s;
+}
+
+/* ------------------------------- COUNTRY RESULTS ------------------------- */
 
 div#countryListCityPage{
     grid-row: 3/span 6;
@@ -60,6 +103,8 @@ div#countryListCityPage{
 #clearCountryCityPage{
     height: 2em;
 }
+
+/* -------------------------------------------------------------------------- */
 
 #mainContentCityPage{
     grid-column: 2/span 3;
@@ -100,35 +145,7 @@ div#countryListCityPage{
     border: none;
 }
 
-#filtersCountryCityPage {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: rgb(94, 94, 94);
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 2em; 
-    padding-bottom: 10em;
-    transition: 0.5s;
-    color: white;
-}
-
-#filtersCountryCityPage > div{
-    display: grid;
-    justify-content: space-around;
-    grid-gap: 1em;
-}
-
-#filtersCountryCityPage div a#close{
-    color: rgb(255, 196, 196);
-    font-size: 5em;
-}
-
-#header{
-    transition: 0.5s;
-}
+/* ------------------------------- MEDIA QUERY ----------------------------- */
 
 @media only screen and (max-width: 800px){
     .main, #mainContentCityPage{

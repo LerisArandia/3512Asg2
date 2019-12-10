@@ -1,3 +1,6 @@
+
+<!------------------- DISPLAYS USER'S FAVORITES ------------------>
+
 <?php session_start(); 
 
 require_once('database/helper-functions.inc.php');
@@ -10,6 +13,7 @@ else{
     $favArray = $_SESSION['favorite'];
 }
 
+// removes a post from favorites list
 if(isset($_POST["remove"])){
     unset($_POST["remove"]);
     if(isset($_SESSION['email'])){
@@ -27,6 +31,7 @@ if(isset($_POST["remove"])){
     }
 }
 
+// removes all posts from favorites list
 if(isset($_POST["removeAll"])){
     unset($_POST["removeAll"]);
     if(isset($_SESSION['email'])){
@@ -35,6 +40,7 @@ if(isset($_POST["removeAll"])){
     }
 }
 
+// generates a single favorite photo "card"
 function displayFavorites($favArray){
     if($favArray != null || count($favArray) > 0){
         foreach($favArray as $pictureID){
@@ -56,7 +62,7 @@ function displayFavorites($favArray){
         }
 
     }
-    else{
+    else{ // if user has no favorites
         echo "<div id='error'>";
         echo "<p>You currently have no favorites ...</p>";
         echo "<p>Explore our gallery now!</p>";
@@ -84,11 +90,11 @@ function displayFavorites($favArray){
         <div class="main">
             <h2>Your Favorites</h2>
 
-            <?php
+            <?php //displays clear all button only if there are favorites
                 if(count($_SESSION['favorite']) > 0) : ?>
-            <form id='removeAllForm' method='post'>
-                <input type='submit' class='remove' value='Clear All Favorites' name='removeAll'/>
-            </form>
+                    <form id='removeAllForm' method='post'>
+                        <input type='submit' class='remove' value='Clear All Favorites' name='removeAll'/>
+                    </form>
                 <?php endif;?>
 
             <div id="favorites">
