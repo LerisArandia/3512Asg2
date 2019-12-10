@@ -1,5 +1,7 @@
-<!------------------------- INCLUDE FOR 'IMAGES YOU MAY LIKE' ALGORITHM ----------------------->
-<?php 
+<?php
+/***
+ * INCLUDE FOR 'IMAGES YOU MAY LIKE' ALGORITHM
+ */
     require_once ('database/helper-functions.inc.php');
 
     // photoArray has to be an array of IDS not ISO

@@ -42,6 +42,7 @@
     grid-column: 2/span 4;
     overflow: auto;
     display: grid;
+    grid-template-rows: 50px auto;
     grid-gap: 2em;
     padding: 3em;
 }
@@ -54,6 +55,7 @@
     padding: 1em;
     background-color: white;
     box-shadow: 0.5em 0.5em 0.7em #2c4d63;
+    height: 150px;
 }
 
 #singleResult button, #addFavorite, #remove{
@@ -129,6 +131,7 @@ button:hover, #addFavorite:hover{
     #singleResult{
         display: block;
         text-align: center;
+        height: auto;
     }
     #singleResult button, #addFavorite{
         width: 80%;
