@@ -3,13 +3,10 @@
 
 .main{
     background-image: none;
-    /* background-color: white; */
     display: grid;
     grid-template-columns: 800px auto;
     grid-column-gap: 15px;
     grid-template-rows: 55px auto auto;
-    /* grid-row: 2/span 7; */
-    /* grid-gap: 1em; */
     padding: 3em;
     padding-top: 0;
 }
@@ -30,9 +27,10 @@
     grid-column: 1 / span 1;
     grid-row: 2 / span 2;
     text-align: center;
-    box-shadow: 0.5em 0.5em 0.7em #2c4d63;
     position: relative;
+    background-color: initial;
 }
+
 
 #photoTitle, #photoUser,  #photoLocation{
     grid-column: 1;
@@ -72,15 +70,14 @@
     box-shadow: 0.5em 0.5em 0.7em #2c4d63;
     border-radius: 15px;
     height: 300px;
+    padding: 1.5em;
 }
 
 #spvImg img{
     width: 90%;
     padding: 0.3em;
-    border: 0.5px solid var(--light);
     border-radius: 15px;
-    background-color: var(--grey);
-
+    box-shadow: 0.5em 0.5em 0.7em #2c4d63;
 }
 
 .spvButtons button, .spvButtons #addFavorite{
@@ -140,8 +137,6 @@
     border-top-right-radius: 15px;
     height: 15rem;
     padding: 0.5rem;
-    width: 90%;
-    margin: 0;
     margin-left: 10px; 
     background-color: rgb(214, 242, 247);
 }
@@ -191,6 +186,12 @@
         height: 10rem;
         width: 15rem;
         left: 30%;
+    }
+    #photoTitle{
+        margin-top: 0;
+    }
+    #infoBox .spvButtons{
+        padding-top: 0;
     }
 }
 @media only screen and (max-width: 1200px){
