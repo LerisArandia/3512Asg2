@@ -58,15 +58,20 @@
     function generateUserPosts($user){
         $pdo = setConnectionInfo(DBCONNECTION, DBUSER, DBPASS);
         $postDetails = getUserPosts($pdo, $user['UserID']);
-        foreach($postDetails as $details){
-            echo "<div id='singlePost'>";
-            echo "<a id='mainImage' href='single-photo.php?id={$details['MainPostImage']}'><img src='images/square150/{$details['Path']}'></a>";
-            echo "<div>";
-            echo "<h3 id='postTitle'>{$details['Title']}</h3>";
-            echo "<p id='postMessage'>{$details['Message']}</p>";
-            echo "<p id='postTime'><i>Posted on: {$details['PostTime']}</i></p>";
-            echo "</div>";
-            echo "</div>";
+        if($postDetails){
+            foreach($postDetails as $details){
+                echo "<div id='singlePost'>";
+                echo "<a id='mainImage' href='single-photo.php?id={$details['MainPostImage']}'><img src='images/square150/{$details['Path']}'></a>";
+                echo "<div>";
+                echo "<h3 id='postTitle'>{$details['Title']}</h3>";
+                echo "<p id='postMessage'>{$details['Message']}</p>";
+                echo "<p id='postTime'><i>Posted on: {$details['PostTime']}</i></p>";
+                echo "</div>";
+                echo "</div>";
+            }
+        }
+        else{
+            echo "<div id='emptyPosts'>No posts .... yet. So stay tuned!</div>";
         }
     }
 
