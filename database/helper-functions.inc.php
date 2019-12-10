@@ -1,5 +1,7 @@
-<!--------------------- FUNCTIONS THAT HELP RETRIEVE INFORMATION FROM TRAVEL DATABASE  ---------------------->
 <?php
+/***
+ * FUNCTIONS THAT HELP RETRIEVE INFORMATION FROM TRAVEL DATABASE
+ */
 require_once 'config.inc.php';
 require_once 'db-functions.inc.php'; 
 // --------------------------------------- For Countries --------------------------------- //
