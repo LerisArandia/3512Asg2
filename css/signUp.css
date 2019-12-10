@@ -23,7 +23,7 @@
     justify-content: center;
     column-gap: 2.5em;
     padding: 30px;
-    margin: 0px;
+    margin: 0;
     grid-template-rows: repeat(8, auto);
 }
 
@@ -108,11 +108,15 @@ p.error{
 /* ------------------------------ MEDIA QUERY ----------------------------- */
 
 @media only screen and (max-width: 800px){
+    .main{
+        background-image: none;
+    }
     #registerForm{
         display: block;
         width: 15rem;
         margin-left:auto;
         margin-right: auto;
+        margin-bottom: 0;
     }
     #registerForm input{
         margin-bottom: 15px;
