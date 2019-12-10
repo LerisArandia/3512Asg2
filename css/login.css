@@ -1,12 +1,10 @@
 
 /* ------------------------------- LOGIN PAGE CSS -------------------------------- */
-main{
-    background-image: url("../images/peak.jpg");
-}
 
 .main{
     padding: auto;
     text-align: center;
+    background-image: url("../images/peak.jpg");
 }
 
 form#loginForm{
