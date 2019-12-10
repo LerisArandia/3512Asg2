@@ -1,8 +1,8 @@
-
-<!-- DISPLAYS A USER'S PROFILE PAGE -->
-<!-- Their favorites, and posts -->
-
-<?php 
+<?php
+/***
+ * DISPLAYS A USER'S PROFILE PAGE
+ * Their favorites, and posts
+ */
     require_once ('database/helper-functions.inc.php');
     session_start(); 
 

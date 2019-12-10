@@ -1,7 +1,6 @@
-
+<?php session_start(); ?>
 <!--------------------- ABOUT PAGE  --------------------->
 
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>

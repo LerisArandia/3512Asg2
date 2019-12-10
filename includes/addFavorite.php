@@ -1,10 +1,12 @@
 <?php
-/******************** Adding to Favorites Array ********************/
-/*** If adding to Favorites from Single Page start session ***/
+/***
+ * Adding to Favorites Array
+ */
+// If adding to Favorites from Single Page start session
 if(isset($_POST['single'])){
     session_start();
 }
-/*** If favorites session variable does not exist, make an array ***/
+// If favorites session variable does not exist, make an array
 if(!isset($_SESSION['favorite'])){
     $favorites = array();
 }else{

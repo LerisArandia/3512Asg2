@@ -1,5 +1,7 @@
-<!-- API for cities (and images) database table -->
 <?php 
+/***
+ * API for cities (and images) database table
+ */
 require_once 'config.inc.php';
 require_once 'db-functions.inc.php'; 
 require_once 'helper-functions.inc.php';

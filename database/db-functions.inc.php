@@ -1,7 +1,6 @@
 <?php
-
-/*
-  This function returns a connection object to a database
+/*** 
+ * This function returns a connection object to a database
 */
 function setConnectionInfo( $connString, $user, $password ) {
     $pdo = new PDO($connString,$user,$password);

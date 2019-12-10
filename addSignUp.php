@@ -1,7 +1,8 @@
-<!-- This file is used by signUp.php. It checks the users input and if the new users email does not already
-exist in the db. When registration is successful, add user to users table and their login info to userslogin table -->
-
 <?php
+/***
+ * This file is used by signUp.php. It checks the users input and if the new users email does not already
+ * exist in the db. When registration is successful, add user to users table and their login info to userslogin table
+ */
 session_start();
 require_once 'database/helper-functions.inc.php';
 if (isset($_POST['submit'])) {

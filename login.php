@@ -1,4 +1,8 @@
 <?php
+/***
+ * PHP page is the login of the website.
+ * Has a form which allows user to login to website.
+ */
 require_once('database/config.inc.php');
 require_once('includes/session-functions.php');
 

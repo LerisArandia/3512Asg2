@@ -1,5 +1,7 @@
-<!-- File for the browse page  -->
 <?php
+/**
+ * File for the browse page
+ */
 session_start();
 
 require_once 'database/helper-functions.inc.php';

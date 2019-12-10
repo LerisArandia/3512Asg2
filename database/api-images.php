@@ -1,6 +1,7 @@
-<!-- API for ImagesDetail Database table -->
-<?php 
-
+<?php
+/***
+ * API for ImagesDetail Database table
+ */
 require_once 'config.inc.php';
 require_once 'db-functions.inc.php'; 
 require_once 'helper-functions.inc.php';

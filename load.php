@@ -1,8 +1,8 @@
-
-<!-- PHP page for when a user logs in -->
-<!-- Verifies user information and user session -->
-
 <?php 
+/***
+ * PHP page for when a user logs in
+ * Verifies user information and user session
+ */
 require_once('database/config.inc.php');
 require_once('includes/session-functions.php');
 

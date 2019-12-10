@@ -1,5 +1,7 @@
-<!-- API for countries (and images) database table -->
-<?php 
+<?php
+/***
+ * API for countries (and images) database table
+ */
 require_once 'helper-functions.inc.php';
 header('Content-Type: application/json');
 

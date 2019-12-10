@@ -3,7 +3,8 @@
 
 
 .main{
-    padding: 3em 25em 3em 25em;
+    margin: auto;
+    text-align: center;
     background-image: url("../images/peak.jpg");
 }
 
@@ -13,6 +14,7 @@ form#loginForm{
     grid-template-columns: repeat(2, auto);
     grid-gap: 1em;
     margin: 0;
+    width: 25em;
 }
 
 /* ---------------------- EMAIL AND PASSWORD INPUT FIELD ---------------------- */

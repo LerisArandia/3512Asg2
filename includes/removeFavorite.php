@@ -1,6 +1,6 @@
 <?php
 /**********Removing from Favorites**********/
-/*** If Removing from Favorites from Single Page start session ***/
+// If Removing from Favorites from Single Page start session 
 if(isset($_POST['single'])){
     session_start();
 }

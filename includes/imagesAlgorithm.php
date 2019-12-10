@@ -1,6 +1,4 @@
-
 <!------------------------- INCLUDE FOR 'IMAGES YOU MAY LIKE' ALGORITHM ----------------------->
-
 <?php 
     require_once ('database/helper-functions.inc.php');
 

@@ -1,8 +1,8 @@
-
-<!-- Displays information for a city, the city's map, and photos in city -->
-<!-- Can filter through countries again -->
-
 <?php
+/***
+ * Displays information for a city, the city's map, and photos in city
+ * Can filter through countries again
+ */
 session_start();
 require_once 'database/helper-functions.inc.php';
 

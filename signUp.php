@@ -1,5 +1,7 @@
-<!-- File for the sign up page -->
 <?php
+/***
+ * File for the sign up page
+ */
 session_start();
 //if user is already logged in then redirect them
 if (isset($_SESSION['email'])) {

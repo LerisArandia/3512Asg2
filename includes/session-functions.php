@@ -1,7 +1,5 @@
-
-<!-------------------- FUNCTIONS THAT HELP WITH LOGIN AND STARTING USER SESSIONS ------------------>
-
-<?php 
+<?php
+/** FUNCTIONS THAT HELP WITH LOGIN AND STARTING USER SESSIONS **/
 session_start();
 require_once 'database/helper-functions.inc.php';
 

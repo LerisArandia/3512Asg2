@@ -1,9 +1,9 @@
+<?php session_start(); ?>
 <!-- 
     Page is "accessed" when a city is not passed to single city
     Image id is not passed to single photo
     Image id that is passed to single photo
  -->
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,11 +1,7 @@
-
 <!--------------------- FUNCTIONS THAT HELP RETRIEVE INFORMATION FROM TRAVEL DATABASE  ---------------------->
-
 <?php
-
 require_once 'config.inc.php';
 require_once 'db-functions.inc.php'; 
-
 // --------------------------------------- For Countries --------------------------------- //
 
 function getCountrySql(){

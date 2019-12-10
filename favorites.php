@@ -1,8 +1,7 @@
-
-<!------------------- DISPLAYS USER'S FAVORITES ------------------>
-
-<?php session_start(); 
-
+<?php session_start();
+/***
+ * DISPLAYS USER'S FAVORITES
+ */
 require_once('database/helper-functions.inc.php');
 
 //Checks if session variable favorite exists.
