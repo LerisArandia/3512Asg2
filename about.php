@@ -23,12 +23,12 @@
 
             <!-- Contains class, uni, professor, sem/year, tech used, and website description -->
             <div id="details">
-                    <p id='class'>COMP 3512: Web Development II</p> 
-                    <p id='university'>Mount Royal University</p> 
-                    <p id='prof'>Randy Connolly</p> 
-                    <p id='semYear'>Fall 2019</p>
+                    <p id='class'><b>COMP 3512: Web Development II</b></p> 
+                    <p id='university'><b>Mount Royal University</b></p> 
+                    <p id='prof'><b>Randy Connolly</b></p> 
+                    <p id='semYear'><b>Fall 2019</b></p>
                     <p id='tech'>
-                        Tech Used
+                        <b>Tech Used</b>
                         <ul>
                             <li>Google Cloud Platform</li>
                             <li>XAMPP</li>
@@ -64,7 +64,7 @@
                     <a href="https://github.com/jaeemoo">https://github.com/jaeemoo</a>
                 </div>
                 <div id='references'>
-                    External Resources:
+                    <b>External Resources:</b>
                     <ul>
                         <li>
                                 AJAX
